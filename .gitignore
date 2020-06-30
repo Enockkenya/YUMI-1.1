@@ -194,7 +194,6 @@ prod_*.csv
 private_notes.txt
 
 # Do not share collected static files.
-/static
-/staticfiles
+
 
 virtual/
