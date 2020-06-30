@@ -1,0 +1,99 @@
+{% extends 'base/accountbase.html' %}
+{% load staticfiles%}
+{% block content %}
+
+
+    <!-- Start Content -->
+    <div id="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-4 page-sidebar">
+                    {% include "account/productionpages/pages/sidebar.html" %}
+           
+            </div>
+            <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.7.95/css/materialdesignicons.min.css">
+ 
+            <div class="col-lg-8 col-md-12 col-xs-12 page-content">
+                <div class="inner-box">
+            <div class="email-wrapper wrapper">
+                <div class="row align-items-stretch">
+                  <div class="mail-sidebar d-lg-block col-md-4 pt-3 bg-white">
+                    <div class="menu-bar">
+                      <ul class="menu-items ">
+                        <li class="active"><a href="#"><i class="mdi mdi-email-outline"></i> Inbox</a><span class="badge badge-pill badge-success">8</span></li>
+                        <br>
+                        <li><a href="#"><i class="mdi mdi-share"></i> Sent</a></li>
+                        <br>
+                        <li><a href="#"><i class="mdi mdi-upload"></i> Outbox</a><span class="badge badge-pill badge-danger">3</span></li>
+                      
+                        <!-- <li class="compose mb-3"><button class="btn btn-primary ">Compose</button></li> -->
+
+                      </ul>
+                
+                    </div>
+                  </div>
+                  <div class="mail-list-container col-md-8 pt-4 pb-4  bg-white">
+                    <div class="border-bottom pb-4 mb-3 px-3">
+                      <div class="form-group">
+                        <input class="form-control w-100" type="search" placeholder="Search mail" id="Mail-rearch">
+                      </div>
+                    </div>
+                    <div class="mail-list">
+                      <!-- <div class="form-check"> <label class="form-check-label"> <input type="checkbox" class="form-check-input"> <i class="input-helper"></i></label></div> -->
+                      <div class="content">
+                        <p class="sender-name"> <strong>xxxxxx</strong> </p>
+                        <p class="message_text">Hi Emily, Please be informed that the new project presentation is due Monday.</p>
+                      </div>
+                      <div class="details">
+                          <button type="button" class="btn btn-sm btn-primary"><i class="mdi mdi-reply text-primary mr-1"></i> Reply</button>
+                        </div>
+                    </div>
+                    <div class="mail-list new_mail">
+                      <!-- <div class="form-check"> <label class="form-check-label"> <input type="checkbox" class="form-check-input" checked=""> <i class="input-helper"></i></label></div> -->
+                      <div class="content">
+                        <p class="sender-name"> <strong>xxxxxxxxx</strong> </p>
+                        <p class="message_text">Change the password for your Microsoft Account using the security code 35525</p>
+                      </div>
+                      <div class="details">
+                        <button type="button" class="btn btn-sm btn-primary"><i class="mdi mdi-reply text-primary mr-1"></i> Reply</button>
+                      </div>
+                    </div>
+                    <div class="mail-list">
+                      <!-- <div class="form-check"> <label class="form-check-label"> <input type="checkbox" class="form-check-input"> <i class="input-helper"></i></label></div> -->
+                      <div class="content">
+                        <p class="sender-name"><strong>xxxxxxxxxx</strong> </p>
+                        <p class="message_text">Hello, last date for registering for the annual music event is closing in</p>
+                      </div>
+                      <div class="details">
+                        <button type="button" class="btn btn-sm btn-primary"><i class="mdi mdi-reply text-primary mr-1"></i> Reply</button>
+                      </div>
+                    </div>
+                    <div class="mail-list">
+                      <!-- <div class="form-check"> <label class="form-check-label"> <input type="checkbox" class="form-check-input"> <i class="input-helper"></i></label></div> -->
+                      <div class="content">
+                        <p class="sender-name"> <strong>xxxxxxxxx</strong> </p>
+                        <p class="message_text">Hey there, can you send me this year’s holiday calendar?</p>
+                      </div>
+                      <div class="details">
+                        <button type="button" class="btn btn-sm btn-primary"><i class="mdi mdi-reply text-primary mr-1"></i> Reply</button>
+                      </div>
+                    </div>
+                 
+               
+                  </div>
+          <!-- messagedetail -->
+                </div>
+              </div>
+            </div>  
+          </div>
+                  {% include "profile/profilefooter.html" %}
+          </div>  
+        </div>      
+      </div>
+      <!-- End Content -->
+
+
+      {% include "base/js.html" %}
+
+<div id="ajax_logout"></div>
+    {% endblock content %}   

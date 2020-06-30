@@ -1,0 +1,196 @@
+{% extends 'base/landpagebase.html' %}
+
+{% load staticfiles%}
+{% block content %}
+
+<section id="content">
+  <div class="container">
+  
+        <!-- Grid row -->
+        <div class="row mt-5">
+  
+          <div class="col-md-5 mb-4">
+  
+       
+                        <div class="inner-box text-center">
+                            {% if request.user %}
+                          <div class="widget-title">
+                            <h3 style="color:rgb(129, 129, 129)" > Hey, {{ user.first_name }} </h3>
+                            <h3   style="color:rgb(90, 88, 88)" >
+                              Welcome to Yumi
+                            </h3>
+                             
+                            <h3  style="color:rgb(90, 88, 88)">
+                                KENYAS LARGEST ONE STOP MALL
+                              </h3>
+                
+                          </div>
+                          {% endif %}
+                          <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                          <lottie-player src="https://assets5.lottiefiles.com/packages/lf20_GTEqBh.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+                        </div>
+                    
+                      
+             
+      
+        
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-lg-7 col-md-12 text-center">
+  
+            <!-- Heading -->
+            <div class="text-center mt-3 mb-5">
+  
+              <!-- <h4><strong>John's projects</strong></h4> -->
+            
+            
+                <h2  style="color:rgb(90, 88, 88)" >How we are revolutionising Kenya's Online Market space</h2>  
+            </div>
+                          <!--         carousel  -->
+  
+   
+   
+            <div class="card card-raised card-carousel">
+              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="9000">
+                <ol class="carousel-indicators">
+                  <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="header-filter" style="background-image: url('../../../static/img/bg1min2.png');">
+
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto " > 
+                                <!-- text-left -->
+                               
+                                <br>
+                              </h5>
+                              <p class="card-description">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                                </h5>
+                                </p>
+                                <br>
+                                
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="header-filter" style="background-image: url('../../../static/img/bg1min2.png');">
+
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto " > 
+                                <!-- text-left -->
+
+                                <br>
+                              </h5>
+                              <p class="card-description">vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+                                </h5>
+                                </p>
+                                <br>
+                            
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="carousel-item ">
+                        <div class="header-filter" style="background-image: url('../../../static/img/bg1min2.png');">
+
+                        <div class="container">
+                          <div class="row">
+                            <div class="col-md-8 ml-auto mr-auto " > 
+                                <!-- text-left -->
+
+                                <br>
+                              </h5>
+                              <p class="card-description"> yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
+                                </h5>
+                                </p>
+                                <br>
+                             
+                            
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                
+               
+                </div>
+           
+                </div>
+             
+                
+                <a class="carousel-control-prev"  href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <i style="color:#ff660d;" class="fa fa-arrow-left" aria-hidden="true"></i>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <i style="color:#ff660d;" class="fa fa-arrow-right" aria-hidden="true"></i>
+                  <span class="sr-only">Next</span>
+                  #ff660d
+                </a>
+                <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <i class="material-icons">keyboard_arrow_left</i>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <i class="material-icons">keyboard_arrow_right</i>
+                  <span class="sr-only">Next</span>
+                </a> -->
+              </div>
+            </div>
+            <!-- End Carousel Card -->
+       
+   
+
+    <!--         end carousel -->
+            <nav class="my-4 d-flex justify-content-center">
+                <a href="/update_profile" class="btn btn-lg btn-primary  "> enter site</a>
+
+            </nav>
+            <!-- <nav class="my-4 d-flex justify-content-center">
+              <a href="/view/profile" class="btn btn-sm btn-primary  "> Not a new User? Skip</a>
+
+          </nav> -->
+            <!-- Pagination -->
+  
+          </div>
+          <!-- Grid column -->
+  
+        </div>
+        <!-- Grid row -->
+      </div>
+      </section>
+      <!-- Section: Profile -->
+  
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base/advertbase.html' %}
+{% load staticfiles%}
+{% block content %}
+
+  <!-- Content section Start -->
+  <section id="content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-12 col-lg-10">
+          <div class="row page-content">
+              <h4 class="widget-title">Ad Detail</h4>
+             
+                <div class="container">
+                <div  class="row justify-content-center">
+         
+
+            </div>
+            <!-- {{ post_form.media }}
+ <form action = "" method = "post"> 
+                  {% csrf_token %} 
+                  {{ post_form.as_p }} 
+                  <input type="submit" value="Submit"> 
+              </form>  -->
+            {% include "listings/postform.html" with post_form=post_form %}
+
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- Content section End -->
+  {% include "base/js.html" %}  
+
+  <div id="ajax_logout"></div>
+      {% endblock content %}
+
+

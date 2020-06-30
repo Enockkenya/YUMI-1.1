@@ -1,0 +1,93 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">    
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="author" content="Yumi">
+  <title>YUMI </title>    
+
+  
+
+<!-- <script>
+    "use strict";
+    
+    !function() {
+      var t = window.driftt = window.drift = window.driftt || [];
+      if (!t.init) {
+        if (t.invoked) return void (window.console && console.error && console.error("Drift snippet included twice."));
+        t.invoked = !0, t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ], 
+        t.factory = function(e) {
+          return function() {
+            var n = Array.prototype.slice.call(arguments);
+            return n.unshift(e), t.push(n), t;
+          };
+        }, t.methods.forEach(function(e) {
+          t[e] = t.factory(e);
+        }), t.load = function(t) {
+          var e = 3e5, n = Math.ceil(new Date() / e) * e, o = document.createElement("script");
+          o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + n + "/" + t + ".js";
+          var i = document.getElementsByTagName("script")[0];
+          i.parentNode.insertBefore(o, i);
+        };
+      }
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('5sy5b3sus9wf');
+    </script> -->
+    <!-- End of Async Drift Code -->
+
+        {% for local_css_url in local_css_urls %}
+        <link rel="stylesheet" href="{% static local_css_url %}">
+    {% endfor %}
+         <!-- adsence -->
+         <script data-ad-client="ca-pub-5398818708145454" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+         <!-- adsence -->
+
+   
+    <script id='pixel-script-poptin' src='https://cdn.popt.in/pixel.js?id=78181e5353403' async='true'></script> 
+   
+
+  
+    <script>
+      UPLOADCARE_PUBLIC_KEY = 'eb9da6d2caf0fa018118';
+      UPLOADCARE_EFFECTS = 'crop,sharp';
+      UPLOADCARE_IMAGE_SHRINK = '1024x1024';
+      UPLOADCARE_PREVIEW_STEP = true;
+      UPLOADCARE_CLEARABLE = true;
+    </script>
+    
+    <script src="https://ucarecdn.com/libs/widget/3.x/uploadcare.full.min.js"></script>
+    <script src="https://ucarecdn.com/libs/widget-tab-effects/1.x/uploadcare.tab-effects.js"></script>
+    
+    <script>
+      uploadcare.registerTab('preview', uploadcareTabEffects)
+    </script>    
+</head>
+<body >
+  <!-- Header Section Start -->
+  <div class="header">
+    <!-- Navbar Start -->
+    {% include "base/landpagenav.html" %}  
+    <!-- Navbar End -->
+  </div>
+  <!-- Header Section End -->
+
+{% block content %}
+
+
+{% endblock %}
+<!--   Core JS Files   -->
+{% include "base/js.html" %}
+
+    {% for local_js_url in local_js_urls %}
+          <script src="{% static local_js_url %}"></script>
+    {% endfor %}
+
+
+</body>
+</html>
+
+

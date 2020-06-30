@@ -1,0 +1,135 @@
+
+<!-- {{ post_form.media }} -->
+
+<form action="" method="post" enctype="multipart/form-data" name="post_form" id="post_form"> 
+    {% csrf_token %} 
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row ">
+                    <div class="col-lg-6">
+      <div class="form-group mb-3">
+        <label class="control-label">Ad Title</label>
+        <input style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);"  class="form-control input-md" name="name" placeholder="Title"  required type="text" id="id_name">
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="form-group mb-3">
+        <label class="control-label">Item Price</label>
+        <input style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);"  class="form-control input-md" name="description" id="id_price" placeholder="price" type="number">
+      </div>
+    </div>
+</div>
+</div>
+<div class="row justify-content-center">
+<div class="col-xs-12 col-sm-12 col-md-12 col-lg-10 ">
+    
+        <div class="form-group mb-3">
+                <label class="control-label">Ad Description</label>
+                <input style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);" rows="5" class="form-control input-md" name="description" id="id_description" placeholder="Maximum 500 words " type="text">
+              </div>
+            </div>
+          
+
+</div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row ">
+                    <div class="col-lg-3">
+                            <div class="form-group" >
+                                    <label class="control-label">Ad Category</label>
+                              <div style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);">
+                          {{ post_form.category}}
+                                 </div>
+                                                   
+                                     </div>
+                        </div>
+                        <div class="col-lg-3">
+                                <div class="form-group" >
+                                        <label class="control-label">Ad Location</label>
+                                  <div style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);">
+                              {{ post_form.location}}
+                                     </div>
+                                                       
+                                         </div>
+                            </div>
+                <div class="col-lg-3">
+                        <div class="form-group" >
+                                <label class="control-label">Item Condition</label>
+                          <div style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);">
+                      {{ post_form.item_condition}}
+                             </div>
+                                               
+                                 </div>
+                    </div>
+                    <div class="col-lg-3">
+                            <div class="form-group" >
+                                    <label class="control-label">Delivery Option</label>
+                              <div style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);">
+                          {{ post_form.option}}
+                                 </div>
+                                                   
+                                     </div>
+                        </div>
+                </div>
+            </div>
+ 
+ 
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="row ">
+              <div class="col-lg-6">
+                  <div class="form-group md-3">
+                      <section  id="editor">
+                        <div id="summernote">
+                        </div>
+                      </section>
+                    </div>
+                
+                    <label style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);" class="tg-fileuploadlabel" for="tg-photogallery">
+                        <input
+                         type="hidden" 
+                         name="image" 
+                         role="uploadcare-uploader"
+                        data-public-key="eb9da6d2caf0fa018118" 
+                        data-integration="Django/2.1.4; PyUploadcare-Django/2.6.0"
+                        data-multiple-min="1"
+                        data-multiple-max="3"
+                        data-crop="4:4"
+                        data-clearable=""
+                        data-images-only="true" 
+                        id="id_image" 
+                        value="">
+                       
+                    </label>
+                  
+                    </div>
+              <div class="col-lg-6 ">
+
+               
+                      <div class="features-box wow fadeInDownQuick" data-wow-delay="0.3s">
+                  
+                          <p>
+                              
+                         <strong><i class="lnr lnr-map-marker"></i> Location: </strong> This is the curent location of the item.
+
+                        </p>
+                        <p>
+                            <strong><i class="lnr lnr-car"></i> Option: </strong> Select how the item can be delivered to the buyer. 
+
+                        </p>
+                        </div>
+                   
+                
+                  <div class="tg-checkbox mb-2 ">
+                      <div class="custom-control custom-checkbox">
+                            <input type="checkbox" name="accept_terms" class="required checkbox form-control" id="id_accept_terms" checked="">                        <label class="custom-control-label" for="tg-agreetermsandrules">I agree to all <a href="javascript:void(0);">Terms of Use &amp; Posting Rules</a></label>
+                      </div>
+                    </div>
+                   
+<div class="send-btn text-center">
+        <button type="submit" class="btn btn-primary "  value="Submit" accept="image/*">Save changes</button>
+      </div>
+                  </div>
+
+               
+    </div>
+  </div>
+</form>

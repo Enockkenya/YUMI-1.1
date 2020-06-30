@@ -1,0 +1,169 @@
+
+{% load static %}
+<nav class="navbar navbar-expand-lg bg-inverse fixed-top scrolling-navbar" style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.12);">
+	<div class="container">
+	  <div class="theme-header clearfix">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-toggle="collapse" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+			<span class="lni-menu"></span>
+			<span class="lni-menu"></span>
+			<span class="lni-menu"></span>
+		  </button>
+		  <a href="/landpage" class="navbar-brand"><img src="assets/img/logo.png" alt=""></a>
+		</div>
+		<div class="collapse navbar-collapse" id="main-navbar">
+		  <ul class="navbar-nav mr-auto w-100 justify-content-end">
+			  <li class="nav-item">
+				  <a class="nav-link"  href="/landpage">
+				   Home
+				  </a>
+		  
+			<li class="nav-item">
+			  <a class="nav-link" href="/ads">
+			 Listings
+			  </a>
+			</li>
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  About 
+			  </a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="/aboutus">About Us</a></li>
+				<li><a class="dropdown-item" href="/pricing">Subscription</a></li>
+				
+				<!-- <li><a class="dropdown-item" href="ads-details.html">Ads Details</a></li>
+				<li><a class="dropdown-item" href="post-ads.html">Ads Post</a></li> -->
+				<!-- <li><a class="dropdown-item" href="404.html">404</a></li> -->
+				<li><a class="dropdown-item" href="/clientfaqs">Faqs</a></li>
+				<li><a class="dropdown-item" href="/contactus">Contact us</a></li>
+
+			  </ul>
+			</li>
+			<!-- <li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Blog
+			  </a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a></li>
+				<li><a class="dropdown-item" href="blog-left-sideba.html">Blog - Left Sidebar</a></li>
+				<li><a class="dropdown-item" href="blog-full-width.html"> Blog full width </a></li>
+				<li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
+			  </ul>
+			</li> -->
+					 
+	
+				{% if request.user.is_authenticated %}
+			<li class="nav-item dropdown">
+			  <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="lnr lnr-user"></i>Welcome {{user.first_name}} 
+			  </a>
+			  <ul class="dropdown-menu">
+				<li><a class="dropdown-item" href="/view/profile/profile_message"><i class="lnr lnr-home"></i> Account Home</a></li>
+				<li><a class="dropdown-item" href="/view/profile/profile_my_ads"><i class="lnr lnr-cart"></i> My Ads</a></li>
+				<li><a class="dropdown-item" href="/view/profile/profile_favourite"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
+				<li><a class="dropdown-item" href="/view/profile/saved_ads"><i class="lnr lnr-file-add"></i>Saved ads</a></li>
+				<li><a class="dropdown-item" onclick="ajax_logout();" ><i class="lnr lnr-cross"></i>logout</a></li>
+	
+			</ul>
+			</li>
+			{% else %}
+			<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<i class="lnr lnr-user"></i>My Account
+					</a>
+					<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="/redirected_login"><i class="lnr lnr-lock"></i> Log In</a></li>
+							<li><a class="dropdown-item" href="/redirected-register"><i class="lnr lnr-user"></i> Signup</a></li>
+				
+					</ul>
+				</li>
+
+				{% endif %}
+			<li class="postadd">
+			  <a class="btn btn-common2 btn-post" href="{% url 'adverts:view_post_ad' %}"><span class="fas fa-plus-circle"></span> Post an Ad</a>
+			</li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+	<div class="mobile-menu" data-logo="assets/img/logo.png"></div>
+	</nav>
+	
+
+     <!-- Login Modal -->
+     <div class="modal fade" id="login_modal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-login" role="document">
+					<div class="modal-content">
+						<div class="card card-signup card-plain">
+							<div class="modal-header">
+								<div class="card-header card-header-primary text-center">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+									<!-- <a><img src="static/img/logo3.png" alt="" style="width:80px; height:80px "></a> -->
+
+									 <div class="social-line">
+												<h3 class="modal-title" id="myModalLabel">Student Login</h3>
+										<!-- <a href="#pablo" class="btn btn-just-icon btn-link">
+											<i class="fa fa-facebook-square"></i>
+										</a>
+										<a href="#pablo" class="btn btn-just-icon btn-link">
+											<i class="fa fa-twitter"></i>
+										</a>
+										<a href="#pablo" class="btn btn-just-icon btn-link">
+											<i class="fa fa-google-plus"></i>
+										</a> -->
+									</div> 
+								</div>
+							</div>
+							<br>
+							<br>
+							<div class="modal-body">
+
+					 <form method="post"
+										action='/login'
+											name="loginForm">
+
+
+											<div class="form-group">
+														<div class="input-group">
+															<div class="input-group-prepend">
+																<span class="input-group-text">
+																	<i class="material-icons">mail</i>
+																</span>
+															</div>
+															<input type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
+
+														</div>
+													</div>
+
+
+											<div class="form-group">
+														<div class="input-group">
+															<div class="input-group-prepend">
+																<span class="input-group-text">
+																	<i class="material-icons">lock_outline</i>
+																</span>
+															</div>
+															<input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
+
+														</div>
+													</div>
+													<br>
+													<div class="modal-footer justify-content-center">
+										<button onclick="ajax_authenticate();"
+																type="button"
+																class="btn btn-primary btn-round">Sign in
+									</button> 
+									<a href="/forgot_password">Forgot Password</a>
+									<br>   <br>    <br>   <br>
+								</div>
+							</div>
+					
+						</form>
+					
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--  End of Login Modal -->
