@@ -11,6 +11,7 @@ from django.utils.translation import gettext as _
 from django.utils.text import slugify
 
 
+@login_required()
 def view_post_ad(request):
     if request.method == 'POST':
        
