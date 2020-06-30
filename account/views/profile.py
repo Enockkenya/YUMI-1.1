@@ -49,7 +49,7 @@ def update_profile(request):
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, _('Your profile was successfully updated!'))
-            return redirect('profile/myads.html')
+            return redirect('profile/view_my_ads/')
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
