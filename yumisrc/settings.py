@@ -103,8 +103,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'yumiv4',
-        'USER':  config('DB_USER'),
-    'PASSWORD':  config('DB_PASSWORD')
+        'USER':  'sean',
+    'PASSWORD':  'Aggreyomondi90'
     }
 }
 
