@@ -4239,7 +4239,7 @@ footer .menu li a:hover {
 	position: relative;
 	text-transform:uppercase;
 }
-.tg-select:after {
+/* .tg-select:after {
 	top: 0;
 	right: 15px;
 	z-index: 2;
@@ -4251,7 +4251,7 @@ footer .menu li a:hover {
 	font-size: inherit;
 	line-height: 40px;
 	font-family: 'FontAwesome';
-}
+} */
 .tg-select select {
 	z-index: 1;
 	width: 100%;

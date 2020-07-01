@@ -40,7 +40,7 @@
     border-radius: 4px;
   }
   .search-bar .btn-common {
-    width: 215px;
+    width: 100%;
   }
   #new-products .owl-buttons {
     top: -200px;

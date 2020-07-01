@@ -122,8 +122,8 @@ h3.block-title {
   -ms-transition: all .3s linear;
   -o-transition: all .3s linear;
 	transition: all .3s linear;
-	/* box-shadow: -8px 27px 66px -12px rgb(17, 17, 17); */
-	box-shadow: 0px 2px 45px -1px rgba(0,0,0,0.21);
+	box-shadow: -8px 27px 66px -12px rgb(31, 31, 31);
+	/* box-shadow: 0px 2px 45px -1px rgba(0,0,0,0.21); */
 	border: none;
 	
 }
@@ -584,7 +584,7 @@ select.form-control:focus {
   position: absolute;
   top: 22px;
   background-color: transparent;
-  color: #444;
+  color: rgb(15, 15, 15);
   right: 20px;
   z-index: 99;
 }
@@ -4239,7 +4239,7 @@ footer .menu li a:hover {
 	position: relative;
 	text-transform:uppercase;
 }
-.tg-select:after {
+/* .tg-select:after {
 	top: 0;
 	right: 15px;
 	z-index: 2;
@@ -4251,7 +4251,7 @@ footer .menu li a:hover {
 	font-size: inherit;
 	line-height: 40px;
 	font-family: 'FontAwesome';
-}
+} */
 .tg-select select {
 	z-index: 1;
 	width: 100%;

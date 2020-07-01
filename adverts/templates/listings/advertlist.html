@@ -15,7 +15,6 @@
             <fieldset>
               <form class="search-form">
                 <div class="form-group">
-                  <i class="lni-bullhorn"></i>
                   <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
                 </div>
                 <div class="form-group">
@@ -44,7 +43,6 @@
                       <option value="none">Eldoret</option>
                       <option value="none">Kiambu</option>
                       <option value="none">Machackos</option>
-                      <i class="lnr-chevron-down"></i>
                     </select>
                     <i class="fas fa-angle-down"></i>
                   </div>
@@ -73,49 +71,15 @@
                 </div>
                 <div class="categories-list">
                   <ul>
+                      {% for c in categories %}
                     <li>
-                      <a href="#">
+                      <a href="{{ c.get_absolute_url }}">
                         <i class="fas fa-desktop"></i>
-                        Electronics <span class="category-counter">(6,088)</span>
+                        {{ c.name }} <span class="category-counter">(6,088)</span>
                       </a>
                     </li>
                     
-                    <li>
-                      <a href="#">
-                        <i class="fas fa-wrench"></i>
-                        Services <span class="category-counter">(686)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fab fa-github"></i>
-                        Home Appliances <span class="category-counter">(285)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fas fa-leaf"></i>
-                        Mobile phones <span class="category-counter">(300)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fas fa-home"></i>
-                        Real Estate <span class="category-counter">(904)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fab fa-black-tie"></i>
-                        Jobs <span class="category-counter">(585)</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fas fa-utensils"></i>
-                        Hotel & Travels <span class="category-counter">(5)</span>
-                      </a>
-                    </li>
+                        {% endfor %}
                   </ul>
                 </div>
               </div>
@@ -196,6 +160,27 @@
         
           <!-- Adds wrapper Start -->
           <div class="adds-wrapper">
+              <footer class="footer footer-white footer-big " style="margin: 20px;">
+                  <div class="col-lg-12 col-md-12 col-sm-12 ml-auto mr-auto ">
+                      <div class="container ">
+                      <div class="row "  >
+                        <!-- style=" padding-left:4px; padding-right:4px;" -->
+                
+                        {% for c in categories %}
+                    
+                        <a class="btn btn-sm btn-white  " style="color:#3c4858" href="{{ c.get_absolute_url }}" > {{ c.name }}</a>
+                
+                    
+                        {% endfor %}
+                  
+                        </div>		
+                      </div>
+                  
+                
+                    
+                    </div>
+                  
+                    </footer>
               {% if adverts%}
           {% for advert in adverts %}
             <div class="item-list">
