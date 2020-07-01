@@ -95,7 +95,7 @@ class Advert(models.Model):
         index_together = (('id', 'slug'),)
 
     def __str__(self):
-        return self.name
+        return self.name +'' + 'by' + '' + str(self.user)
 
     def get_absolute_url(self):
         return reverse('adverts:advert_detail',  kwargs={"id":self.id, "slug":self.slug})
