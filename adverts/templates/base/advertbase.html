@@ -10,7 +10,7 @@
         <link rel="shortcut icon" type="image/jpg" href="{% static 'img/logos/logo2.jpg' %}"/> 
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <title>Accounts</title>
+        <title>{% block title %}{% endblock %}</title>
      
         {% for local_css_url in local_css_urls %}
         <link rel="stylesheet" href="{% static local_css_url %}">

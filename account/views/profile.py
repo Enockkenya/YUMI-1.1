@@ -49,7 +49,7 @@ def update_profile(request):
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, _('Your profile was successfully updated!'))
-            return redirect('profile/view_my_ads/')
+            return redirect(' profile/view_my_ads/')
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
@@ -66,8 +66,8 @@ def update_profile(request):
 
 @login_required()
 def view_my_ads(request, user_id):
-    adverts = Advert.objects.filter(user_id = request.user.id)  
-    return render(request,'profile/myads.html', context ={  
+    adverts = Advert.objects.filter(user_id = request.user.id)   
+    return render(request,'profile/myadds.html', context ={  
         'adverts': adverts,
         'tab': 'adverts',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,

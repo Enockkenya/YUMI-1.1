@@ -1,6 +1,7 @@
 {% extends 'base/advertbase.html' %}
 {% load staticfiles %}
 {% block content %}
+{% block title %} YUMI | Ads List {% endblock %}
    <!-- Search wrapper Start -->
    <div id="search-row-wrapper">
         <br><br>
@@ -205,8 +206,9 @@
                   </div>
                   <div class="col-sm-7 add-desc-box">
                     <div class="add-details">
+                        <!-- {{advert.get_absolute_url  }} -->
                         <!-- " {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}" -->
-                      <h5 class="add-title"><a href="{{advert.get_absolute_url  }}"> {{advert.name}} </a></h5>
+                      <h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}} </a></h5>
                       <div class="info">
                         <span class="add-type">B</span>
                         <span class="date">

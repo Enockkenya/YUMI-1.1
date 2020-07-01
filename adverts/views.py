@@ -6,13 +6,14 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from adverts.forms import PostadForm
 from adverts.models import *
+from account.views import profile
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.utils.text import slugify
 
 
 @login_required()
-def view_post_ad(request):
+def post_ad(request):
     if request.method == 'POST':
        
          # user_form = RegisterForm(request.POST,instance=request.user)
@@ -24,7 +25,7 @@ def view_post_ad(request):
             post_form.user=request.user
             post_form.save()
             messages.success(request, _('Your ad was successfully posted!'))
-            return redirect('/ads')
+            return redirect('account:view_my_ads', user_id = request.user.id )
 
         else:
             messages.error(request, _('Please correct the error below.'))

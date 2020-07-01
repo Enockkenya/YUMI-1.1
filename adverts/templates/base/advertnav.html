@@ -22,7 +22,7 @@
 						</a>
 
 					<li class="nav-item">
-						<a class="nav-link" href="/ads">
+						<a class="nav-link" href="/Ads">
 							Listings
 						</a>
 					</li>
@@ -63,13 +63,13 @@
 							<i class="lnr lnr-user"></i>Welcome {{user.first_name}}
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/view/profile/profile_message"><i class="lnr lnr-home"></i> Account
+							<li><a class="dropdown-item" href="profile/profile_message"><i class="lnr lnr-home"></i> Account
 									Home</a></li>
-							<li><a class="dropdown-item" href="/view/profile/profile_my_ads"><i class="lnr lnr-cart"></i> My Ads</a>
+							<li><a class="dropdown-item" href="profile/view_my_ads"><i class="lnr lnr-cart"></i> My Ads</a>
 							</li>
-							<li><a class="dropdown-item" href="/view/profile/profile_favourite"><i class="lnr lnr-heart"></i>
+							<li><a class="dropdown-item" href="profile/profile_favourite"><i class="lnr lnr-heart"></i>
 									Favourite ads</a></li>
-							<li><a class="dropdown-item" href="/view/profile/saved_ads"><i class="lnr lnr-file-add"></i>Saved ads</a>
+							<li><a class="dropdown-item" href="profile/saved_ads"><i class="lnr lnr-file-add"></i>Saved ads</a>
 							</li>
 							<li><a class="dropdown-item" onclick="ajax_logout();"><i class="lnr lnr-cross"></i>logout</a></li>
 
@@ -90,7 +90,7 @@
 
 					{% endif %}
 					<li class="postadd">
-						<a class="btn btn-common2 btn-post" href="{% url 'adverts:view_post_ad' %}"><span
+						<a class="btn btn-common2 btn-post" href="{% url 'adverts:post_ad' %}"><span
 								class="fas fa-plus-circle"></span> Post an Ad</a>
 					</li>
 				</ul>

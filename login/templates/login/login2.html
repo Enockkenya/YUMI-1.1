@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %}
+{% extends 'login/base.html' %}
 {% load staticfiles %}
 {% block content %}
 <nav  class="navbar navbar-transparent  fixed-top   navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
@@ -21,7 +21,7 @@
           
 
       <div class="card-stats justify-content-center">
-                        <a href="/landpage" class="btn btn-primary btn-block pull-right" > Back to home </a>
+                        <a href="/landpageprod" class="btn btn-primary btn-block pull-right" > Back to home </a>
                       </div>
                
               
@@ -149,7 +149,7 @@
                             $('#login_modal').modal('hide');
                    
                             // Load up the course list.
-                            window.location = 'landpage';
+                            window.location = 'landpageprod';
                        }
                        else
                        {
@@ -197,7 +197,7 @@
 
 
 
-        {% include "base/js.html" %} 
+          {% include "base/js.html" %}  
           <div id="ajax_response_login"></div>
           <div id="ajax_response_register"></div>
           <div id="ajax_logout"></div>

@@ -25,9 +25,9 @@ urlpatterns = [
     re_path(r'^jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),  # Django JET dashboard URLS
     re_path('admin/', admin.site.urls),
     re_path(r'', include('landpage.urls')),
-    re_path(r'', include('registration.urls')),
-    re_path(r'', include('login.urls')), 
-    re_path(r'', include('account.urls', namespace='account' )),
-    re_path(r'ads/', include('adverts.urls', namespace='adverts' )),
+    re_path(r'registration/', include('registration.urls')),
+    re_path(r'login/', include('login.urls')), 
+    re_path(r'profile/', include('account.urls', namespace='account' )),
+    re_path(r'', include('adverts.urls', namespace='adverts' )),
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
