@@ -23,13 +23,13 @@
 		<div class="collapse navbar-collapse" id="main-navbar">
 		  <ul class="navbar-nav mr-auto w-100 justify-content-end">
 			  <li class="nav-item">
-				  <a class="nav-link"  href="/landpage">
+				  <a class="nav-link"  href="{% url 'landpage:land_page' %}">
 				   Home
 				  </a>
 		  
 			<li class="nav-item">
-			  <a class="nav-link" href="/Ads">
-			 Listings
+			  <a class="nav-link" href="{% url 'adverts:adverts_list' %}">
+			 Listings 
 			  </a>
 			</li>
 			<li class="nav-item dropdown">
@@ -37,14 +37,14 @@
 				  About 
 			  </a>
 			  <ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="/aboutus">About Us</a></li>
-				<li><a class="dropdown-item" href="/pricing">Subscription</a></li>
+				<li><a class="dropdown-item"  href="{% url 'landpage:about_us' %}">About Us</a></li>
+				<li><a class="dropdown-item" href="{% url 'landpage:pricingtable' %}">Subscription</a></li>
 				
 				<!-- <li><a class="dropdown-item" href="ads-details.html">Ads Details</a></li>
 				<li><a class="dropdown-item" href="post-ads.html">Ads Post</a></li> -->
 				<!-- <li><a class="dropdown-item" href="404.html">404</a></li> -->
-				<li><a class="dropdown-item" href="/clientfaqs">Faqs</a></li>
-				<li><a class="dropdown-item" href="/contactus">Contact us</a></li>
+				<li><a class="dropdown-item" href="{% url 'landpage:faqs' %}">Faqs</a></li>
+				<li><a class="dropdown-item" href="{% url 'landpage:contact_us' %}">Contact us</a></li>
 
 			  </ul>
 			</li>
@@ -67,10 +67,10 @@
 				<i class="lnr lnr-user"></i>Welcome {{user.first_name}} 
 			  </a>
 			  <ul class="dropdown-menu">
-				<li><a class="dropdown-item" href="/profile/profile_message"><i class="lnr lnr-home"></i> Account Home</a></li>
-				<li><a class="dropdown-item" href="{% url 'account:view_my_ads' user_id=request.user.id  %}"><i class="lnr lnr-cart"></i> My Ads</a></li>
-				<li><a class="dropdown-item" href="/profile/profile_favourite"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
-				<li><a class="dropdown-item" href="/profile/saved_ads"><i class="lnr lnr-file-add"></i>Saved ads</a></li>
+				<li><a class="dropdown-item" href="{% url 'account:view_messages'  %}"><i class="lnr lnr-home"></i> Account Home</a></li>
+				<li><a class="dropdown-item" href="{% url 'account:view_my_ads' user_id=request.user.id  %}"><i class="lnr lnr-store"></i> My Ads</a></li>
+				<li><a class="dropdown-item" href="{% url 'account:view_who_watched'  %}"><i class="lnr lnr-enter"></i>My Ads statistics </a></li>
+				<li><a class="dropdown-item" href="{% url 'account:view_saved_ads'  %}"><i class="lnr lnr-file-add"></i>Saved Ads</a></li>
 				<li><a class="dropdown-item" onclick="ajax_logout();" ><i class="lnr lnr-cross"></i>logout</a></li>
 	
 			</ul>
@@ -176,3 +176,4 @@
 				</div>
 			</div>
 			<!--  End of Login Modal -->
+			<div id="ajax_logout"></div>

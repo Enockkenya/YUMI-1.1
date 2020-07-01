@@ -7,7 +7,7 @@ from . import views
 # sitemaps = {
 #     'static': StaticViewSitemap,
 # }
-
+app_name = 'landpape'
 urlpatterns = [
     # # Custom Files
     # re_path(r'^robots\.txt$', txt.robots_txt_page, name='robots'),
@@ -26,12 +26,12 @@ urlpatterns = [
      #homepages 
      #nologing in required
     re_path(r'^$',views.land_page, name='home'),
-    re_path(r'^landpage$', views.land_page, name='landpage'),
+    re_path(r'^home$', views.land_page, name='land_page'),
     re_path(r'^welcome$', views.welcome, name='welcome'),
-    re_path(r'^aboutus$', views.about_us, name='aboutus'),
+    re_path(r'^aboutus$', views.about_us, name='about_us'),
     re_path(r'^faqs$', views.faqs, name='faqs'),
-    re_path(r'^Pricingtable$', views.Pricing_table, name=' Pricingtable'),
-    re_path(r'^contactus$', views.contact_us, name='contactus'), 
+    re_path(r'^pricingtable$', views.pricingtable, name='pricingtable'),
+    re_path(r'^contactus$', views.contact_us, name='contact_us'), 
   
 
     

@@ -23,7 +23,7 @@ urlpatterns = [
         re_path(r'^view_my_ads/(?P<user_id>\d+)/$', profile.view_my_ads, name='view_my_ads'),
         re_path(r'^view_saved_ads$', profile.view_saved_ads, name='view_saved_ads'),
         re_path(r'^view_message$', profile.view_messages, name= 'view_messages'),
-        re_path(r'^view_favourite$', profile.view_favourite, name='view_messages'),
+        re_path(r'^view_who_watched$', profile.view_who_watched, name='view_who_watched'),
         re_path(r'^view_settings$', profile.view_settings, name='view_settings'),
 
         ]))

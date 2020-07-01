@@ -86,9 +86,9 @@ def view_messages(request):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
 @login_required()
-def view_favourite(request):
+def view_who_watched(request):
    
-    return render(request, 'profile/favourite.html',{
+    return render(request, 'profile/view_who_watched.html',{
         
         'tab': 'favourite',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,

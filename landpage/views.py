@@ -39,11 +39,11 @@ def faqs(request):
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 
-def Pricing_table(request):
+def pricingtable(request):
     return render(request, 'homepage/Pricing.html',{
-        'tab': 'pricing',
+    'tab': 'pricing',
      'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+     'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 
 def contact_us(request):
