@@ -1,5 +1,5 @@
 {% extends 'login/base.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
 <nav  class="navbar navbar-transparent  fixed-top   navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
         <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
@@ -243,7 +243,7 @@
          
             <ul class="form-links">
               <li class="float-right"><a href="/forgot_password">Lost your password?</a></li>
-              <li class="float-left"><a href="/redirected-register">Don't have an account?</a></li>
+              <li class="float-left"><a  href="{% url 'registration:redirected_register' %}">Don't have an account?</a></li>
   
             </ul>
             <br> 

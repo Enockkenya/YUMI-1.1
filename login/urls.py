@@ -1,11 +1,15 @@
-from django.conf.urls import  include, url
+from django.urls import  include, re_path
 from . import views
 
-urlpatterns = [
-    url(r'^login_modal$', views.login_modal),
-    url(r'^redirected_login$', views.login_redirect),
-    url(r'^redirectedlogin$', views.trainingbits_redirect),
-    url(r'^login$', views.login_authentication),
-    url(r'^logout$', views.logout_authentication),
+app_name = 'login'
 
+urlpatterns = [
+    re_path('login/', include([
+        re_path(r'^login_modal$', views.login_modal),
+        re_path(r'^login_redirect$', views.login_redirect, name='login_redirect'),
+        re_path(r'^login$', views.login_authentication),
+        re_path(r'^logout$', views.logout_authentication),
+
+    ]))
 ]
+

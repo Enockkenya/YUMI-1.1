@@ -60,8 +60,9 @@
 				<i class="lnr lnr-user"></i>Welcome {{user.first_name}} 
 			  </a>
 			  <ul class="dropdown-menu">
+					 
 				<li><a class="dropdown-item" href="profile/profile_message"><i class="lnr lnr-home"></i> Account Home</a></li>
-				<li><a class="dropdown-item" href="profile/view_my_ads"><i class="lnr lnr-cart"></i> My Ads</a></li>
+				<li><a class="dropdown-item" href="{% url 'account:view_my_ads' user_id=request.user.id  %}"><i class="lnr lnr-cart"></i> My Ads</a></li>
 				<li><a class="dropdown-item" href="profile/profile_favourite"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
 				<li><a class="dropdown-item" href="profile/saved_ads"><i class="lnr lnr-file-add"></i>Saved ads</a></li>
 				<li><a class="dropdown-item" onclick="ajax_logout();" ><i class="lnr lnr-cross"></i>logout</a></li>
@@ -74,8 +75,8 @@
 					<i class="lnr lnr-user"></i>My Account
 					</a>
 					<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="/redirected_login"><i class="lnr lnr-lock"></i> Log In</a></li>
-							<li><a class="dropdown-item" href="/redirected-register"><i class="lnr lnr-user"></i> Signup</a></li>
+							<li><a class="dropdown-item" href="{% url 'login:login_redirect' %}"><i class="lnr lnr-lock"></i> Log In</a></li>
+							<li><a class="dropdown-item"  href="{% url 'registration:redirected_register' %}"><i class="lnr lnr-user"></i> Signup</a></li>
 				
 					</ul>
 				</li>

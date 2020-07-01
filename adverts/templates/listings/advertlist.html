@@ -1,61 +1,59 @@
 {% extends 'base/advertbase.html' %}
-{% load staticfiles %}
+{% load static %}
 {% block content %}
 {% block title %} YUMI | Ads List {% endblock %}
    <!-- Search wrapper Start -->
-   <div id="search-row-wrapper">
-        <br><br>
+
+        <br> <br> <br> <br>
       <div class="container">
         <div class="search-inner"  >
-          <!-- Start Search box -->
-              
-          <div class="search-bar row " style="box-shadow: -8px 27px 66px -12px rgba(110,109,110,1); border-radius: 50px;">
-              <fieldset>
-                <form class="search-form">
-                  <div class="form-group">
-                    <i class="lni-bullhorn"></i>
-                    <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
-                  </div>
-                  <div class="form-group">
-                    <div class="tg-select">
-                      <select>
-                        <option value="none">All Categories</option>
-                        <option value="none">Electronics</option>
-                        <option value="none">Items For Sale</option>
-                        <option value="none">Jobs</option>
-                        <option value="none">Personals</option>
-                        <option value="none">Real Estate</option>
-                        <option value="none">Services</option>
-                        <option value="none">Vehicles</option>
-                      </select>
-                      <!-- <i class="fas fa-angle-down"></i> -->
+            <div class="search-bar row " style="box-shadow: -8px 27px 66px -12px rgba(110,109,110,1); border-radius: 50px;">
+                <fieldset>
+                  <form class="search-form">
+                    <div class="form-group">
+                      <i class="lni-bullhorn"></i>
+                      <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="tg-select">
-                      <select>
-                        <option value="none">All Locations</option>
-                        <option value="none">Nairobi</option>
-                        <option value="none">Kisumu</option>
-                        <option value="none">Mombasa</option>
-                        <option value="none">Nakuru</option>
-                        <option value="none">Eldoret</option>
-                        <option value="none">Kiambu</option>
-                        <option value="none">Machackos</option>
+                    <div class="form-group">
+                      <div class="tg-select">
+                        <select>
+                          <option value="none">All Categories</option>
+                          <option value="none">Electronics</option>
+                          <option value="none">Items For Sale</option>
+                          <option value="none">Jobs</option>
+                          <option value="none">Personals</option>
+                          <option value="none">Real Estate</option>
+                          <option value="none">Services</option>
+                          <option value="none">Vehicles</option>
+                        </select>
                         <i class="fas fa-angle-down"></i>
-                      </select>
-                   
+                      </div>
                     </div>
-                  </div>
-                  <button class="btn btn-common col-xs-8 col-sm-8 " type="button"><i class="lni-search"></i> Search Now</button>
-                </form>
-              </fieldset>
-            </div>
-          <!-- End Search box -->
+                    <div class="form-group">
+                      <div class="tg-select">
+                        <select>
+                          <option value="none">All Locations</option>
+                          <option value="none">Nairobi</option>
+                          <option value="none">Kisumu</option>
+                          <option value="none">Mombasa</option>
+                          <option value="none">Nakuru</option>
+                          <option value="none">Eldoret</option>
+                          <option value="none">Kiambu</option>
+                          <option value="none">Machackos</option>
+                          <i class="lnr-chevron-down"></i>
+                        </select>
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </div>
+                    <button class="btn btn-common col-xs-8 col-sm-8 " type="button"><i class="lni-search"></i> Search Now</button>                  </form>
+                </fieldset>
+              </div>
+            <!-- End Search box -->
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Search wrapper End -->  
+      <!-- Search wrapper End -->  
+  
 
     <!-- Main container Start -->  
     <div class="main-container">
@@ -208,6 +206,7 @@
                     <div class="add-details">
                         <!-- {{advert.get_absolute_url  }} -->
                         <!-- " {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}" -->
+                        <!-- 'account:view_my_ads', user_id = request.user.id  -->
                       <h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}} </a></h5>
                       <div class="info">
                         <span class="add-type">B</span>

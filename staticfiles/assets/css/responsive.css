@@ -34,12 +34,13 @@
     padding: 0;
     margin: 0;
     position: relative;
+    width: 100%;
   }
   .search-bar .search-inner {
     border-radius: 4px;
   }
   .search-bar .btn-common {
-    width: 162px;
+    width: 215px;
   }
   #new-products .owl-buttons {
     top: -200px;

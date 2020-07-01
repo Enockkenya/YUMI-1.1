@@ -21,7 +21,7 @@ def register_modal(request):
         'form': form,
     })
 
-def redirectedregister(request):
+def redirected_register(request):
     form = RegisterForm()
     return render(request, 'register/register.html',{
         'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
