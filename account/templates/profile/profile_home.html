@@ -1,0 +1,279 @@
+{% extends 'base/advertbase.html' %}
+{% load static %}
+{% block content %}
+{% block title %} YUMI | My Profile {% endblock %}
+   <!-- Search wrapper Start -->
+
+        <br> <br> <br> <br>
+      <div class="container">
+        <div class="search-inner"  >
+            <div class="search-bar row " style="box-shadow: -8px 27px 66px -12px rgba(110,109,110,1); border-radius: 50px;">
+                <fieldset>
+                  <form class="search-form">
+                    <div class="form-group">
+                      <i class="lni-bullhorn"></i>
+                      <input type="text" name="customword" class="form-control" placeholder="What are you looking for">
+                    </div>
+                    <div class="form-group">
+                      <div class="tg-select">
+                        <select>
+                          <option value="none">All Categories</option>
+                          <option value="none">Electronics</option>
+                          <option value="none">Items For Sale</option>
+                          <option value="none">Jobs</option>
+                          <option value="none">Personals</option>
+                          <option value="none">Real Estate</option>
+                          <option value="none">Services</option>
+                          <option value="none">Vehicles</option>
+                        </select>
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="tg-select">
+                        <select>
+                          <option value="none">All Locations</option>
+                          <option value="none">Nairobi</option>
+                          <option value="none">Kisumu</option>
+                          <option value="none">Mombasa</option>
+                          <option value="none">Nakuru</option>
+                          <option value="none">Eldoret</option>
+                          <option value="none">Kiambu</option>
+                          <option value="none">Machackos</option>
+                          <i class="lnr-chevron-down"></i>
+                        </select>
+                        <i class="fas fa-angle-down"></i>
+                      </div>
+                    </div>
+                    <button class="btn btn-common col-xs-8 col-sm-8 " type="button"><i class="lni-search"></i> Search Now</button>                  </form>
+                </fieldset>
+              </div>
+            <!-- End Search box -->
+          </div>
+        </div>
+      </div>
+      <!-- Search wrapper End -->  
+  
+
+    <!-- Main container Start -->  
+    <div class="main-container">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-12 col-xs-12 page-sidebar">
+            <aside>
+              <div class="inner-box">
+                <div class="categories">
+                  <div class="widget-title">
+                    <i class="fas fa-align-justify"></i>
+                    <h4>All Categories</h4>
+                  </div>
+                  <div class="categories-list">
+                    <ul>
+                      <li>
+                        <a href="#">
+                          <i class="fas fa-desktop"></i>
+                          Electronics <span class="category-counter">(6,088)</span>
+                        </a>
+                      </li>
+                      
+                      <li>
+                        <a href="#">
+                          <i class="fas fa-wrench"></i>
+                          Services <span class="category-counter">(686)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fab fa-github"></i>
+                          Home Appliances <span class="category-counter">(285)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fas fa-leaf"></i>
+                          Mobile phones <span class="category-counter">(300)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fas fa-home"></i>
+                          Real Estate <span class="category-counter">(904)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fab fa-black-tie"></i>
+                          Jobs <span class="category-counter">(585)</span>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="#">
+                          <i class="fas fa-utensils"></i>
+                          Hotel & Travels <span class="category-counter">(5)</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="inner-box">
+                <div class="widget-title">
+                  <h4>Premium Ads</h4>
+                </div>
+                <div class="advimg">
+                  <ul class="featured-list">
+                    <li>
+                      <img alt="" src="../../../static/assets/img/pel.jpg">
+                      <div class="hover">
+                        <a href="#"><span>KSH 49</span></a>
+                      </div>
+                    </li>
+                    <li>
+                      <img alt="" src="../../../static/assets/img/pel.jpg">
+                      <div class="hover">
+                        <a href="#"><span>KSH 49</span></a>
+                      </div>
+                    </li>
+                    <li>
+                      <img alt="" src="../../../static/assets/img/pel.jpg">
+                      <div class="hover">
+                        <a href="#"><span>KSH 49</span></a>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="inner-box">
+                <div class="widget-title">
+                  <h4>Advertisement</h4>
+                </div>
+                <img src="../../../static/assets/img/img1.jpg" alt="">
+              </div>
+            </aside>
+          </div>
+
+          <div class="col-lg-9 col-md-12 col-xs-12 page-content">
+            <!-- advert filter Start -->
+            <div class="advert-filter">
+              <div class="grid-list-count">
+                <a class="list switchToGrid" href="#"><i class="fas fa-list"></i></a>
+                <a class="grid switchToList" href="#"><i class="fas fa-th-large"></i></a>
+              </div>
+              <div class="short-name">
+                <span>Short By</span>
+                <form class="name-ordering" method="post">
+                  <label>
+                    <select name="order" class="orderby">
+                      <option selected="selected" value="menu-order">Short by</option>
+                      <option value="popularity">Price: Low to High</option>
+                      <option value="popularity">Price: High to Low</option>
+                    </select>
+                  </label>
+                </form>
+              </div>
+              <div class="Show-item">
+                <span>Show Items</span>
+                <form class="woocommerce-ordering" method="post">
+                  <label>
+                    <select name="order" class="orderby">
+                      <option selected="selected" value="menu-order">49 items</option>
+                      <option value="popularity">popularity</option>
+                      <option value="popularity">Average ration</option>
+                      <option value="popularity">newness</option>
+                      <option value="popularity">price</option>
+                    </select>
+                  </label>
+                </form>
+              </div>
+            </div>
+            <!-- advert filter End -->
+         
+            <!-- Adds wrapper Start -->
+            <div class="adds-wrapper">
+              <div class="item-list">
+                <div class="row">
+                  {% if adverts%}
+                  {% for advert in adverts %}
+                  <div class="col-sm-2 no-padding photobox">
+                    <div class="add-image">
+                      <a href=""><img src="{% if advert.image %} {{ advert.image.cdn_url }} {% else %} {% static 'img/default.png' %} {% endif %} "alt=""></a>
+                      <span class="photo-count"><i class="fas fa-camera"></i>2</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-7 add-desc-box">
+                    <div class="add-details">
+                        <!-- {{advert.get_absolute_url  }} -->
+                        <!-- " {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}" -->
+                        <!-- 'account:view_my_ads', user_id = request.user.id  -->
+                      <h5 class="add-title"><a href=" {{advert.get_absolute_url  }}"> {{advert.name}} </a></h5>
+                      <div class="info">
+                        <span class="add-type">B</span>
+                        <span class="date">
+                          <i class="fas fa-clock"></i>
+                          {{advert.pub_date}}
+                        </span> -
+                        <span class="category">{{advert.category}}</span> -
+                        <span class="item-location"><i class="fas fa-map-marker"></i> {{advert.location}} </span>
+                      </div>
+                      <div class="item_desc">
+                        <a href="">{{advert.description}}</a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 float-right  price-box">
+                    <h2 class="item-price">KSH  {{advert.price}}</h2>
+                    <a class="btn btn-danger btn-sm"><i class="fas fa-certificate"></i>
+                    <span>Top Ads</span></a> 
+                    <a class="btn btn-common btn-sm"> <i class="fas fa-eye"></i> <span>215</span> </a> 
+                  </div>
+               
+                  
+                </div>
+               
+             
+         
+
+              </div>
+           
+            </div>
+            {% endfor %}
+            {% endif %}
+            <!-- Adds wrapper End -->
+               
+            <div class="col-12">
+              <!-- Start Pagination -->
+              <!-- <div class="pagination-bar">
+                 <nav>
+                  <ul class="pagination">
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#"> ...</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                  </ul>
+                </nav>
+              </div> -->
+              <!-- End Pagination -->
+
+              <!-- <div class="post-promo text-center" style="box-shadow: -8px 27px 66px -12px rgb(167, 167, 167);border-radius: 20px; ">
+                <h2> Do you get anything for sell ? </h2>
+                <h5>Sell your adverts online FOR FREE. It's easier than you think !</h5>
+                <a href="post-ads.html" class="btn btn-post btn-common2">Post a Free Ad </a>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main container End -->  
+   <!-- Footer Section Start -->
+<!--  -->
+{% include "base/js.html" %}  
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
+  <div id="fb-root"></div>
+{% endblock content %}

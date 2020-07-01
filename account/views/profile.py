@@ -15,10 +15,10 @@ from django.utils.translation import gettext as _
 
 
 @login_required(login_url='/landpage')
-def profile_page(request):
-    return render(request, 'account/profile/view.html',{
-        'user': request.user,
-        'form': UserForm(instance=request.user),
+def view_profile(request):
+    adverts = Advert.objects.filter(user_id = request.user.id)   
+    return render(request, 'profile/profile_home.html',{
+        'adverts':'adverts',
         'tab': 'profile',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,

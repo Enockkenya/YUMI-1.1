@@ -13,12 +13,13 @@ urlpatterns = [
         re_path(r'^send_private_message$', mail.send_private_message),
         re_path(r'^view_private_message$', mail.view_private_message),
         re_path(r'^delete_private_message$', mail.delete_private_message),
-        re_path(r'^profile$', profile.profile_page),
+  
         # re_path(r'^update_user$', profile.update_user),
         re_path(r'^settings$', setting.settings_page),
         re_path(r'^update_password$', setting.update_password),
         re_path(r'^update_profile$', profile.update_profile, name='update_profile'),
-        # re_path(r'^view/profile/profile/$', profile.view_profile, name ='view_profile'),
+        
+        re_path(r'^view_profile', profile.view_profile, name ='view_profile'),
         re_path(r'^view_my_ads/(?P<user_id>\d+)/$', profile.view_my_ads, name='view_my_ads'),
         re_path(r'^view_saved_ads$', profile.view_saved_ads, name='view_saved_ads'),
         re_path(r'^view_message$', profile.view_messages, name= 'view_messages'),
