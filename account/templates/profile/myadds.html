@@ -14,7 +14,7 @@
               <div class="sidebar-box">
                 <div class="user">
                   <div class="usercontent">
-                    <h3>My Ads > {{ user.first_name }} {{user.last_name }}</h3>
+                    <h3>{{ user.first_name |upper }} {{user.last_name |upper }} </h3>
                   
                   </div>
                   {% if user.client.profile_pic %}
@@ -118,6 +118,8 @@
                       <th>Option</th>
                     </tr>
                   </thead>
+               
+                  {% for advert in adverts %}
                   <tbody>
                     <tr>
                       <td class="add-img-selector">
@@ -128,18 +130,20 @@
                         </div>
                       </td>
                       <td class="add-img-td">
-                        <a href="ads-details.html">
+                        <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}">
                           <img class="img-fluid" src="assets/img/item/img-1.jpg" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4><a href="ads-details.html">Brand New All about iPhones</a></h4>
+                        <h4><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h4>
                         <p> <strong> Posted On </strong>:
-                        02-Oct-2020, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
+                          {{advert.pub_date}}</p>
+                          <p> <strong>Ad Category:</strong> {{advert.category}} </p>
+
+                        <p> <strong>Located In:</strong> {{advert.location}} </p>
                       </td>
                       <td class="price-td">
-                        <strong> KSH 199</strong>
+                        <strong>{{advert.price}}</strong>
                       </td>
                       <td class="action-td">
                         <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
@@ -147,118 +151,9 @@
                         <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
                       </td>
                     </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.html">
-                          <img class="img-fluid" src="assets/img/item/img-2.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">                        
-                        <h4><a href="ads-details.html">Sony Xperia dual sim 100% brand new iPad</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2020, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>                        
-                      </td>
-                      <td class="price-td">                        
-                        <strong> KSH 74</strong>                        
-                      </td>
-                      <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
-                        <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.html">
-                          <img class="img-fluid" src="assets/img/item/img-3.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.html">Digital Cameras brand new</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2020, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> KSH 49</strong>
-                      </td>
-                      <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
-                        <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.html">
-                          <img class="img-fluid" src="assets/img/item/img-4.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.html">Samsung Galaxy dual sim 100% brand new</a></h4>
-                        <p> <strong> Posted On </strong>:
-                        02-Oct-2020, 04:38 PM </p>
-                        <p> <strong>Visitors </strong>: 221 <strong>Located In:</strong> New York </p>
-                      </td>
-                      <td class="price-td">
-                        <strong> KSH 149</strong>
-                      </td>
-                      <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
-                        <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="add-img-selector">
-                        <div class="checkbox">
-                          <label>
-                            <input type="checkbox">
-                          </label>
-                        </div>
-                      </td>
-                      <td class="add-img-td">
-                        <a href="ads-details.html">
-                          <img class="img-fluid" src="assets/img/item/img-5.jpg" alt="img">
-                        </a>
-                      </td>
-                      <td class="ads-details-td">
-                        <h4><a href="ads-details.html">Brand New Macbook Pro</a></h4>
-                        <p><strong> Posted On </strong>: <span>02-Oct-2020, 04:38 PM </span></p>
-                        <p><strong>Visitors</strong>: <span>221</span> <strong>Located In:</strong> <span>New York</span></p>
-                      </td>
-                      <td class="price-td">
-                        <strong> KSH 168</strong>
-                      </td>
-                      <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
-                        <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
-                      </td>
-                    </tr>
+              
                   </tbody>
+                  {% endfor %}
                 </table>
               </div>               
             </div>
