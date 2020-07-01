@@ -237,10 +237,13 @@
             </div>
             <!-- End Pagination -->
 
-            <div class="post-promo text-center" style="box-shadow: -8px 27px 66px -12px rgb(167, 167, 167);border-radius: 20px; ">
-              <h2> Do you get anything for sell ? </h2>
+            <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+              <h2> Do you have anything to sell?</h2>
               <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
-              <a href="post-ads.html" class="btn btn-post btn-common2">Post a Free Ad </a>
+              <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+              <!-- <div class="item_desc">
+                  <a href=" #"> <strong>How we work </strong></a>
+                </div> -->
             </div>
           </div>
         </div>
