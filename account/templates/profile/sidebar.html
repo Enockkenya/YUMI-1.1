@@ -14,7 +14,7 @@
                     </figure>
                     {% else %}
                   <figure>
-                    <a href="#"><img class="-img-fluid" src="{% static 'assets/img/author/img1.jpg' %}" alt=""></a>
+                    <a href="{% url 'account:update_profile'  %}"><img class="-img-fluid" src="{% static 'assets/img/author/img1.jpg' %}" alt=""></a>
                   </figure>
                   {% endif %}
                 </div>
