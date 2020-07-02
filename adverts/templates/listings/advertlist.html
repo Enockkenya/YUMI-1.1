@@ -67,10 +67,11 @@
               <div class="categories">
                 <div class="widget-title">
                   <i class="fas fa-align-justify"></i>
-                  <h4>All Categories</h4>
+                  <h4>Categories</h4>
                 </div>
                 <div class="categories-list">
                   <ul>
+                      {% if categories  %}
                       {% for c in categories %}
                     <li>
                       <a href="{{ c.get_absolute_url }}">
@@ -78,8 +79,16 @@
                         {{ c.name }} <span class="category-counter">(6,088)</span>
                       </a>
                     </li>
-                    
-                        {% endfor %}
+                  </li>
+                      {% endfor %}
+                        {%else %}
+                        <li>
+                            <a href="#">
+                              <i class="lnr lnr-sad"></i>
+                             No Categories found Currently <span class="category-counter">(0)</span>
+                            </a>
+                       
+                        {% endif %}
                   </ul>
                 </div>
               </div>
@@ -165,12 +174,18 @@
                       <div class="container ">
                       <div class="row "  >
                         <!-- style=" padding-left:4px; padding-right:4px;" -->
-                     
+                        {% if categories  %}
                         {% for c in categories %}
                         <a class=" btn-sm btn-white  " style="color:#f3750e; border: 1px solid #ddd;" href="{{ c.get_absolute_url }}" > {{ c.name }}</a>
                 
                     
                         {% endfor %}
+                        {%else %}
+                       <strong>Categories: </strong> <a class=" btn-sm btn-white  " style="color:#f3750e; border: 1px solid #ddd;" href="#" > Bummer, there are currently no Ad Categories on site</a>
+                      
+                          <a class="btn btn-sm btn-primary" href="{% url 'landpage:contact_us' %}">Contact Support</a>
+                        
+                        {%endif%}
                      
                         </div>		
                       </div>
@@ -216,6 +231,17 @@
               </div>
             </div>
             {% endfor %}
+            {% else %}
+            <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+                <h2> No Items posted on Site, Currently </h2>
+                <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
+                <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+                <!-- <div class="item_desc">
+                    <a href=" #"> <strong>How we work </strong></a>
+                  </div> -->
+              </div>
+        
+
             {% endif %}
           </div>
           <!-- Adds wrapper End -->
@@ -237,7 +263,7 @@
             <!-- End Pagination -->
 
             <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
-              <h2> Do you have anything to sell?</h2>
+              <h2> Have anything to sell?</h2>
               <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
               <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
               <!-- <div class="item_desc">
