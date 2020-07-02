@@ -63,7 +63,13 @@
   .page-sidebar .inner-box {
     padding: 5px;
   }
+  .page-sidebar .inner-box2 {
+    padding: 5px;
+  }
   .inner-box {
+    padding: 15px;
+  }
+  .inner-box2 {
     padding: 15px;
   }
   .box {
@@ -422,6 +428,9 @@
     margin-right: 0;
   }
   .inner-box {
+    padding: 15px;
+  }
+  .inner-box2 {
     padding: 15px;
   }
   .author .author-img {

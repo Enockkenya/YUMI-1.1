@@ -1392,7 +1392,11 @@ select > opation:focus {
   margin-bottom: 30px;
   box-shadow: 0px 0px 10px rgba(175, 175, 175, 0.23);
 }
-
+.inner-box2 {
+  padding: 30px;
+  margin-bottom: 10px;
+ 
+}
 .categories-list ul {
   margin: 0;
 }
