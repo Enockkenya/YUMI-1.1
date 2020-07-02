@@ -12,15 +12,15 @@
     padding: 30px 0;
   }
   #carousel-area .carousel-item .carousel-caption h2 {
-    font-size: 26px !important;
-    margin-bottom: 10px !important;
+    font-size: 26px ;
+    margin-bottom: 10px 
   }
   #carousel-area .carousel-item .carousel-caption p {
-    font-size: 14px !important;
-    line-height: 22px !important;
+    font-size: 14px;
+    line-height: 22px 
   }
   #carousel-area .carousel-item .carousel-caption .btn {
-    margin: 10px 0px !important;
+    margin: 10px 0px ;
     padding: 7px 18px;
     font-size: 14px;
   }
@@ -281,11 +281,11 @@
     line-height: 40px;
   }
   #carousel-area .carousel-item .carousel-caption h2 {
-    font-size: 16px;
+    font-size: 16px!important;
     margin-bottom: 5px;
   }
   #carousel-area .carousel-item .carousel-caption p {
-    display: none;
+    display: none !important;
   }
   #carousel-area .carousel-item .carousel-caption .btn {
     margin: 5px 0px;
@@ -478,6 +478,10 @@
   .product-filter .Show-item {
     display: none;
   }
+  .product-filter .grid-list-count{
+    display: none;
+  }
+
   .item-list .price-box {
     text-align: left;
   }

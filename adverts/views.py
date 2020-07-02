@@ -10,6 +10,7 @@ from account.views import profile
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 
 
 @login_required()
@@ -43,16 +44,29 @@ def adverts_list(request,category_slug=None):
     category = None
     categories = Category.objects.all()
     adverts = Advert.objects.filter(available=True)
+    paginator = Paginator(adverts, 1)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         adverts = Advert.objects.filter(category=category)
+    if page.has_next():
+        next_url = f'?page={page.next_page_number()}'
+    else:
+        next_url = ''
 
-   
+    if page.has_previous():
+        prev_url = f'?page={page.previous_page_number()}'
+    else:
+        prev_url = ''
+        
 
     return render(request, 'listings/advertlist.html',   context = {
         'category': category,
         'categories': categories,
-        'adverts': adverts, 
+        'page': page, 
+        'next_page_url' : next_url,
+        'prev_page_url': prev_url,
         'tab': 'listings',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,

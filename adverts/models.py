@@ -5,6 +5,7 @@ from pyuploadcare.dj.models import ImageGroupField, ImageField
 
 
 
+
 class Category(models.Model):
     name = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, unique=True ,db_index=True)
@@ -91,7 +92,7 @@ class Advert(models.Model):
 
 
     class Meta:
-        ordering = ('name', )
+        ordering = ('pub_date', )
         index_together = (('id', 'slug'),)
 
     def __str__(self):
