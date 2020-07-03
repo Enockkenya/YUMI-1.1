@@ -185,11 +185,15 @@
           {% endif %}
         </div>
       </div>
+      {% if adverts %}
+      {% for advert in adverts %}
       <div class="text-center"> 
           <a class="btn btn-lg btn-common fadeInDown wow " data-sppb-wow-delay="1.2s" href="{% url 'adverts:adverts_list' %}">
              View all
              </a>
             </div>
+            {% else %}
+            {% endif %}
     </section>
     <!-- Categories Homepage Section End -->
 
@@ -325,7 +329,7 @@
         <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
             <h2> No items posted on Site, Currently </h2>
             <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
-            <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+
             <!-- <div class="item_desc">
                 <a href=" #"> <strong>How we work </strong></a>
               </div> -->
