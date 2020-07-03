@@ -185,15 +185,16 @@
           {% endif %}
         </div>
       </div>
-      {% if adverts %}
-      {% for advert in adverts %}
+        {% if adverts %}
+    
       <div class="text-center"> 
           <a class="btn btn-lg btn-common fadeInDown wow " data-sppb-wow-delay="1.2s" href="{% url 'adverts:adverts_list' %}">
              View all
              </a>
             </div>
-            {% else %}
-            {% endif %}
+        {% else %}
+        <p></p>
+         {% endif %}
     </section>
     <!-- Categories Homepage Section End -->
 
