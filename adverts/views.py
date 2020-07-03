@@ -44,12 +44,14 @@ def adverts_list(request,category_slug=None):
     category = None
     categories = Category.objects.all()
     adverts = Advert.objects.filter(available=True)
+    adverts2 = Advert.objects.filter(available=True)
     paginator = Paginator(adverts, 1)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         adverts = Advert.objects.filter(category=category)
+        adverts2 = Advert.objects.filter(category=category)
     if page.has_next():
         next_url = f'?page={page.next_page_number()}'
     else:
@@ -64,6 +66,8 @@ def adverts_list(request,category_slug=None):
     return render(request, 'listings/advertlist.html',   context = {
         'category': category,
         'categories': categories,
+        'adverts' : adverts,
+        'adverts2' : adverts2,
         'page': page, 
         'next_page_url' : next_url,
         'prev_page_url': prev_url,

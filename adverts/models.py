@@ -25,6 +25,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('adverts:adverts_list_by_category', args=[self.slug])
+
 class Location(models.Model):
     name = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, unique=True ,db_index=True)

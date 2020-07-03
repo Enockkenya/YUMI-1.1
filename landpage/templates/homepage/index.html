@@ -69,7 +69,7 @@
       </div>
     </div>  
 
-
+    
     <!-- Categories Homepage Section Start -->
 		<section class="tg-sectionspace tg-haslayout" style="background-color: #f5f5f5;">
       <div class="container">
@@ -140,25 +140,30 @@
                       </div>
                     </div>
                   </div>  
+                  {% if adverts %}
+                  {% for advert in adverts %}
           <div class="col-lg-3 col-md-6 col-xs-12">
+       
               <div class="tg-ad tg-verifiedad">
                   <figure>
                     <span class="tg-themetag tg-featuretag">New</span>
-                    <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
+                    <a href=""><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
                     <span class="tg-photocount">See 18 Photos</span>
                   </figure>
                   <div class="tg-adcontent">
                     <ul class="tg-productcagegories">
-                      <li><a href="ads-details.html">Funitures</a></li>
+                   <li><a href="{{advert.category.get_absolute_url}}">{{advert.category}} </a>  </li>
+
                     </ul>
                     <div class="tg-adtitle">
-                      <h3><a href="ads-details.html">king size bed pro for sale</a></h3>
-                    </div>
-                    <time datetime="2017-06-06">Last Updated: 4 hours ago</time>
-                    <div class="tg-adprice"><h4>ksh 200</h4></div>
-                    <address> abc Road, Nairobi</address>
+                        <h3><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h3>
+                      </div>
+                      <div class="price"><h5>KSH {{advert.price}}</h5></div>
+                      <time datetime="2017-06-06">posted: {{advert.pub_date}} </time>
+                    <time datetime="2017-06-06"> Location : <i class="fas fa-map-marker"></i> {{advert.location}} </time>
+
                     <div class="tg-phonelike">
-                      <a class="tg-btnphone" href="ads-details.html">
+                      <a class="tg-btnphone" href="{% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}">
                         <i class="icon-phone-handset"></i>
                         <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
                       </a>
@@ -167,92 +172,12 @@
                   </div>
                 </div>
           </div>
-           <div class="col-lg-3 col-md-6 col-xs-12">
-              <div class="tg-ad tg-verifiedad">
-                  <figure>
-                    <span class="tg-themetag tg-featuretag">New</span>
-                    <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                    <span class="tg-photocount">See 18 Photos</span>
-                  </figure>
-                  <div class="tg-adcontent">
-                    <ul class="tg-productcagegories">
-                      <li><a href="ads-details.html">Funitures</a></li>
-                    </ul>
-                    <div class="tg-adtitle">
-                      <h3><a href="ads-details.html">King Size Pellet bed for sale</a></h3>
-                    </div>
-                    <time datetime="2017-06-06">Last Updated: 4 hours ago</time>
-                    <div class="tg-adprice"><h4>KSH 40000</h4></div>
-                    <address>Nairobi, cbd</address>
-                    <div class="tg-phonelike">
-                      <a class="tg-btnphone" href="ads-details.html">
-                        <i class="icon-phone-handset"></i>
-                        <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                      </a>
-                      <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                    </div>
-                  </div>
-                </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-xs-12">
-              <div class="tg-ad tg-verifiedad">
-                  <figure>
-                    <span class="tg-themetag tg-featuretag">New</span>
-                    <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                    <span class="tg-photocount">See 18 Photos</span>
-                  </figure>
-                  <div class="tg-adcontent">
-                    <ul class="tg-productcagegories">
-                      <li><a href="ads-details.html">Funitures</a></li>
-                    </ul>
-                    <div class="tg-adtitle">
-                      <h3><a href="ads-details.html">King Size Pellet bed for sale</a></h3>
-                    </div>
-                    <time datetime="2017-06-06">Last Updated: 4 hours ago</time>
-                    <div class="tg-adprice"><h4>KSH 40000</h4></div>
-                    <address>Nairobi, cbd</address>
-                    <div class="tg-phonelike">
-                      <a class="tg-btnphone" href="ads-details.html">
-                        <i class="icon-phone-handset"></i>
-                        <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                      </a>
-                      <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                    </div>
-                  </div>
-                </div>
-          </div>            
-          <div class="col-lg-3 col-md-6 col-xs-12">
-              <div class="tg-ad tg-verifiedad">
-                  <figure>
-                    <span class="tg-themetag tg-featuretag">New</span>
-                    <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                    <span class="tg-photocount">See 18 Photos</span>
-                  </figure>
-                  <div class="tg-adcontent">
-                    <ul class="tg-productcagegories">
-                      <li><a href="ads-details.html">Funitures</a></li>
-                    </ul>
-                    <div class="tg-adtitle">
-                      <h3><a href="ads-details.html">King Size Pellet bed for sale</a></h3>
-                    </div>
-                    <time datetime="2017-06-06">Last Updated: 4 hours ago</time>
-                    <div class="tg-adprice"><h4>KSH 40000</h4></div>
-                    <address>Nairobi, cbd</address>
-                    <div class="tg-phonelike">
-                      <a class="tg-btnphone" href="ads-details.html">
-                        <i class="icon-phone-handset"></i>
-                        <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                      </a>
-                      <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                    </div>
-                  </div>
-                </div>
-          </div>
- 
+          {% endfor %}
+          {% endif %}
         </div>
       </div>
       <div class="text-center"> 
-          <a class="btn btn-lg btn-common fadeInDown wow " data-sppb-wow-delay="1.2s" href="category.html">
+          <a class="btn btn-lg btn-common fadeInDown wow " data-sppb-wow-delay="1.2s" href="{% url 'adverts:adverts_list' %}">
              View all
              </a>
             </div>
@@ -326,12 +251,11 @@
       </div>
       <br><br>  <br>
       <div class=" text-center">
-              <a class="btn btn-lg btn-common2 fadeInDown wow" data-sppb-wow-delay="1.2s" href="signup.html" style="box-shadow: -8px 27px 66px -12px rgb(3, 3, 3);">
+              <a class="btn btn-lg btn-common2 fadeInDown wow" data-sppb-wow-delay="1.2s" href="{% url 'adverts:post_ad' %}" style="box-shadow: -8px 27px 66px -12px rgb(3, 3, 3);">
            Post AD
           </a>
         </div>
       </section>   
-
 
   
    
@@ -353,23 +277,32 @@
           <div class="col-12  wow fadeIn" data-wow-delay="0.8s">
              <div id="new-products" class="owl-carousel">
             
+
+
+    {% if adverts %}
+    {% for advert in adverts %}
                 <div class="item">
                     <div class="tg-ad tg-verifiedad">
                     <figure>
                         <span class="tg-themetag tg-featuretag">featured</span>
-                        <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
+                        <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
                         <span class="tg-photocount">See 29 Photos</span>
                       </figure>
                   <div class="tg-adcontent">
                     <ul class="tg-productcagegories">
-                      <li><a href="ads-details.html">Vehicles</a></li>
+                      <li><a href="{{advert.category.get_absolute_url}}">{{advert.category}} </a>   </li>
                     </ul>
+                
                     <div class="tg-adtitle">
-                      <h3><a href="ads-details.html">New BMW X5</a></h3>
+                      <h3><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h3>
                     </div>
-                    <div class="price"><h4>KSH 500,000</h4></div>
+                    <div class="price"><h5>KSH {{advert.price}}</h5></div>
+                    <time datetime="2017-06-06">posted: {{advert.pub_date}} </time>
+                  <time datetime="2017-06-06"> Location : <i class="fas fa-map-marker"></i> {{advert.location}} </time>
+
+                 
                     <div class="tg-phonelike">
-                      <a class="tg-btnphone" href="ads-details.html">
+                      <a class="tg-btnphone" href="{% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}">
                         <i class="icon-phone-handset"></i>
                         <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
                       </a>
@@ -378,156 +311,8 @@
                   </div>
                 </div>
               </div>
-              <div class="item">
-                  <div class="tg-ad tg-verifiedad">
-                  <figure>
-                      <span class="tg-themetag tg-featuretag">featured</span>
-                      <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                      <span class="tg-photocount">See 29 Photos</span>
-                    </figure>
-                <div class="tg-adcontent">
-                  <ul class="tg-productcagegories">
-                    <li><a href="ads-details.html">Vehicles</a></li>
-                  </ul>
-                  <div class="tg-adtitle">
-                    <h3><a href="ads-details.html">New BMW X5</a></h3>
-                  </div>
-                  <div class="price"><h4>KSH 500,000</h4></div>
-                  <div class="tg-phonelike">
-                    <a class="tg-btnphone" href="ads-details.html">
-                      <i class="icon-phone-handset"></i>
-                      <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                    </a>
-                    <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-                <div class="tg-ad tg-verifiedad">
-                <figure>
-                    <span class="tg-themetag tg-featuretag">featured</span>
-                    <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                    <span class="tg-photocount">See 29 Photos</span>
-                  </figure>
-              <div class="tg-adcontent">
-                <ul class="tg-productcagegories">
-                  <li><a href="ads-details.html">Vehicles</a></li>
-                </ul>
-                <div class="tg-adtitle">
-                  <h3><a href="ads-details.html">New BMW X5</a></h3>
-                </div>
-                <div class="price"><h4>KSH 500,000</h4></div>
-                <div class="tg-phonelike">
-                  <a class="tg-btnphone" href="ads-details.html">
-                    <i class="icon-phone-handset"></i>
-                    <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                  </a>
-                  <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-              <div class="tg-ad tg-verifiedad">
-              <figure>
-                  <span class="tg-themetag tg-featuretag">featured</span>
-                  <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                  <span class="tg-photocount">See 29 Photos</span>
-                </figure>
-            <div class="tg-adcontent">
-              <ul class="tg-productcagegories">
-                <li><a href="ads-details.html">Vehicles</a></li>
-              </ul>
-              <div class="tg-adtitle">
-                <h3><a href="ads-details.html">New BMW X5</a></h3>
-              </div>
-              <div class="price"><h4>KSH 500,000</h4></div>
-              <div class="tg-phonelike">
-                <a class="tg-btnphone" href="ads-details.html">
-                  <i class="icon-phone-handset"></i>
-                  <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                </a>
-                <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="item">
-            <div class="tg-ad tg-verifiedad">
-            <figure>
-                <span class="tg-themetag tg-featuretag">featured</span>
-                <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                <span class="tg-photocount">See 29 Photos</span>
-              </figure>
-          <div class="tg-adcontent">
-            <ul class="tg-productcagegories">
-              <li><a href="ads-details.html">Vehicles</a></li>
-            </ul>
-            <div class="tg-adtitle">
-              <h3><a href="ads-details.html">New BMW X5</a></h3>
-            </div>
-            <div class="price"><h4>KSH 500,000</h4></div>
-            <div class="tg-phonelike">
-              <a class="tg-btnphone" href="ads-details.html">
-                <i class="icon-phone-handset"></i>
-                <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-              </a>
-              <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="item">
-          <div class="tg-ad tg-verifiedad">
-          <figure>
-              <span class="tg-themetag tg-featuretag">featured</span>
-              <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-              <span class="tg-photocount">See 29 Photos</span>
-            </figure>
-        <div class="tg-adcontent">
-          <ul class="tg-productcagegories">
-            <li><a href="ads-details.html">Vehicles</a></li>
-          </ul>
-          <div class="tg-adtitle">
-            <h3><a href="ads-details.html">New BMW X5</a></h3>
-          </div>
-          <div class="price"><h4>KSH 500,000</h4></div>
-          <div class="tg-phonelike">
-            <a class="tg-btnphone" href="ads-details.html">
-              <i class="icon-phone-handset"></i>
-              <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-            </a>
-            <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="item">
-        <div class="tg-ad tg-verifiedad">
-        <figure>
-            <span class="tg-themetag tg-featuretag">featured</span>
-            <a href="ads-details.html"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-            <span class="tg-photocount">See 29 Photos</span>
-          </figure>
-      <div class="tg-adcontent">
-        <ul class="tg-productcagegories">
-          <li><a href="ads-details.html">Vehicles</a></li>
-        </ul>
-        <div class="tg-adtitle">
-          <h3><a href="ads-details.html">New BMW X5</a></h3>
-        </div>
-        <div class="price"><h4>KSH 500,000</h4></div>
-        <div class="tg-phonelike">
-          <a class="tg-btnphone" href="ads-details.html">
-            <i class="icon-phone-handset"></i>
-            <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-          </a>
-          <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-        </div>
-      </div>
-    </div>
-  </div>
+         {% endfor %}
+         {% endif %}
             </div>
           </div> 
         </div>

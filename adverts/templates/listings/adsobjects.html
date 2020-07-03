@@ -1,3 +1,9 @@
+<!-- {% if adverts %}
+{% for advert in adverts %}
+<h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h5>
+{% endfor %}
+{% endif %} -->
+
 {% if page.object_list %}
 {% for advert in page.object_list %}
   <div class="item-list">
@@ -12,7 +18,7 @@
         <div class="add-details">
           <h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h5>
           <div class="info">
-              <span class="category"> <a href="#"><strong>{{advert.category}}</strong></a></span> in 
+              <span class="category"> <a href="{{advert.category.get_absolute_url}}"><strong>{{advert.category}}</strong></a></span> in 
               <span class="item-location"><i class="fas fa-map-marker"></i>  {{advert.location}} </span>
             <span class="date">
              Posted on - <i class="fas fa-clock"></i> 
@@ -75,6 +81,8 @@
     <!-- End Pagination -->
 
     <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+   
+      
       <h2> Have anything to sell?</h2>
       <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
       <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
