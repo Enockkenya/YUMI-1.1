@@ -1,4 +1,4 @@
-{% load  static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +9,8 @@
         <meta name="keywords" content="Educational, teaching, courses, free, learning, courseware, course, online learning, online-learning, youtube lectures, lectures, lecture, exam, exams, essay, essays, tests, tests, quiz, quizzes">
         <link rel="icon" href="../../favicon.ico"> 
         <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-        <title>YUMI | Login</title>
+        <title>YUMI | Register
+        </title>
      
         {% for local_css_url in local_css_urls %}
         <link rel="stylesheet" href="{% static local_css_url %}">
@@ -49,14 +50,16 @@
        
 </head>
 <body >
-
+<style>
+     
+</style>
 {% block content %}
 
 
 {% endblock %}
 <!--   Core JS Files   -->
 
-{% include "base/js.html" %}  } 
+{% include "register/jsmodal.html" %}
 
     {% for local_js_url in local_js_urls %}
           <script src="{% static local_js_url %}"></script>
@@ -64,6 +67,8 @@
 
 
 </body>
+
 </html>
+
 
 

@@ -51,6 +51,7 @@ ALLOWED_HOSTS= ['*']
 INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'adverts.apps.AdvertsConfig',
+    'captcha',
     'landpage',
     'registration',
     'login',

@@ -84,7 +84,7 @@
                   type: 'post',
                   success: function(result) {
                   // success code execution here
-                  window.location = 'landpage';
+                  window.location = 'home';
                   },
                   error: function(xhr,status,error) {
                   // error code here
@@ -103,7 +103,7 @@
  
 {% endblock %}
 <!--   Core JS Files   -->
-{% include "base/js.html"  %}
+{% include "base/js.html"  %}}
 
     {% for local_js_url in local_js_urls %}
           <script src="{% static local_js_url %}"></script>

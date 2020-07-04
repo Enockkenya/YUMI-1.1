@@ -14,9 +14,9 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/home')
 def view_profile(request):
-    adverts = Advert.objects.filter(user_id = request.user.id)   
+    adverts = Advert.objects.filter(user_id=request.user.id)   
     return render(request, 'profile/profile_home.html',{
         'adverts':'adverts',
         'tab': 'profile',
@@ -69,6 +69,7 @@ def view_my_ads(request, user_id):
     adverts = Advert.objects.filter(user_id = request.user.id)   
     return render(request,'profile/myadds.html', context ={  
         'adverts': adverts,
+        'user_id ': user_id, 
         'tab': 'adverts',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,

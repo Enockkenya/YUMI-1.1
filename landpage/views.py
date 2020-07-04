@@ -20,7 +20,7 @@ def land_page (request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         adverts = Advert.objects.filter(category=category)
     return render(request, 'homepage/index.html',{
-        'tab': 'landpage',
+        'tab': 'land_page',
          'adverts' : adverts,
        
      'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,

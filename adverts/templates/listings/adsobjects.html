@@ -1,8 +1,4 @@
-<!-- {% if adverts %}
-{% for advert in adverts %}
-<h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h5>
-{% endfor %}
-{% endif %} -->
+
 
 {% if page.object_list %}
 {% for advert in page.object_list %}

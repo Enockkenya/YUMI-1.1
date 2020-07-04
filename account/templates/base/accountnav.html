@@ -68,10 +68,10 @@
 			  </a>
 			  <ul class="dropdown-menu">
 				<li><a class="dropdown-item" href="{% url 'account:view_messages'  %}"><i class="lnr lnr-home"></i> Account Home</a></li>
-				<li><a class="dropdown-item" href="{% url 'account:view_my_ads' user_id=request.user.id  %}"><i class="lnr lnr-store"></i> My Ads</a></li>
-				<li><a class="dropdown-item" href="{% url 'account:view_who_watched'  %}"><i class="lnr lnr-enter"></i>My Ads statistics </a></li>
+				<li><a class="dropdown-item" href="{% url 'account:view_my_ads' user_id=request.user.id  %}"><i class="lnr lnr-store"></i> My Ads</a></li>				<li><a class="dropdown-item" href="{% url 'account:view_who_watched'  %}"><i class="lnr lnr-enter"></i>My Ads statistics </a></li>
 				<li><a class="dropdown-item" href="{% url 'account:view_saved_ads'  %}"><i class="lnr lnr-file-add"></i>Saved Ads</a></li>
-				<li><a class="dropdown-item" onclick="ajax_logout();" ><i class="lnr lnr-cross"></i>logout</a></li>
+				<li><a class="dropdown-item" href= "" onclick="ajax_logout();"  ><i class="lnr lnr-cross"></i>logout</a></li>
+
 	
 			</ul>
 			</li>

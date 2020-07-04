@@ -55,12 +55,14 @@
                         </div>
                       </td>
                       <td class="add-img-td">
-                        <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}">
+                          <!-- {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} -->
+                        <a href="">
                           <img class="img-fluid" src="assets/img/item/img-1.jpg" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h4>
+                          <!-- {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} -->
+                        <h4><a href=""> {{advert.name}}</a></h4>
                         <p> <strong> Posted On </strong>:
                           {{advert.pub_date}}</p>
                           <p> <strong>Ad Category:</strong> {{advert.category}} </p>
@@ -79,27 +81,15 @@
               
                   </tbody>
               
-
                   {% endfor %}
-                  {% else %}
-                  
-                  <tbody>
-                    <tr>
-                   
-                  
-                      <td class="ads-details-td">
-                        <h4><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h4>
-                        <p> <strong> It appears you dont have any Ad posted. </strong>
-                         </p>
-
-                      </td>
-                    
-               
-                    </tr>
               
-                  </tbody>
-            {%endif%}
+         
+                 
+                     
+                  {% endif %}
                 </table>
+
+            
               </div>               
             </div>
           </div>
@@ -108,7 +98,7 @@
     </div>
     <!-- End Content -->
 
-{% include "base/js.html" %}  
+    {% include "base/jsmodal.html"  %} 
   <div id="ajax_response_login"></div>
   <div id="ajax_response_register"></div>
   <div id="ajax_logout"></div>

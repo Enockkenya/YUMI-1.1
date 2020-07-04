@@ -83,3 +83,4 @@ class PostadForm(forms.ModelForm):
             'accept_terms' : CheckboxInput(attrs={'class': 'required checkbox form-control'}),
             'price': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
 }
+
