@@ -7,7 +7,7 @@ from django.forms import ModelForm, Textarea, TextInput, NumberInput, EmailInput
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from captcha.fields import CaptchaField
+# from captcha.fields import CaptchaField
 
 
 class RegisterForm(forms.Form):
