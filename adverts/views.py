@@ -39,24 +39,43 @@ def post_ad(request):
     })
 
 # @login_required(login_url='/accounts/login/')
-def adverts_list(request,category_slug=None):
-    category = None
-    categories = Category.objects.all()
+# def adverts_list(request,category_slug=None):
+#     category = None
+#     categories = Category.objects.all()
+#     adverts = Advert.objects.filter(available=True)
+#     if category_slug:
+#         category = get_object_or_404(Category, slug=category_slug)
+#         adverts = Advert.objects.filter(category=category)
+
+   
+
+#     return render(request, 'listings/advertlist.html',   context = {
+#         'category': category,
+#         'categories': categories,
+#         'adverts': adverts, 
+#         'tab': 'listings',
+#         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+#         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+#     })
+def adverts_list(request):
+    # category = None
+    # categories = Category.objects.all()
     adverts = Advert.objects.filter(available=True)
-    if category_slug:
-        category = get_object_or_404(Category, slug=category_slug)
-        adverts = Advert.objects.filter(category=category)
+    print(adverts)
+    # if category_slug:
+    #     category = get_object_or_404(Category, slug=category_slug)
+    #     adverts = Advert.objects.filter(category=category)
 
    
 
     return render(request, 'listings/advertlist.html',   context = {
-        'category': category,
-        'categories': categories,
+        # 'category': category,
+        # 'categories': categories,
         'adverts': adverts, 
         'tab': 'listings',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
-    })
+    }) 
 
 
 def advert_detail(request, id, slug):

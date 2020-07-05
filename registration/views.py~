@@ -38,7 +38,7 @@ def register(request):
             # Validate the form: the captcha field will automatically
             # check the input
             if form.is_valid():
-
+	    	print('form is valid')
                 response_data = create_user(form)  # Create our store
 		
 

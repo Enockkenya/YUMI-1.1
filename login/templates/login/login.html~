@@ -55,7 +55,7 @@
         </div>
        
           <ul class="form-links">
-            <li class="float-right"><a href="{% url 'login:password_reset' %}">Lost your password?</a></li>
+            <li class="float-right"><a href={% url 'password_reset' %}>Lost your password?</a></li>
             <li class="float-left"><a  href="{% url 'registration:redirected_register' %}">Don't have an account?</a></li>
 
           </ul>
