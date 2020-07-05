@@ -10,13 +10,13 @@ from account.views import profile
 from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.utils.text import slugify
+from django.core.paginator import Paginator
 
 
-@login_required()
+@login_required(login_url ='login:login_redirect')
 def post_ad(request):
     if request.method == 'POST':
        
-         # user_form = RegisterForm(request.POST,instance=request.user)
         post_form = PostadForm(request.POST,files=request.FILES)
         
         if post_form.is_valid():
@@ -25,7 +25,7 @@ def post_ad(request):
             post_form.user=request.user
             post_form.save()
             messages.success(request, _('Your ad was successfully posted!'))
-            return redirect('account:view_my_ads', user_id = request.user.id )
+            return redirect('account:view_my_ads', user_id=request.user.id )
 
         else:
             messages.error(request, _('Please correct the error below.'))
@@ -38,40 +38,81 @@ def post_ad(request):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
 
-# @login_required(login_url='/accounts/login/')
-# def adverts_list(request,category_slug=None):
-#     category = None
-#     categories = Category.objects.all()
-#     adverts = Advert.objects.filter(available=True)
-#     if category_slug:
-#         category = get_object_or_404(Category, slug=category_slug)
-#         adverts = Advert.objects.filter(category=category)
+@login_required(login_url ='login:login_redirect')
+def update_post(request, id, ):
+    advert = get_object_or_404(Advert, id=id,  )
+    post_form = PostadForm(instance=advert, )
+    if request.method == 'POST':
+       
+         # user_form = RegisterForm(request.POST,instance=request.user)
+        post_form = PostadForm(request.POST,instance=advert)
+        
+        if post_form.is_valid():
+            # post_form.slug = slugify(post_form.name)
+            post_form.user=request.user
+            post_form.save()
+            messages.success(request, _('Your ad was successfully posted!'))
+            return redirect('account:view_my_ads', user_id=request.user.id )
 
-   
+        else:
+            messages.error(request, _('Please correct the error below.'))
 
-#     return render(request, 'listings/advertlist.html',   context = {
-#         'category': category,
-#         'categories': categories,
-#         'adverts': adverts, 
-#         'tab': 'listings',
-#         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-#         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
-#     })
+    
+    return render(request, 'listings/postad.html', {
+        'post_form': post_form,
+        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    })
+
+
+@login_required(login_url ='login:login_redirect')
+def delete_post(request, id, ):
+    advert = get_object_or_404(Advert, id=id,  )
+    if request.method == 'POST':
+        advert.delete()
+        return redirect('account:view_my_ads', user_id=request.user.id )
+     
+    
+    return render(request, 'listings/deletead.html', {
+        'advert': advert,
+        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    })
+
+
+
+
 def adverts_list(request):
     # category = None
     # categories = Category.objects.all()
     adverts = Advert.objects.filter(available=True)
-    print(adverts)
-    # if category_slug:
-    #     category = get_object_or_404(Category, slug=category_slug)
-    #     adverts = Advert.objects.filter(category=category)
+    adverts2 = Advert.objects.filter(available=True)
+    paginator = Paginator(adverts, 1)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        adverts = Advert.objects.filter(category=category)
+        adverts2 = Advert.objects.filter(category=category)
+    if page.has_next():
+        next_url = f'?page={page.next_page_number()}'
+    else:
+        next_url = ''
 
-   
+    if page.has_previous():
+        prev_url = f'?page={page.previous_page_number()}'
+    else:
+        prev_url = ''
+        
 
     return render(request, 'listings/advertlist.html',   context = {
-        # 'category': category,
-        # 'categories': categories,
-        'adverts': adverts, 
+        'category': category,
+        'categories': categories,
+        'adverts' : adverts,
+        'adverts2' : adverts2,
+        'page': page, 
+        'next_page_url' : next_url,
+        'prev_page_url': prev_url,
         'tab': 'listings',
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
@@ -86,6 +127,13 @@ def advert_detail(request, id, slug):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     }
       )
+
+
+
+
+
+
+
 
   
 

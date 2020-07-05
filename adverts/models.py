@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from pyuploadcare.dj.models import ImageGroupField, ImageField
 
 
+
+from cloudinary.models import CloudinaryField
 
 class Category(models.Model):
     name = models.CharField(max_length=150, db_index=True)
@@ -22,8 +23,10 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
     def get_absolute_url(self):
         return reverse('adverts:adverts_list_by_category', args=[self.slug])
+
 class Location(models.Model):
     name = models.CharField(max_length=150, db_index=True)
     slug = models.SlugField(max_length=150, unique=True ,db_index=True)
@@ -83,22 +86,33 @@ class Advert(models.Model):
     price = models.IntegerField(blank=True, null=True)
     pub_date = models.DateField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = ImageGroupField(blank=True, null=True)
     available = models.BooleanField(default=True)
     accept_terms = models.BooleanField(default=True)
-
+   
 
 
 
     class Meta:
-        ordering = ('name', )
+        ordering = ('-pub_date', )
         index_together = (('id', 'slug'),)
 
     def __str__(self):
         return self.name +'' + 'by' + '' + str(self.user)
 
+    # def snippet(self):
+    #     return self.description[:50]
+
     def get_absolute_url(self):
         return reverse('adverts:advert_detail',  kwargs={"id":self.id, "slug":self.slug})
+
+
+
+class Like(models.Model):
+    Advert = models.ForeignKey(Advert, related_name="likes", on_delete=models.CASCADE) 
+    user = models.ForeignKey(User,related_name="likes" on_delete=models.CASCADE)
+
+
+
 
  
 

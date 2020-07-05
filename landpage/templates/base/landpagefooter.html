@@ -8,7 +8,13 @@
                 <div class="widget">
                   <h3 class="block-title">About us</h3>
                   <div class="textwidget">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque lobortis tincidunt est, et euismod purus suscipit quis. Etiam euismod ornare elementum. Sed ex est, consectetur eget facilisis sed, auctor ut purus.</p>
+                    <p>In the recent past traders had to walk around with business cards and shoppers
+                       would stock their wallets and bags with numerous cards bearing different 
+                       contacts and mails. 
+                       <b>Now think about just walking with a link and think about just clicking
+                          a link to get numerous goods</b> , services and products at your disposal from 
+                       the comfort of your home. <b>Online shopping is almost becoming a necessity. </b></p>
+                       <h3 style="color:rgb(255, 72, 0);"><a href="{% url 'landpage:about_us' %}">Learn more...</a> </h3>
                   </div>
                 </div>
               </div>
@@ -16,11 +22,11 @@
                 <div class="widget">
                   <h3 class="block-title">Useful Links</h3>
                   <ul class="menu">
-                    <li><a href="#">Categories</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Pricing Plans</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <!-- <li><a href="#">Categories</a></li> -->
+                    <li><a href="{% url 'landpage:faqs' %}">FAQ</a></li>
+                    <li><a href="{% url 'landpage:pricingtable' %}">Pricing Plans</a></li>
+                    <li><a href="{% url 'landpage:about_us' %}">About</a></li>
+                    <li><a href="{% url 'landpage:contact_us' %}">Contact</a></li>
                     <li><a href="#">Terms of Use</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                   </ul>

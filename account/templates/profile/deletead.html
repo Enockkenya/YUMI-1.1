@@ -1,0 +1,38 @@
+{% extends 'base/accountbase.html' %}
+{% load static %}
+{% block content %}
+
+ <!-- Start Content -->
+ <div id="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-4 page-sidebar">
+                {% include "profile/sidebar.html" %}
+            </div>
+            <div class="col-lg-8 col-md-12 col-xs-12 page-content">
+                    <div class="inner-box">
+                      <h2 class="title-2"><i class="fas fa-times"></i> Close account </h2>
+                      <p>You are sure you want to close your account?</p>
+                  <form action="{% url 'adverts:delete_post' id=advert.id  %}"  method="POST">
+
+
+                  </form>
+                      <br>
+
+                <a  href="{% url 'account:view_my_ads' user_id=request.user.id  %}" class="btn btn-common pt"> <i class="fas fa-pencil-square-o"></i> Cancel</a>
+
+                      <button type="submit" name="confirm_delete" class="btn btn-common pt">Submit</button>
+                    </div>
+                  </div>
+     
+          </div>  
+        </div>      
+      </div>
+      <!-- End Content -->
+  
+{% include "base/jsmodal.html"  %} 
+<div id="ajax_response_login"></div>
+<div id="ajax_response_register"></div>
+<div id="ajax_logout"></div>
+<div id="fb-root"></div>
+{% endblock content %}

@@ -7,7 +7,7 @@ from django.forms import ModelForm, Textarea, TextInput, NumberInput, EmailInput
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-
+# from captcha.fields import CaptchaField
 
 
 class RegisterForm(forms.Form):
@@ -54,7 +54,13 @@ class RegisterForm(forms.Form):
         }),
         required=True,
     )
+    # is_18_or_plus = forms.BooleanField(
+    #     required=False
+    # )
+    # captcha = CaptchaField()
 
+    # Functions
+    #------------
     def clean_email(self):
         email = self.cleaned_data['email']
         if email is not None and email is not '':

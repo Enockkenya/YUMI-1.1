@@ -3,7 +3,6 @@ from django.urls import  include, re_path, path
 from . import views
 from django.contrib.auth import views as auth_views
 app_name = 'login'
-
 urlpatterns = [
 	path('accounts/password_reset/',auth_views.PasswordResetView.as_view(template_name='login/password_reset.html'), name='password_reset'),
     path('accounts/change-password/', auth_views.PasswordChangeView.as_view(template_name='login/password_change.html'), name='password_change'),
@@ -21,4 +20,5 @@ urlpatterns = [
     ])),
     
             ]
+
 

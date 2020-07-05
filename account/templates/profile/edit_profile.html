@@ -3,103 +3,6 @@
 {% load static %}
 {% block content %}
 
-  <!-- Header Section Start -->
-  <div class="header">
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-inverse fixed-top scrolling-navbar" style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); ">
-      <div class="container">
-        <div class="theme-header clearfix">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-toggle="collapse" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-              <span class="lni-menu"></span>
-              <span class="lni-menu"></span>
-              <span class="lni-menu"></span>
-            </button>
-            <a href="index.html" class="navbar-brand"><img src="{% static 'assets/img/logo.png" alt=""></a>
-          </div>
-          <div class="collapse navbar-collapse" id="main-navbar">
-            <ul class="navbar-nav mr-auto w-100 justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link"  href="index.html">
-                     Home
-                    </a>
-            
-              <li class="nav-item">
-                <a class="nav-link" href="/Ads">
-               Listings
-                </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    About 
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="about.html">About Us</a></li>
-                  <li><a class="dropdown-item" href="pricing.html">Pricing Table</a></li>
-                  
-                  <!-- <li><a class="dropdown-item" href="ads-details.html">Ads Details</a></li>
-                  <li><a class="dropdown-item" href="post-ads.html">Ads Post</a></li> -->
-                  <!-- <li><a class="dropdown-item" href="404.html">404</a></li> -->
-                  <li><a class="dropdown-item" href="faq.html">Faqs</a></li>
-                  <li><a class="dropdown-item" href="contact.html">Contact us</a></li>
-
-                </ul>
-              </li>
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Blog
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="blog.html">Blog - Right Sidebar</a></li>
-                  <li><a class="dropdown-item" href="blog-left-sideba.html">Blog - Left Sidebar</a></li>
-                  <li><a class="dropdown-item" href="blog-full-width.html"> Blog full width </a></li>
-                  <li><a class="dropdown-item" href="blog-details.html">Blog Details</a></li>
-                </ul>
-              </li> -->
-           
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="lnr lnr-user"></i> My Account
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="account-home.html"><i class="lnr lnr-home"></i> Account Home</a></li>
-                  <li><a class="dropdown-item" href="account-myads.html"><i class="lnr lnr-cart"></i> My Ads</a></li>
-                  <li><a class="dropdown-item" href="account-favourite-ads.html"><i class="lnr lnr-heart"></i> Favourite ads</a></li>
-                  <li><a class="dropdown-item" href="account-archived-ads.html"><i class="lnr lnr-file-add"></i>Saved ads</a></li>
-                  <li><a class="dropdown-item" href="login.html"><i class="lnr lnr-lock"></i> Log In</a></li>
-                  <li><a class="dropdown-item" href="signup.html"><i class="lnr lnr-user"></i> Signup</a></li>
-                  <li><a class="dropdown-item" href="forgot-password.html"><i class="lnr lnr-sync"></i> Forgot Password</a></li>
-                  <li><a class="dropdown-item" href="account-close.html"><i class="lnr lnr-cross"></i>Account close</a></li>
-                </ul>
-              </li>
-              <li class="postadd">
-                <a class="btn btn-common2 btn-post" href="{% url 'adverts:post_ad' %}"><span class="fas fa-plus-circle"></span> Post an Ad</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="mobile-menu" data-logo="assets/img/logo.png"></div>
-    </nav>
-    <!-- Navbar End -->
-  </div>
-  <!-- Header Section End -->
-
-  <!-- Page Header Start -->
-  <!-- <div class="page-header" style="background: url(assets/img/banner1.jpg);">
-    <div class="container">
-      <div class="row">         
-        <div class="col-md-12">
-          <div class="breadcrumb-wrapper">
-            <h2 class="page-title">Account Home</h2>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-  <!-- Page Header End --> 
 
   <!-- Start Content -->
 
@@ -134,8 +37,7 @@
                 
 
 
-
-    {% include "base/js.html" %}  
+  {% include "base/js.html"  %} 
 
     <div id="ajax_logout"></div>
     

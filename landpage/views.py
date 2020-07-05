@@ -8,11 +8,21 @@ from django.http import Http404,HttpResponseRedirect
 # from .models import Image,Profile,Comment,County
 # from .forms import EditProfileForm
 from django.contrib.auth.models import User
+from account.models import *
+from adverts.models import *
 
 #landingpagemodel #home
-def land_page(request):
+def land_page (request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    adverts = Advert.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        adverts = Advert.objects.filter(category=category)
     return render(request, 'homepage/index.html',{
-        'tab': 'landpage',
+        'tab': 'land_page',
+         'adverts' : adverts,
+       
      'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
@@ -39,11 +49,11 @@ def faqs(request):
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 
-def Pricing_table(request):
+def pricingtable(request):
     return render(request, 'homepage/Pricing.html',{
-        'tab': 'pricing',
+    'tab': 'pricing',
      'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
+     'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 
 def contact_us(request):

@@ -9,7 +9,7 @@ import datetime
 
 
 
-@login_required(login_url='/landpage')
+@login_required(login_url='/home')
 def settings_page(request):
     return render(request, 'profile/settings/view.html',{
         'user' : request.user,

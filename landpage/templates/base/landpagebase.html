@@ -4,10 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">    
+  <meta name="description" content="Kenya Largest online marketplace">
+  <meta name="keywords" content="online market, kenya Buy and sell online ">
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />  
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="author" content="Yumi">
-  <title>YUMI </title>    
+  <title>{% block title %}YUMI  {% endblock %}</title>  
 
   
 
@@ -66,7 +68,7 @@
       uploadcare.registerTab('preview', uploadcareTabEffects)
     </script>    
 </head>
-<body >
+<body style="background-color: #f5f5f5;" >
   <!-- Header Section Start -->
   <div class="header">
     <!-- Navbar Start -->
@@ -80,8 +82,7 @@
 
 {% endblock %}
 <!--   Core JS Files   -->
-{% include "base/js.html" %}
-
+{% include "base/js.html"  %}}
     {% for local_js_url in local_js_urls %}
           <script src="{% static local_js_url %}"></script>
     {% endfor %}

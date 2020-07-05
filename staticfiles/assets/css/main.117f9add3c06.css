@@ -1392,7 +1392,11 @@ select > opation:focus {
   margin-bottom: 30px;
   box-shadow: 0px 0px 10px rgba(175, 175, 175, 0.23);
 }
-
+.inner-box2 {
+  padding: 30px;
+  margin-bottom: 10px;
+ 
+}
 .categories-list ul {
   margin: 0;
 }
@@ -4239,7 +4243,7 @@ footer .menu li a:hover {
 	position: relative;
 	text-transform:uppercase;
 }
-.tg-select:after {
+/* .tg-select:after {
 	top: 0;
 	right: 15px;
 	z-index: 2;
@@ -4251,7 +4255,7 @@ footer .menu li a:hover {
 	font-size: inherit;
 	line-height: 40px;
 	font-family: 'FontAwesome';
-}
+} */
 .tg-select select {
 	z-index: 1;
 	width: 100%;

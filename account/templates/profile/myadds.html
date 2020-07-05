@@ -8,82 +8,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 col-md-12 col-lg-4 page-sidebar">
-            <aside>
-                {% if request.user %}
-             
-              <div class="sidebar-box">
-                <div class="user">
-                  <div class="usercontent">
-                    <h3>{{ user.first_name |upper }} {{user.last_name |upper }} </h3>
-                  
-                  </div>
-                  {% if user.client.profile_pic %}
-                  <figure>
-                      <a href="#"><img class="-img-fluid" src="{{user.client.profile_pic.url}}" alt=""></a>
-                    </figure>
-                    {% else %}
-                  <figure>
-                    <a href="#"><img class="-img-fluid" src="{% static 'assets/img/author/img1.jpg' %}" alt=""></a>
-                  </figure>
-                  {% endif %}
-                </div>
-                <nav class="navdashboard">
-                  <ul>
-                    <li>
-                      <a href="account-home.html">
-                        <i class="fas fa-home"></i>
-                        <span>Personal Home</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="active" href="account-myads.html">
-                        <i class="fas fa-credit-card"></i>
-                        <span>My Ads</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="account-favourite-ads.html">
-                        <i class="fas fa-heart"></i>
-                        <span>Favourite Ads</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="account-saved-search.html">
-                        <i class="fas fa-star"></i>
-                        <span>Saved Search </span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="account-archived-ads.html">
-                        <i class="fas fa-folder"></i>
-                        <span>Archived Ads</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="account-pending-approval-ads.html">
-                        <i class="fas fa-hourglass"></i>
-                        <span>Pending Approval</span>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="account-close.html">
-                        <i class="fas fa-times"></i>
-                        <span>Close Account</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-              {% endif %}
-              <div class="widget">
-                <h4 class="widget-title">Advertisement</h4>
-                <div class="inner-box">
-                  <div class="add-box">
-                    <img class="img-fluid" src="assets/img/img1.jpg" alt="">
-                  </div>
-                </div>
-              </div>
-            </aside>
+              {% include "profile/sidebar.html" %}
           </div>
 
           <div class="col-lg-8 col-md-12 col-xs-12 page-content">
@@ -92,15 +17,11 @@
               <div class="table-responsive">
                 <div class="table-action">
                   <div class="checkbox">
-                    <label for="checkAll">
-                      <input id="checkAll" type="checkbox">
-                      Select: All | <a href="#" class="btn btn-xs btn-danger">Delete <i class="fas fa-times"></i></a>
-                    </label>
+                 <strong>  Total Ads : </strong>
                   </div>
                   <div class="table-search float-right">
                     <div class="form-group row">
                       <label class="mr-2 col-xs-5 control-label text-right">Search <br>
-                        <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
                       <div class="mr-3 col-xs-7 searchpan">
                         <input class="form-control" id="filter" type="text">
@@ -130,12 +51,14 @@
                         </div>
                       </td>
                       <td class="add-img-td">
-                        <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}">
+                          <!-- {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} -->
+                        <a href="">
                           <img class="img-fluid" src="assets/img/item/img-1.jpg" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
-                        <h4><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h4>
+                          <!-- {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} -->
+                        <h4><a href=""> {{advert.name}}</a></h4>
                         <p> <strong> Posted On </strong>:
                           {{advert.pub_date}}</p>
                           <p> <strong>Ad Category:</strong> {{advert.category}} </p>
@@ -146,44 +69,37 @@
                         <strong>{{advert.price}}</strong>
                       </td>
                       <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
+                        <p><a  href="{% url 'adverts:update_post' id=advert.id  %}" class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
                         <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
+                        <p><a  href="{% url 'adverts:delete_post' id=advert.id  %}"  class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
                       </td>
                     </tr>
               
                   </tbody>
               
-
                   {% endfor %}
-                  
-                  
-                  <tbody>
-                    <tr>
-                   
-                  
-                      <td class="ads-details-td">
-                        <h4><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h4>
-                        <p> <strong> It appears you dont have any Ad posted. </strong>
-                         </p>
 
-                      </td>
-                    
-               
-                    </tr>
-              
-                  </tbody>
-            
+                  {% else %}
+                  <h5> You dont any Ads Curently <span> <a class="btn  btn-primary btn-xs" href="{% url 'adverts:post_ad' %}"><span class="fas fa-plus-circle"></span> Post an Ad</a></span></h5>
+                  
+                 
+      
+               {% endif %}
                 </table>
+
+            
+
+            
               </div>               
             </div>
+         
           </div>
         </div>  
       </div>      
     </div>
     <!-- End Content -->
 
-{% include "base/js.html" %}  
+    {% include "base/jsmodal.html"  %} 
   <div id="ajax_response_login"></div>
   <div id="ajax_response_register"></div>
   <div id="ajax_logout"></div>

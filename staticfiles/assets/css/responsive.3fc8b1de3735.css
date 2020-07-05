@@ -39,7 +39,7 @@
     border-radius: 4px;
   }
   .search-bar .btn-common {
-    width: 215px;
+    width: 100%;
   }
   #new-products .owl-buttons {
     top: -200px;
@@ -63,6 +63,12 @@
     padding: 5px;
   }
   .inner-box {
+    padding: 15px;
+  }
+  .page-sidebar .inner-box2 {
+    padding: 5px;
+  }
+  .inner-box2 {
     padding: 15px;
   }
   .box {
@@ -420,6 +426,9 @@
     margin-right: 0;
   }
   .inner-box {
+    padding: 15px;
+  }
+  .inner-box2 {
     padding: 15px;
   }
   .author .author-img {

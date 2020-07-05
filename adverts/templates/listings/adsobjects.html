@@ -1,0 +1,89 @@
+
+
+{% if page.object_list %}
+{% for advert in page.object_list %}
+  <div class="item-list">
+    <div class="row">
+      <div class="col-sm-2 no-padding photobox">
+        <div class="add-image">
+          <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="assets/img/pel.jpg" alt=""></a>
+          <span class="photo-count"><i class="fas fa-camera"></i>2</span>
+        </div>
+      </div>
+      <div class="col-sm-7 add-desc-box">
+        <div class="add-details">
+          <h5 class="add-title"><a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.name}}</a></h5>
+          <div class="info">
+              <span class="category"> <a href="{{advert.category.get_absolute_url}}"><strong>{{advert.category}}</strong></a></span> in 
+              <span class="item-location"><i class="fas fa-map-marker"></i>  {{advert.location}} </span>
+            <span class="date">
+             Posted on - <i class="fas fa-clock"></i> 
+           {{advert.pub_date}}
+            </span> 
+            <span class="category"> Posted by -<a href="#"><strong>  {{advert.user}}</strong> </a></span> 
+          </div>
+          <div class="item_desc">
+            <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.description}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3 float-right  price-box">
+        <h3 class="item-price"> KSH {{advert.price}}</h3>
+        <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}" class="btn btn-common2 btn-sm"><i class="fas fa-arrow-right "></i>
+        <span>More Detials</span></a> 
+        <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}" class="btn btn-common btn-sm"> <i class="fas fa-eye"></i> <span>215</span> </a> 
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+      <h2> No Items posted on Site, Currently </h2>
+      <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
+      <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+      <!-- <div class="item_desc">
+          <a href=" #"> <strong>How we work </strong></a>
+        </div> -->
+    </div>
+
+
+  {% endif %}
+</div>
+<!-- Adds wrapper End -->
+<div class="col-12">
+    <!-- Start Pagination -->
+    <div class="pagination-bar">
+       <nav>
+        <ul class="pagination">
+            <li class="page-item "><a class="page-link { if not prev_page_url } disabled { endif }" href="{{ prev_page_url }}">Prev</a></li>
+          {% for n in page.paginator.page_range %}
+             {% if page.number == n %}
+
+              <li class="page-item"><a class="page-link active" href="?page={{ n }}">{{ n }}</a></li>
+              {% elif n > page.number|add:-3 and  n < page.number|add:3  %}
+              <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+
+              {% endif %}
+          {% endfor %}
+          <li class="page-item  "><a class="page-link {if not next_page_url } disabled { endif }" href="{{ next_page_url }}">Next</a></li> 
+
+          <!-- <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#"> ...</a></li>
+          <li class="page-item  {if not page_url } disabled { endif }"><a class="page-link" href="{{next_page_url}}">Next</a></li> -->
+        </ul>
+      </nav>
+    </div>
+    <!-- End Pagination -->
+
+    <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+   
+      
+      <h2> Have anything to sell?</h2>
+      <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
+      <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+      <!-- <div class="item_desc">
+          <a href=" #"> <strong>How we work </strong></a>
+        </div> -->
+    </div>
+  </div>
