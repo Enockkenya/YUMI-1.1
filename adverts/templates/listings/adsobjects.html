@@ -6,7 +6,8 @@
     <div class="row">
       <div class="col-sm-2 no-padding photobox">
         <div class="add-image">
-          <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="assets/img/pel.jpg" alt=""></a>
+ 
+          <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="{{advert.image.url}}" alt=""></a>
           <span class="photo-count"><i class="fas fa-camera"></i>2</span>
         </div>
       </div>

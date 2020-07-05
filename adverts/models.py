@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
-from pyuploadcare.dj.models import ImageGroupField, ImageField
+from cloudinary.models import CloudinaryField
 
 
 
@@ -11,7 +11,7 @@ class Category(models.Model):
     slug = models.SlugField(max_length=150, unique=True ,db_index=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = ImageField(blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
   
     
 
@@ -86,7 +86,7 @@ class Advert(models.Model):
     price = models.IntegerField(blank=True, null=True)
     pub_date = models.DateField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = ImageGroupField(blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     available = models.BooleanField(default=True)
     accept_terms = models.BooleanField(default=True)
 
