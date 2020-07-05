@@ -23,9 +23,16 @@
               <p class="fadeInUp wow" data-sppb-wow-delay="1.2s"> Just think of a business relationship built on trust and efficiency. You’ll find all this under one roof
               </p>
 
-              <a class="btn btn-lg btn-common fadeInLeft wow" data-sppb-wow-delay="1.2s" href="signup.html">
-               Join now
+            {% if request.user.is_authenticated %}
+  
+              <a class="btn btn-lg btn-common fadeInLeft wow" data-sppb-wow-delay="1.2s" href="{% url 'adverts:adverts_list' %}">
+               explore
               </a>
+              {% else %}
+              <a class="btn btn-lg btn-common fadeInLeft wow" data-sppb-wow-delay="1.2s" href="{% url 'login:login_redirect' %}">
+                  Join now
+                 </a>
+                 {% endif %}
             </div>
           </div>
           <div class="carousel-item">
@@ -36,10 +43,10 @@
               </h2>
               <p class="fadeInUp wow" data-sppb-wow-delay="1.2s">Yumi is a startup platform aimed at revolutionizing the E commerce space in Kenya
               </p>
-              <a class="btn btn-lg btn-common2 fadeInUp wow" style="background-color:black;" data-sppb-wow-delay="1.2s" href="signup.html">
+              <a class="btn btn-lg btn-common2 fadeInUp wow" style="background-color:black;" data-sppb-wow-delay="1.2s" href="{% url 'adverts:post_ad' %}">
                 Post Your products
               </a>
-              <a class="btn btn-lg btn-common3 fadeInUp wow" data-sppb-wow-delay="1.2s" href="signup.html">
+              <a class="btn btn-lg btn-common3 fadeInUp wow" data-sppb-wow-delay="1.2s" href="{% url 'adverts:adverts_list' %}">
                Find Products
               </a>
             </div>
@@ -52,9 +59,16 @@
               </h2>
               <p class="fadeInDown wow" data-sppb-wow-delay="1.2s"> Seller | buyer network 
               </p>
-              <a class="btn btn-lg btn-common fadeInDown wow" data-sppb-wow-delay="1.2s" href="signup.html">
-             Join Us
+              {% if request.user.is_authenticated %}
+  
+              <a class="btn btn-lg btn-common fadeInLeft wow" data-sppb-wow-delay="1.2s" href="{% url 'adverts:adverts_list' %}">
+               explore
               </a>
+              {% else %}
+              <a class="btn btn-lg btn-common fadeInLeft wow" data-sppb-wow-delay="1.2s" href="{% url 'login:login_redirect' %}">
+                  Join now
+                 </a>
+                 {% endif %}
             </div>
           </div>
         </div>
