@@ -8,7 +8,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import json
 from . import views
-from captcha.models import CaptchaStore
+# from captcha.models import CaptchaStore
 
 # Contants
 TEST_USER_EMAIL = "ledo@gah.com"
