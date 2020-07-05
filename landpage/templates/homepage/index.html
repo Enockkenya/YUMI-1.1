@@ -87,7 +87,7 @@
                         <h2>Recently Posted Ads</h2>
                       </div>
                       <div class="tg-description">
-                        <p>Over 49000 posted Ads</p>
+                        <!-- <p>Over 49000 posted Ads</p> -->
                       </div>
                     </div>
                   </div>  
@@ -98,8 +98,8 @@
               <div class="tg-ad tg-verifiedad">
                   <figure>
                     <span class="tg-themetag tg-featuretag">New</span>
-                    <a href=""><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
-                    <span class="tg-photocount">See 18 Photos</span>
+                    <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
+                    <span class="tg-photocount"> Photos</span>
                   </figure>
                   <div class="tg-adcontent">
                     <ul class="tg-productcagegories">

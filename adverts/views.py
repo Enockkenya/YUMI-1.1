@@ -13,7 +13,7 @@ from django.utils.text import slugify
 from django.core.paginator import Paginator
 
 
-@login_required()
+@login_required(login_url ='login:login_redirect')
 def post_ad(request):
     if request.method == 'POST':
        
