@@ -65,6 +65,23 @@ def update_post(request, id, ):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
 
+
+@login_required(login_url ='login:login_redirect')
+def delete_post(request, id, ):
+    advert = get_object_or_404(Advert, id=id,  )
+    if request.method == 'POST':
+        advert.delete()
+        return redirect('account:view_my_ads', user_id=request.user.id )
+     
+    
+    return render(request, 'listings/deletead.html', {
+        'advert': advert,
+        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    })
+
+
+
 # @login_required(login_url='/accounts/login/')
 def adverts_list(request,category_slug=None):
     category = None

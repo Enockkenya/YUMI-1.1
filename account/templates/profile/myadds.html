@@ -72,7 +72,7 @@
                       <td class="action-td">
                         <p><a  href="{% url 'adverts:update_post' id=advert.id  %}" class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
                         <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
-                        <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
+                        <p><a  href="{% url 'adverts:delete_post' id=advert.id  %}"  class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
                       </td>
                     </tr>
               
