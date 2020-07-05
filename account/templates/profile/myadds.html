@@ -22,7 +22,6 @@
                   <div class="table-search float-right">
                     <div class="form-group row">
                       <label class="mr-2 col-xs-5 control-label text-right">Search <br>
-                        <a title="clear filter" class="clear-filter" href="#clear">[clear]</a> 
                       </label>
                       <div class="mr-3 col-xs-7 searchpan">
                         <input class="form-control" id="filter" type="text">
@@ -79,16 +78,21 @@
                   </tbody>
               
                   {% endfor %}
-              
-         
+
+                  {% else %}
+                  <h5> You dont any Ads Curently <span> <a class="btn  btn-primary btn-xs" href="{% url 'adverts:post_ad' %}"><span class="fas fa-plus-circle"></span> Post an Ad</a></span></h5>
+                  
                  
-                     
-                  {% endif %}
+      
+               {% endif %}
                 </table>
+
+            
 
             
               </div>               
             </div>
+         
           </div>
         </div>  
       </div>      
