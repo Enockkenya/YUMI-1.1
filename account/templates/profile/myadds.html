@@ -17,10 +17,7 @@
               <div class="table-responsive">
                 <div class="table-action">
                   <div class="checkbox">
-                    <label for="checkAll">
-                      <input id="checkAll" type="checkbox">
-                      Select: All | <a href="#" class="btn btn-xs btn-danger">Delete <i class="fas fa-times"></i></a>
-                    </label>
+                 <strong>  Total Ads : </strong>
                   </div>
                   <div class="table-search float-right">
                     <div class="form-group row">
@@ -73,7 +70,7 @@
                         <strong>{{advert.price}}</strong>
                       </td>
                       <td class="action-td">
-                        <p><a class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
+                        <p><a  href="{% url 'adverts:update_post' id=advert.id  %}" class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
                         <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
                         <p><a class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
                       </td>
