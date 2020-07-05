@@ -21,29 +21,10 @@ def login_modal(request):
 
 def login_redirect(request):
     return render(request, 'login/login.html',{
-          'local_css_urls': ["css/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
-                             "css/fonts/iconic/css/material-design-iconic-font.min.css",
-                             "css/vendor/animate/animate.css",
-	                         "css/vendor/css-hamburgers/hamburgers.min.css",
-                             "css/vendor/animsition/css/animsition.min.css",
-                             "css/vendor/select2/select2.min.css",
-	                         "css/vendor/daterangepicker/daterangepicker.css",
-                             "css/vendor/bootstrap/css/bootstrap.min.css",
-                             "css/fonts/source-sans-pro/SourceSansPro-Regular.ttf",
-                             "css/fonts/source-sans-pro/SourceSansPro-SemiBold.ttf",
-                             "css/fonts/source-sans-pro/SourceSansPro-Bold.ttf",
-                             "css/util.css",
-                             "css/main.css" ],
-           'local_js_urls':[ "js2/js/jquery-3.2.1.min.js",
-                             "js2/js/animsition.min.js",
-                             "js2/js/popper.js",
-	                         "js2/js/bootstrap.min.js",
-                             "js2/js/select2.min.js",
-                             "js2/js/moment.min.js",
-	                         "js2/js/daterangepicker.js",
-                             "js2/js/countdowntime.js",
-                             "js2/js/main.js"],
-            })
+    'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+    'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    })
+    
 def trainingbits_redirect(request):
     return render(request, 'login/login2.html',{
          'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
