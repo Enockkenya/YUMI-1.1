@@ -80,7 +80,7 @@
                         </div>
                       </section>
                     </div>
-                    {% if request.user.is_authenticated %}
+                  
                     <label style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);" class="tg-fileuploadlabel" for="tg-photogallery">
                         <input
                          type="hidden" 
@@ -97,12 +97,7 @@
                         value="">
                        
                     </label>
-                    {% else %}
-                    <li class="postadd">
-                            <a class="btn btn-common2 btn-post" href="{% url 'adverts:post_ad' %}"><span
-                                    class="fas fa-plus-circle"></span> Post an Ad</a>
-                        </li>
-                    {% endif %}
+                  
                   
                     </div>
               <div class="col-lg-6 ">
@@ -137,3 +132,4 @@
     </div>
   </div>
 </form>
+  

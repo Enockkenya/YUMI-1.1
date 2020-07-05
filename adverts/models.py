@@ -94,7 +94,7 @@ class Advert(models.Model):
 
 
     class Meta:
-        ordering = ('pub_date', )
+        ordering = ('-pub_date', )
         index_together = (('id', 'slug'),)
 
     def __str__(self):

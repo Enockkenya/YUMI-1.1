@@ -45,6 +45,9 @@
             </div> -->
          
           </form>
+          {% if request.GET.next %}
+          <input type="hidden" name="next" value="{{ request.GET.next }}" >                  
+          {% endif %}   
           <div class="modal-footer justify-content-center">
             <button onclick="ajax_authenticate();"
                         type="button"

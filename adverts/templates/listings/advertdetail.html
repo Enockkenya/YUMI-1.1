@@ -10,7 +10,10 @@
                   <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="inner-box ads-details-wrapper">
                       <h2>{{advert.name}}</h2>
-                      <p class="item-intro"><span class="poster"> <strong>For sale by</strong> <span class="ui-bubble is-member">{{advert.user.first_name }} {{advert.user.last_name }}</span> <span class="date">  <strong>posted on</strong>  {{advert.pub_date}} </span><strong> from </strong> <span class="location">{{advert.location}}</span></p>
+                       <h3>  For sale by <a href="">{{advert.user.first_name }} {{advert.user.last_name }}</a></h3> </p>
+                      <a href="" target="_blank"><i class=" fas fa-phone"></i> 087887788 </a>
+               
+                      <p class="item-intro"><span class="poster">  <span class="ui-bubble is-member"></span> <span class="date">  <strong>posted on</strong>  {{advert.pub_date}} </span><strong> from </strong> <span class="location">{{advert.location}}</span></p>
                       <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
                           <div class="product-img">
