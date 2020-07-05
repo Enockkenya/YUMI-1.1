@@ -1,0 +1,185 @@
+{% extends 'login/base.html' %}
+{% load static %}
+{% block content %}
+ <!-- Content section Start --> 
+<br><br>
+  <div class="container ">
+    <div class="row justify-content-center ">
+      
+      <div class="col-lg-4 col-md-12 col-xs-12 ">
+
+          
+           <div class="usercontent text-center">
+                
+                <figure>
+                    <a href="#"><img class="-img-fluid" src="{% static 'assets/img/logo0.png' %}" style="width:240px; height:93px;" alt="yumilogo"></a>
+                  </figure>
+               
+            </div> 
+        
+               
+       
+        <div class="page-login-form box">
+          <h3>
+            Login
+          </h3>
+          <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
+        </div>
+          <form role="form" class="login-form">
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="icon fas fa-user"></i>
+                <input  type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
+              </div>
+            </div> 
+            <div class="form-group">
+              <div class="input-icon">
+                <i class="icon fas fa-unlock-alt"></i>
+                <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
+              </div>
+            </div>                  
+            <!-- <div class="checkbox">
+              <input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
+              <label for="remember">Remember me</label>
+            </div> -->
+         
+          </form>
+          <div class="modal-footer justify-content-center">
+            <button onclick="ajax_authenticate();"
+                        type="button"
+                        class="btn btn-common ">Sign in
+          </button> 
+     
+        </div>
+       
+          <ul class="form-links">
+            <li class="float-right"><a href="/forgot_password">Lost your password?</a></li>
+            <li class="float-left"><a  href="{% url 'registration:redirectedregister' %}">Don't have an account?</a></li>
+
+          </ul>
+          <br> 
+    
+        </div>
+        <br>    <br>   
+        <div class=" justify-content-center text-center" style="color: #b3b3b3;">
+          <h6>   Copyright <script>
+           document.write(new Date().getFullYear())
+         </script> &#xA9; Yumi </h6>
+      
+   
+     <a  target="_blank"   href="http://www.brainlabs.co.ke/" style="color: #b3b3b3;"> Powered by
+     Brain Labs Kenya
+     </a> 
+       </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <script>
+    /**
+     * When the 'Enter' key is pressed, lets try login in.
+     */
+    $(document).bind("keypress.13", function(event) {
+        if ($('#login_modal').is(':visible')) {
+            if (event.which == 13) {
+                ajax_authenticate();
+            }
+        }
+    });
+    
+    //
+    // IMPORTANT:
+    //  The following block of code will run when finished running this modal.
+    //  Please put all jQuery unbinding code here.
+    //
+    // When this model hides, we will clear the contents of it.
+    $('#login_modal').on('hidden.bs.modal', function (e) {
+        $(document).unbind("keypress.key13");
+        $('#login_modal').remove();
+        $('#ajax_response_login').html('');
+    });
+    
+    /**
+     *  Function will call AJAX function to load the register.
+     */
+    function ajax_authenticate()
+    {
+        var url = 'login';
+
+        $.ajax( url, {
+            data: {
+               'username': $("#login_username").val(),
+               'password': $("#login_password").val(),
+               'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            type: 'post',
+            success: function(json_result) {
+            // success code execution here
+               if (json_result.status == "success")
+               {
+                    // Hide & close the current popup modal.
+                    $('#login_modal').modal('hide');
+           
+                    // Load up the course list.
+                    window.location = '/Ads';
+               }
+               else
+               {
+                    alert(json_result.message);
+               }
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+
+    /**
+     *  TODO: Implement.
+     */
+    function ajax_forget_password()
+    {
+        var url = 'forget_password';
+    
+        $.ajax( url, {
+            data: {
+               'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            type: 'post',
+            success: function(result) {
+               // success code execution here
+               $('#ajax_response_register').html(result); // Update UI.
+               $('#register_modal').modal();               // Unhide view.
+            },
+            error: function(xhr,status,error) {
+               // error code here
+            },
+            complete: function(xhr,status) {
+               // completion code here
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+  {% include "login/jsmodal.html" %} 
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
+{% endblock content  %}

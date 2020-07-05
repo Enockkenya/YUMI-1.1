@@ -23,6 +23,7 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+
     def get_absolute_url(self):
         return reverse('adverts:adverts_list_by_category', args=[self.slug])
 
@@ -98,6 +99,9 @@ class Advert(models.Model):
 
     def __str__(self):
         return self.name +'' + 'by' + '' + str(self.user)
+
+    def snippet(self):
+        return self.description[:50]
 
     def get_absolute_url(self):
         return reverse('adverts:advert_detail',  kwargs={"id":self.id, "slug":self.slug})

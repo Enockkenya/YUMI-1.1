@@ -1,185 +1,340 @@
 {% extends 'login/base.html' %}
 {% load static %}
 {% block content %}
- <!-- Content section Start --> 
-<br><br>
-  <div class="container ">
-    <div class="row justify-content-center ">
-      
-      <div class="col-lg-4 col-md-12 col-xs-12 ">
-
-          
-           <div class="usercontent text-center">
-                
-                <figure>
-                    <a href="#"><img class="-img-fluid" src="{% static 'assets/img/logo0.png' %}" style="width:240px; height:93px;" alt="yumilogo"></a>
-                  </figure>
-               
-            </div> 
-        
-               
-       
-        <div class="page-login-form box">
-          <h3>
-            Login
-          </h3>
-          <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
-        </div>
-          <form role="form" class="login-form">
-            <div class="form-group">
-              <div class="input-icon">
-                <i class="icon fas fa-user"></i>
-                <input  type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
-              </div>
-            </div> 
-            <div class="form-group">
-              <div class="input-icon">
-                <i class="icon fas fa-unlock-alt"></i>
-                <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
-              </div>
-            </div>                  
-            <!-- <div class="checkbox">
-              <input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
-              <label for="remember">Remember me</label>
-            </div> -->
-         
-          </form>
-          <div class="modal-footer justify-content-center">
-            <button onclick="ajax_authenticate();"
-                        type="button"
-                        class="btn btn-common ">Sign in
-          </button> 
-     
-        </div>
-       
-          <ul class="form-links">
-            <li class="float-right"><a href="/forgot_password">Lost your password?</a></li>
-            <li class="float-left"><a  href="{% url 'registration:redirected_register' %}">Don't have an account?</a></li>
-
-          </ul>
-          <br> 
-    
-        </div>
-        <br>    <br>   
-        <div class=" justify-content-center text-center" style="color: #b3b3b3;">
-          <h6>   Copyright <script>
-           document.write(new Date().getFullYear())
-         </script> &#xA9; Yumi </h6>
-      
+    	
+<div class="container-login100" >
+  <div class="wrap-login100 p-l-55 p-r-55 p-t-20 p-b-20">
+    <form class="login100-form validate-form" method="post" action='/login' name="loginForm">
    
-     <a  target="_blank"   href="http://www.brainlabs.co.ke/" style="color: #b3b3b3;"> Powered by
-     Brain Labs Kenya
-     </a> 
-       </div>
+      <!-- <div class="text-center p-t-7 p-b-0">
+          <span class="txt1">
+         or Log in with
+
+          </span>
+        </div> -->
+      <!-- <div class="flex-c p-b-20">
+        <a href="#" class="login100-social-item">
+          <i class="fa fa-facebook-f"></i>
+        </a>
+
+        <a href="#" class="login100-social-item">
+        
+          <img src="{% static 'images/icon-google.png' %}" alt="GOOGLE">
+        </a>
+      </div> -->
+           <div class="flex-c p-b-0">
+     
+
+        <a href="#" class="login100-social-item">
+        
+          <img src="{% static 'images/uni.png' %}" alt="logo">
+        </a>
       </div>
+      <span class="login100-form-title p-b-7">
+        Sign In
+      </span>
+      <br>
+          <div class="wrap-input100 validate-input m-b-20" data-validate="Enter email">
+    
+        <input class="input100" type="text" name="login_username" id="login_username" placeholder="enter email" autocorrect="off" autocapitalize="none">
+      
+            <span class="focus-input100">  </span>
+       
+          </div>
+  
+          <div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+            <input class="input100" type="password" name="login_password" id="login_password" placeholder="password">
+            <span class="focus-input100"></span>
+          </div>
 
+     
+          <div class="container-login100-form-btn" >
+            <button class="login100-form-btn"   type="button" onclick="ajax_authenticate();">
+              Sign In
+            </button>
+          </div>
+
+        <br>
+    
+
+      
+          <div class="text-center">
+              <a href="/forgot_password" class="txt2 hov1">
+              forgot password?
+              </a>
+              <br>
+            <span class="txt1"> Dont have an account?</span>   <a href="/redirected-register"><strong class="txt2 hov1">Register</strong></a>
+
+            </div>
+
+            <br>
+            <div class="text-center txt3">
+                Copyright &#xA9;
+                <script>
+                  document.write(new Date().getFullYear())
+                </script> Curio Effect 
+                  <br>
+          <a class="txt3 hov1" target="_blank" href="http://www.brainlabs.co.ke/"> Powered by
+        Brain Labs Kenya
+        </a>  
+              </div>
+         
+        </form>
+  
+        
+      </div>
     </div>
-  </div>
-
-
-
-
-
-
-  <script>
-    /**
-     * When the 'Enter' key is pressed, lets try login in.
-     */
-    $(document).bind("keypress.13", function(event) {
-        if ($('#login_modal').is(':visible')) {
-            if (event.which == 13) {
-                ajax_authenticate();
-            }
-        }
-    });
     
-    //
-    // IMPORTANT:
-    //  The following block of code will run when finished running this modal.
-    //  Please put all jQuery unbinding code here.
-    //
-    // When this model hides, we will clear the contents of it.
-    $('#login_modal').on('hidden.bs.modal', function (e) {
-        $(document).unbind("keypress.key13");
-        $('#login_modal').remove();
-        $('#ajax_response_login').html('');
-    });
     
-    /**
-     *  Function will call AJAX function to load the register.
-     */
-    function ajax_authenticate()
-    {
-        var url = 'login';
+  
+    <div id="dropDownSelect1"></div>
 
-        $.ajax( url, {
-            data: {
-               'username': $("#login_username").val(),
-               'password': $("#login_password").val(),
-               'csrfmiddlewaretoken': '{{ csrf_token }}'
-            },
-            type: 'post',
-            success: function(json_result) {
-            // success code execution here
-               if (json_result.status == "success")
-               {
-                    // Hide & close the current popup modal.
-                    $('#login_modal').modal('hide');
-           
-                    // Load up the course list.
-                    window.location = '/Ads';
-               }
-               else
-               {
-                    alert(json_result.message);
-               }
-            },
-            error: function(xhr,status,error) {
-               // error code here
-            },
-            complete: function(xhr,status) {
-               // completion code here
+
+
+
+
+    	
+	<!-- <div class="container-login100" style="background-image: url('images/bg-01.jpg');">
+		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
+			<form class="login100-form validate-form">
+				<span class="login100-form-title p-b-37">
+					Sign In
+				</span>
+
+				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
+					<input class="input100" type="text" name="username" placeholder="username or email">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
+					<input class="input100" type="password" name="pass" placeholder="password">
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn">
+						Sign In
+					</button>
+				</div>
+
+				<div class="text-center p-t-57 p-b-20">
+					<span class="txt1">
+						Or login with
+					</span>
+				</div>
+
+				<div class="flex-c p-b-112">
+					<a href="#" class="login100-social-item">
+						<i class="fa fa-facebook-f"></i>
+					</a>
+
+					<a href="#" class="login100-social-item">
+						<img src="images/icons/icon-google.png" alt="GOOGLE">
+					</a>
+				</div>
+
+				<div class="text-center">
+					<a href="#" class="txt2 hov1">
+						Sign Up
+					</a>
+				</div>
+			</form>
+
+			
+		</div>
+	</div>
+	  width: 390px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+
+  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
+  background-color: #0bbd8a;
+  box-shadow: 0 10px 30px 0px rgb(138,237,209, 0.8);
+  -moz-box-shadow: 0 10px 30px 0px rgb(138,237,209, 0.8);
+  -webkit-box-shadow: 0 10px 30px 0px rgb(138,237,209, 0.8);
+  -o-box-shadow: 0 10px 30px 0px rgb(138,237,209, 0.8);
+  -ms-box-shadow: 0 10px 30px 0px rgb(138,237,209, 0.8);	
+
+	<div id="dropDownSelect1"></div> -->
+<!-- <div class="page-header header-filter" style="background-image: url('../assets/img/bg7.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
+          <form method="post"
+          action='/login'
+            name="loginForm">
+
+            <div class="card card-login card-hidden">
+              <div class="card-header card-header-primary text-center">
+                <h4 class="card-title">Login to view site</h4>
+                
+              </div>
+              <div class="card-body ">
+            
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">email</i>
+                      </span>
+                    </div>
+                    <input type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
+
+                  </div>
+                </span>
+                <span class="bmd-form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">
+                        <i class="material-icons">lock_outline</i>
+                      </span>
+                    </div>
+                    <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
+
+                </div>
+                </span>
+              </div>
+              <div class="modal-footer justify-content-center">
+                    <button onclick="ajax_authenticate();"
+                                type="button"
+                                class="btn btn-primary btn-round">Sign in
+                  </button> 
+                  <a href="/redirected-register"></a>
+                
+                 
+                </div>
+                <div class="modal-footer justify-content-center">
+                   
+                      <a href="/redirected-register">Dont have an account? <strong>Register</strong></a>
+                    
+                     
+                    </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            
+              <div class="copyright">
+                      Copyright &#xA9;
+                      <script>
+                        document.write(new Date().getFullYear())
+                      </script> Leadership and Development Academy.
+
+                <br> 
+                  <a style="color:#8293f5"   href="http://www.brainlabs.co.ke/"> Powered by
+                  Brain Labs Kenya
+                  </a> 
+                    </div>
+        </div>
+      </footer>
+   
+</div> -->
+
+
+
+    <script>
+            /**
+             * When the 'Enter' key is pressed, lets try login in.
+             */
+            $(document).bind("keypress.13", function(event) {
+                if ($('#login_modal').is(':visible')) {
+                    if (event.which == 13) {
+                        ajax_authenticate();
+                    }
+                }
+            });
+            
+            //
+            // IMPORTANT:
+            //  The following block of code will run when finished running this modal.
+            //  Please put all jQuery unbinding code here.
+            //
+            // When this model hides, we will clear the contents of it.
+            $('#login_modal').on('hidden.bs.modal', function (e) {
+                $(document).unbind("keypress.key13");
+                $('#login_modal').remove();
+                $('#ajax_response_login').html('');
+            });
+            
+            /**
+             *  Function will call AJAX function to load the register.
+             */
+            function ajax_authenticate()
+            {
+                var url = 'login';
+        
+                $.ajax( url, {
+                    data: {
+                       'username': $("#login_username").val(),
+                       'password': $("#login_password").val(),
+                       'csrfmiddlewaretoken': '{{ csrf_token }}'
+                    },
+                    type: 'post',
+                    success: function(json_result) {
+                    // success code execution here
+                       if (json_result.status == "success")
+                       {
+                            // Hide & close the current popup modal.
+                            $('#login_modal').modal('hide');
+                   
+                            // Load up the course list.
+                            window.location = '/shop';
+                       }
+                       else
+                       {
+                            alert(json_result.message);
+                       }
+                    },
+                    error: function(xhr,status,error) {
+                       // error code here
+                    },
+                    complete: function(xhr,status) {
+                       // completion code here
+                    }
+                });
             }
-        });
-    }
-
-    /**
-     *  TODO: Implement.
-     */
-    function ajax_forget_password()
-    {
-        var url = 'forget_password';
-    
-        $.ajax( url, {
-            data: {
-               'csrfmiddlewaretoken': '{{ csrf_token }}',
-            },
-            type: 'post',
-            success: function(result) {
-               // success code execution here
-               $('#ajax_response_register').html(result); // Update UI.
-               $('#register_modal').modal();               // Unhide view.
-            },
-            error: function(xhr,status,error) {
-               // error code here
-            },
-            complete: function(xhr,status) {
-               // completion code here
+        
+            /**
+             *  TODO: Implement.
+             */
+            function ajax_forget_password()
+            {
+                var url = 'forget_password';
+            
+                $.ajax( url, {
+                    data: {
+                       'csrfmiddlewaretoken': '{{ csrf_token }}',
+                    },
+                    type: 'post',
+                    success: function(result) {
+                       // success code execution here
+                       $('#ajax_response_register').html(result); // Update UI.
+                       $('#register_modal').modal();               // Unhide view.
+                    },
+                    error: function(xhr,status,error) {
+                       // error code here
+                    },
+                    complete: function(xhr,status) {
+                       // completion code here
+                    }
+                });
             }
-        });
-    }
-</script>
+        </script>
+        
+     
 
 
 
-
-
-
-
-  {% include "login/jsmodal.html" %} 
-  <div id="ajax_response_login"></div>
-  <div id="ajax_response_register"></div>
-  <div id="ajax_logout"></div>
-{% endblock content  %}
+        {% include "ui/jsmodal.html" %}  
+          <div id="ajax_response_login"></div>
+          <div id="ajax_response_register"></div>
+          <div id="ajax_logout"></div>
+  {% endblock content %}

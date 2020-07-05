@@ -21,7 +21,7 @@ def register_modal(request):
         'form': form,
     })
 
-def redirected_register(request):
+def redirectedregister(request):
     form = RegisterForm()
     return render(request, 'register/register.html'
     ,{

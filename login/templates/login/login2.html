@@ -1,5 +1,5 @@
 {% extends 'login/base.html' %}
-{% load static %}
+{% load staticfiles %}
 {% block content %}
 <nav  class="navbar navbar-transparent  fixed-top   navbar-expand-lg " color-on-scroll="100" id="sectionsNav" >
         <!-- style=" box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2); " -->
@@ -21,7 +21,7 @@
           
 
       <div class="card-stats justify-content-center">
-                        <a href="/landpageprod" class="btn btn-primary btn-block pull-right" > Back to home </a>
+                        <a href="/shop" class="btn btn-primary btn-block pull-right" > Back to home </a>
                       </div>
                
               
@@ -40,7 +40,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-8 ml-auto mr-auto">
-          <form method="post" action='/login' name="loginForm">
+          <form method="post"
+          action='/login'
+            name="loginForm">
 
             <div class="card card-login card-hidden">
               <div class="card-header card-header-primary text-center">
@@ -135,10 +137,9 @@
         
                 $.ajax( url, {
                     data: {
-                      'csrfmiddlewaretoken': '{{ csrf_token }}',
                        'username': $("#login_username").val(),
                        'password': $("#login_password").val(),
-                    
+                       'csrfmiddlewaretoken': '{{ csrf_token }}'
                     },
                     type: 'post',
                     success: function(json_result) {
@@ -149,7 +150,7 @@
                             $('#login_modal').modal('hide');
                    
                             // Load up the course list.
-                            window.location = 'landpageprod';
+                            window.location = '/trainingbits ';
                        }
                        else
                        {
@@ -197,71 +198,8 @@
 
 
 
-        {% include "base/js.html"  %}}
+        {% include "ui/jsmodal.html" %}  
           <div id="ajax_response_login"></div>
           <div id="ajax_response_register"></div>
           <div id="ajax_logout"></div>
   {% endblock content %}
-  <section id="content">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-4">
-          <div class="page-login-form box">
-            <h3>
-              Login
-            </h3>
-            <div id="error_box" name="error_box" class="alert alert-danger alert-dismissable" hidden="true">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-              ERROR: This is to be filled in by the "print_error" function. If you see this message that means there's an error with your javascript somewhere.
-          </div>
-            <form role="form" class="login-form">
-              <div class="form-group">
-                <div class="input-icon">
-                  <i class="icon fas fa-user"></i>
-                  <input type="text" class="form-control" name="login_username" id="login_username" placeholder="Enter Email" autocorrect="off" autocapitalize="none">
-                </div>
-              </div> 
-              <div class="form-group">
-                <div class="input-icon">
-                  <i class="icon fas fa-unlock-alt"></i>
-                  <input type="password" class="form-control" name="login_password" id="login_password" placeholder="Enter Password">
-                </div>
-              </div>                  
-              <!-- <div class="checkbox">
-                <input type="checkbox" id="remember" name="rememberme" value="forever" style="float: left;">
-                <label for="remember">Remember me</label>
-              </div> -->
-           
-            </form>
-            <div class="modal-footer justify-content-center">
-              <button onclick="ajax_authenticate();"
-                          type="button"
-                          class="btn btn-common log-btn">Sign in
-            </button> 
-       
-          </div>
-         
-            <ul class="form-links">
-              <li class="float-right"><a href="/forgot_password">Lost your password?</a></li>
-              <li class="float-left"><a  href="{% url 'registration:redirected_register' %}">Don't have an account?</a></li>
-  
-            </ul>
-            <br> 
-      
-          </div>
-          <br>    <br>    <br>
-          <div class=" justify-content-center text-center" style="color: #b3b3b3;">
-            <h6>   Copyright <script>
-             document.write(new Date().getFullYear())
-           </script> &#xA9; Yumi </h6>
-        
-     
-       <a  target="_blank"   href="http://www.brainlabs.co.ke/" style="color: #b3b3b3;"> Powered by
-       Brain Labs Kenya
-       </a> 
-         </div>
-        </div>
-  
-      </div>
-    </div>
-  </section>

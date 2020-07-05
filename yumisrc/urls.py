@@ -29,5 +29,6 @@ urlpatterns = [
     re_path(r'', include('login.urls')), 
     re_path(r'', include('account.urls', namespace='account' )),
     re_path(r'', include('adverts.urls', namespace='adverts' )),
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
