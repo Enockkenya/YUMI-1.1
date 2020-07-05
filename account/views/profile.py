@@ -64,7 +64,7 @@ def update_profile(request):
 
    
 
-@login_required()
+@login_required(login_url ='login:login_redirect')
 def view_my_ads(request, user_id):
     adverts = Advert.objects.filter(user_id = request.user.id)   
     return render(request,'profile/myadds.html', context ={  
@@ -75,9 +75,7 @@ def view_my_ads(request, user_id):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
 
-
-
-@login_required()
+@login_required(login_url ='login:login_redirect')
 def view_messages(request):
    
     return render(request, 'profile/messages.html',{
@@ -86,7 +84,8 @@ def view_messages(request):
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
-@login_required()
+
+@login_required(login_url ='login:login_redirect')
 def view_who_watched(request):
    
     return render(request, 'profile/view_who_watched.html',{
@@ -96,8 +95,7 @@ def view_who_watched(request):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
 
-
-@login_required()
+@login_required(login_url ='login:login_redirect')
 def view_saved_ads(request):
    
     return render(request, 'profile/savedads.html',{
@@ -107,7 +105,7 @@ def view_saved_ads(request):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     })
 
-@login_required()
+@login_required(login_url ='login:login_redirect')
 def view_settings(request):
    
     return render(request, 'profile/settings.html',{

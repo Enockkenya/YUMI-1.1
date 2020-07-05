@@ -14,7 +14,7 @@ urlpatterns = [
      #nologing in required
     re_path(r'^$',views.land_page, name='land_page'),
     re_path(r'^home$', views.land_page, name='home'),
-    re_path(r'^welcome$', views.welcome, name='welcome'),
+    re_path(r'^welcome/$', views.welcome, name='welcome'),
     re_path(r'^aboutus$', views.about_us, name='about_us'),
     re_path(r'^faqs$', views.faqs, name='faqs'),
     re_path(r'^pricingtable$', views.pricingtable, name='pricingtable'),

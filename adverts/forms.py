@@ -8,6 +8,7 @@ import datetime
 from django.forms import ModelForm, Textarea, TextInput, NumberInput, FileField, CheckboxInput, Select 
 # from django.forms.extras.widgets import Select, SelectDateWidget
 from pyuploadcare.dj.models import ImageGroupField, ImageField
+from cloudinary.forms import CloudinaryFileField
 
 
 class UserForm(forms.ModelForm):
@@ -55,7 +56,15 @@ class UserForm(forms.ModelForm):
             pass
 
 class PostadForm(forms.ModelForm):
-    image = ImageGroupField()
+    image = CloudinaryFileField(required=False,
+
+        options = {
+            'crop': 'thumb',
+            'width': 200,
+            'height': 200,
+            'folder': 'profilepic'
+       },
+    )
     class Meta:
         model = Advert
         fields = { 'name', 'description', 'price', 'location', 'category',  'item_condition','accept_terms', 'option', 'image'}
@@ -68,8 +77,7 @@ class PostadForm(forms.ModelForm):
             'category': 'category',
             'item_condition': 'item_condition', 
             'option': 'option',
-            'image': 'image',
-    
+          
             
      }
 

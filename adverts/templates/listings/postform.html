@@ -81,7 +81,7 @@
                       </section>
                     </div>
                   
-                    <label style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);" class="tg-fileuploadlabel" for="tg-photogallery">
+                    <!-- <label style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);" class="tg-fileuploadlabel" for="tg-photogallery">
                         <input
                          type="hidden" 
                          name="image" 
@@ -96,8 +96,14 @@
                         id="id_image" 
                         value="">
                        
-                    </label>
-                  
+                    </label> -->
+                                                <span class="btn btn-primary btn-file">
+                                                        <span class="fileinput-new">Upload Profile pic</span>
+                                                     
+                                                        <input id="id_image" name="image" type="file" onchange="loadFile(event)">
+                                          
+                                                      </span>
+
                   
                     </div>
               <div class="col-lg-6 ">

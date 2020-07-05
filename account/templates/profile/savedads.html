@@ -1,0 +1,106 @@
+{% extends 'base/accountbase.html' %}
+{% load static %}
+{% block content %}
+
+
+    <!-- Start Content -->
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-md-12 col-lg-4 page-sidebar">
+              {% include "profile/sidebar.html" %}
+          </div>
+
+          <div class="col-lg-8 col-md-12 col-xs-12 page-content">
+            <div class="inner-box">
+              <h2 class="title-2"><i class="fas fa-credit-card"></i> SAVED ADS</h2>
+              <div class="table-responsive">
+                <div class="table-action">
+                  <div class="checkbox">
+                 <strong>  Total Saved Ads : </strong>
+                  </div>
+                  <div class="table-search float-right">
+                    <div class="form-group row">
+                      <label class="mr-2 col-xs-5 control-label text-right">Search <br>
+                      </label>
+                      <div class="mr-3 col-xs-7 searchpan">
+                        <input class="form-control" id="filter" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h5> You dont have any Ads <span> <a class="btn  btn-primary btn-xs" href="{% url 'adverts:post_ad' %}"><span class="fas fa-plus-circle"></span> Post an Ad</a></span></h5>
+
+                <!-- <table class="table table-striped table-bordered add-manage-table">
+                  <thead>
+                    <tr>
+                      <th data-type="numeric"></th>
+                      <th>Photo</th>
+                      <th>Adds Details</th>
+                      <th>Price</th>
+                      <th>Option</th>
+                    </tr>
+                  </thead>
+                  {% if adverts %} 
+                  {% for advert in adverts %}
+                  <tbody>
+                    <tr>
+                      <td class="add-img-selector">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox">
+                          </label>
+                        </div>
+                      </td>
+                      <td class="add-img-td">
+                        <a href="">
+                          <img class="img-fluid" src="assets/img/item/img-1.jpg" alt="img">
+                        </a>
+                      </td>
+                      <td class="ads-details-td">
+                        <h4><a href=""> {{advert.name}}</a></h4>
+                        <p> <strong> Posted On </strong>:
+                          {{advert.pub_date}}</p>
+                          <p> <strong>Ad Category:</strong> {{advert.category}} </p>
+
+                        <p> <strong>Located In:</strong> {{advert.location}} </p>
+                      </td>
+                      <td class="price-td">
+                        <strong>{{advert.price}}</strong>
+                      </td>
+                      <td class="action-td">
+                        <p><a  href="{% url 'adverts:update_post' id=advert.id  %}" class="btn btn-primary btn-xs"> <i class="fas fa-pencil-square-o"></i> Edit</a></p>
+                        <p><a class="btn btn-info btn-xs"> <i class="fas fa-share-square-o"></i> Share</a></p>
+                        <p><a  href="{% url 'adverts:delete_post' id=advert.id  %}"  class="btn btn-danger btn-xs"> <i class=" fas fa-trash"></i> Delete</a></p>
+                      </td>
+                    </tr>
+              
+                  </tbody>
+              
+                  {% endfor %}
+
+                  {% else %}
+                  
+                 
+      
+               {% endif %}
+                </table> -->
+
+            
+
+            
+              </div>               
+            </div>
+         
+          </div>
+        </div>  
+      </div>      
+    </div>
+    <!-- End Content -->
+
+    {% include "base/jsmodal.html"  %} 
+  <div id="ajax_response_login"></div>
+  <div id="ajax_response_register"></div>
+  <div id="ajax_logout"></div>
+  <div id="fb-root"></div>
+{% endblock content %}
