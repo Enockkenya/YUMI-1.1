@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Advert, Location, Option, Item_condition
+from .models import Category, Advert, Location, Option, Item_condition, Tag
 
 
 
@@ -26,6 +26,12 @@ class OptionAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Option, OptionAdmin)
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['name', ]
+
+
+admin.site.register(Tag, TagAdmin)
 
 class Item_conditionAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']

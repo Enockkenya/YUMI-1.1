@@ -18,10 +18,10 @@
                         <div class="item">
                           <div class="product-img">
                             
-                            <img class="img-fluid"   src="{% if advert.image %} {{ image.image.cdn_url }} {% else %} {% static 'img/default.png' %} {% endif %} "alt="">
+                            <img class="img-fluid"  style="width:20%; height: 50%;" src="{% if advert.image %} {{advert.image.url}} {% else %} {% static 'img/default.png' %} {% endif %} "alt="">
                           </div>
                         </div>
-                        <div class="item">
+                        <!-- <div class="item">
                           <div class="product-img">
                             <img class="img-fluid" src="assets/img/pel.jpg" alt="">
                           </div>
@@ -30,7 +30,7 @@
                           <div class="product-img">
                             <img class="img-fluid" src="assets/img/pel.jpg" alt="">
                           </div>
-                        </div>
+                        </div> -->
                       </div>
                     </div>
       
@@ -84,6 +84,13 @@
                               <li>
                                 <a href="#">Posted by <i class=" fas fa-user"></i> {{advert.user.first_name }} {{advert.user.last_name }}</a></li>
                               <li>
+                              
+                                  <div class="item_desc">
+                                      <form action="{url 'adverts:like_ad' id=advert.id   }" method="post">
+                                          {% csrf_token %}
+                                          <p><button class="btn btn-danger btn-xs" type="submit" name="advert_id" value="{advert.id}" >  <i class=" fas fa-heart"></i> Like</button></p>
+                                          </form> 
+                                        </div>
                                 <a href="#"> <i class=" fas fa-heart"></i> Save ad</a></li>
                               <li>
                                 <a href="#"> <i class="fas fa-share-alt"></i> Share </a>

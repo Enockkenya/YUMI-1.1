@@ -11,6 +11,10 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 from django.utils.text import slugify
 from django.core.paginator import Paginator
+from django.urls import reverse_lazy, reverse
+from django.http import HttpResponseRedirect
+
+
 
 
 @login_required(login_url ='login:login_redirect')
@@ -81,20 +85,29 @@ def delete_post(request, id, ):
     })
 
 
+def like_ad(request, id):
+    advert = get_object_or_404(Advert, id=id, )
+    advert.likes.add(request.user)
+    return HttpResponseRedirect(reverse('adverts:advert_detail', id='advert.id'),{
+        'advert': advert,
+        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    })
+
+
+
 
 # @login_required(login_url='/accounts/login/')
 def adverts_list(request,category_slug=None):
     category = None
     categories = Category.objects.all()
     adverts = Advert.objects.filter(available=True)
-    adverts2 = Advert.objects.filter(available=True)
-    paginator = Paginator(adverts, 1)
+    paginator = Paginator(adverts, 2)
     page_number = request.GET.get('page', 1)
     page = paginator.get_page(page_number)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         adverts = Advert.objects.filter(category=category)
-        adverts2 = Advert.objects.filter(category=category)
     if page.has_next():
         next_url = f'?page={page.next_page_number()}'
     else:
@@ -110,7 +123,6 @@ def adverts_list(request,category_slug=None):
         'category': category,
         'categories': categories,
         'adverts' : adverts,
-        'adverts2' : adverts2,
         'page': page, 
         'next_page_url' : next_url,
         'prev_page_url': prev_url,
@@ -128,6 +140,7 @@ def advert_detail(request, id, slug):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     }
       )
+
 
 
 

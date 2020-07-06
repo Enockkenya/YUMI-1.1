@@ -72,7 +72,17 @@ class Item_condition(models.Model):
     def __str__(self):
         return self.name
 
+class Tag(models.Model):
+    name = models.CharField(max_length=150, db_index=True)
 
+
+    class Meta:
+        ordering = ('name', )
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
+
+    def __str__(self):
+        return self.name
 
 class Advert(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -89,6 +99,8 @@ class Advert(models.Model):
     image = CloudinaryField('image', blank=True, null=True)
     available = models.BooleanField(default=True)
     accept_terms = models.BooleanField(default=True)
+    tags = models.ManyToManyField(Tag, default='new' )
+    likes = models.ManyToManyField(User, related_name='advertposts' )
 
 
 
