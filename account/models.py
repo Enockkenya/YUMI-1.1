@@ -56,15 +56,15 @@ class PrivateMessage(models.Model):
 
 
 
-class Client(models.Model):
-    client_id = models.AutoField(primary_key=True)
+class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     profile_pic =  CloudinaryField('image', blank=True, null=True)
     bio = models.TextField(max_length=500, blank=True, null=True)
     title = models.CharField(max_length=4, blank=True, null=True)
     county = models.CharField(max_length=127, choices=COUNTY_CATEGORY_TYPES,  blank=True,null=True,  default='Kenya')
-    phone_number = models.IntegerField(blank=True, null=True)
+    phone_number = models.IntegerField()
     town = models.CharField(max_length=127, choices=TOWN_CATEGORY_TYPES,  blank=True,null=True,  default='Nairobi')
+
  
     
     def __str__(self):
@@ -72,8 +72,8 @@ class Client(models.Model):
                           self.user.last_name 
   
 
-    def create_client_profile(sender, **kwargs):
+    def create_user_profile(sender, **kwargs):
         if kwargs['created']:
-            client = Client.objects.create(user=kwargs['instance'])
+            User_profile = Profile.objects.create(user=kwargs['instance'])
 
-    post_save.connect(create_client_profile, sender=User)
+    post_save.connect(create_user_profile, sender=User)

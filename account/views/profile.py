@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import json
 from django.shortcuts import render,redirect, get_object_or_404
-from account.forms import UserForm,ClientForm
+from account.forms import UserForm,UserProfileForm
 from registration.form import RegisterForm
 from django.db import transaction
 from account.models import *
@@ -45,7 +45,7 @@ def update_profile(request):
     if request.method == 'POST':
 
         # user_form = RegisterForm(request.POST,instance=request.user)
-        profile_form = ClientForm(request.POST,files=request.FILES, instance=request.user.client)
+        profile_form = UserProfileForm(request.POST,files=request.FILES, instance=request.user)
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, _('Your profile was successfully updated!'))

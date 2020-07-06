@@ -17,7 +17,7 @@ from django.core.paginator import Paginator
 def post_ad(request):
     if request.method == 'POST':
        
-        post_form = PostadForm(request.POST,files=request.FILES)
+        post_form = PostadForm(request.POST, files=request.FILES)
         
         if post_form.is_valid():
             post_form=post_form.save(commit=False)
@@ -82,9 +82,10 @@ def delete_post(request, id, ):
 
 
 
-def adverts_list(request):
-    # category = None
-    # categories = Category.objects.all()
+def adverts_list_by_category(request, category_slug):
+    category = None
+    categories = Category.objects.all()
+    category = Category.objects.filter(slug=category_slug)
     adverts = Advert.objects.filter(available=True)
     adverts2 = Advert.objects.filter(available=True)
     paginator = Paginator(adverts, 1)
@@ -117,6 +118,34 @@ def adverts_list(request):
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     }) 
+def adverts_list(request):
+    categories = Category.objects.all()
+    adverts = Advert.objects.filter(available=True)
+    paginator = Paginator(adverts, 4)
+    page_number = request.GET.get('page', 1)
+    page = paginator.get_page(page_number)
+    if page.has_next():
+        next_url = f'?page={page.next_page_number()}'
+    else:
+        next_url = ''
+
+    if page.has_previous():
+        prev_url = f'?page={page.previous_page_number()}'
+    else:
+        prev_url = ''
+        
+
+    return render(request, 'listings/advertlist.html',   context = {
+        'adverts' : adverts,
+        'categories': categories,
+        'category':'category',
+        'page': page, 
+        'next_page_url' : next_url,
+        'prev_page_url': prev_url,
+        'tab': 'listings',
+        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
+        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
+    }) 
 
 
 def advert_detail(request, id, slug):
@@ -129,6 +158,24 @@ def advert_detail(request, id, slug):
       )
 
 
+def review_ad_seller(request):
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+
+            # Create Comment object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current post to the comment
+            new_comment.post = post
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    return render(request, template_name, {'post': post,
+                                           'comments': comments,
+                                           'new_comment': new_comment,
+                                           'comment_form': comment_form})
 
 
 
