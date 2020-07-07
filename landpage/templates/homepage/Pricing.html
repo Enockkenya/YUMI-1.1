@@ -3,17 +3,6 @@
 {% block content %}
 
 
-    <!-- Page Header Start -->
-    <div class="page-header" style="background: url(../../../static/assets/img/banner1.jpg);">
-      <div class="container">
-        <div class="row">         
-          <div class="col-md-12">
-            <h1 class="page-title">Pricing Tables</h1>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Page Header End --> 
 
     <!-- Content section Start --> 
     <section id="content">
@@ -41,7 +30,7 @@
                   <li><i class="fas fa-check-square"></i>For&nbsp;25&nbsp;days</li>
                   <li><i class="fas fa-check-square"></i>100% Secure!</li>
                 </ul>
-                <button class="btn btn-common" type="submit">Purchase Now</button>
+                <button class="btn btn-common" data-toggle="modal" data-target="#loginModal" type="submit">Purchase Now</button>
               </div> 
             </div>
             <div class="col-lg-4 col-md-6 col-xs-12">
@@ -59,7 +48,7 @@
                   <li><i class="fas fa-check-square"></i>For&nbsp;25&nbsp;days</li>
                   <li><i class="fas fa-check-square"></i>100% Secure!</li>
                 </ul>
-                <button class="btn btn-common" type="submit">Purchase Now</button>
+                <button class="btn btn-common" data-toggle="modal" data-target="#loginModal" type="submit">Purchase Now</button>
              </div> 
             </div>
             <div class="col-lg-4 col-md-6 col-xs-12">
@@ -77,7 +66,7 @@
                   <li><i class="fas fa-check-square"></i>For&nbsp;25&nbsp;days</li>
                   <li><i class="fas fa-check-square"></i>100% Secure!</li>
                 </ul>
-                <button class="btn btn-common" type="submit">Purchase Now</button>
+                <button class="btn btn-common" data-toggle="modal" data-target="#loginModal" type="submit">Purchase Now</button>
               </div> 
             </div>
           </div>
@@ -87,6 +76,42 @@
     </section>
     <!-- Content section End --> 
 
+              <!-- Login Modal -->
+              <div class="modal fade" id="loginModal" tabindex="-1" role="dialog">
+                <div style="margin: 15vh auto 0px auto" class="modal-dialog modal-login" role="document">
+                  <div class="modal-content">
+                    <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+                      <div class="widget-title">
+                      
+                        <h3   style="color:rgb(90, 88, 88)" >
+                          Our COVID 19 RESPONSE
+                        </h3>
+
+                     </div>
+                     <div class="modal-body">
+                      <div class="breadcrumb-wrapper">
+                        <figure>
+                                <a href="#"><img class="-img-fluid" src="{% static 'assets/img/covid.gif' %}" style="width:200px; height:200px;" alt="yumilogo"></a>
+                              </figure>
+                  </div>
+                    </div>
+                   
+                    <ul class="description">
+                     <h5>The Subscription Feature is now enabled by default to all our platform users.
+                         All products will be advertised and pushed thought the entire site, we know this are hard times
+                         for everyone, let's help you sell your products. </h5>   </ul>
+                         <br>
+                        <span> Sell your products online FOR FREE. It's easier than you think !</span>
+       
+                      <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+                      <!-- <div class="item_desc">
+                          <a href=" #"> <strong>How we work </strong></a>
+                        </div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--  End of Login Modal -
 
     {% include "base/landpagefooter.html" %}
     {% include "base/js.html" %}   

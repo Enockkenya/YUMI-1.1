@@ -9,15 +9,16 @@
 <div class="container">
   <div class="row">          
     <div class="col-lg-8 col-md-12 col-xs-12">
-      <img src="../../../static/assets/img/about.jpg" alt="">
-      <div class="ad-detail-content">
-        <p>This is an example page. It’s different from a blog post because it will stay in one place and will show up in your site navigation. Most people start with an About page that introduces them to potential site visitors. It might say something like this:</p>
-        <blockquote><p>Hi there! I’m a bike messenger by day, aspiring actor by night, and this is my blog. I live in Nairobi, have a great dog named Jack, and I like piña coladas. (And gettin’ caught in the rain.)</p></blockquote>
-        <p>…or something like this:</p>              
+      <img src="../../../static/assets/img/about.png" alt="">
+      <div style="color:rgb(66, 66, 66)" class="ad-detail-content">
+        <h3>Yumi is a startup platform aimed at revolutionizing the E commerce space. We provide an indirect linkage from the buyer and seller:</h3>
+        <blockquote><h4>" We give you authority to determine what you want from who and a wide range of prices per commodity to choose from."
+        </h4></blockquote>
+        <!-- <p>…or something like this:</p>              
         <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris.</p>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</p>
         <blockquote><p>The XYZ Doohickey Company was founded in 1971, and has been providing quality doohickeys to the public ever since. Located in Gotham City, XYZ employs over 2,000 people and does all kinds of awesome things for the Gotham community.</p></blockquote>
-        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p>
+        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.</p> -->
       </div>
     </div>
     <div class="col-lg-4 col-md-12 col-xs-12 page-sidebar">
@@ -29,51 +30,26 @@
               <h4>All Categories</h4>
             </div>
             <div class="categories-list">
-                <ul>
+              <ul>
+                {% if categories  %}
+                {% for c in categories %}
+              <li>
+                <a href="{{ c.get_absolute_url }}">
+                  <i class="fas fa-desktop"></i>
+                  {{ c.name }} <span class="category-counter">( {{c.adverts_in_category}} ) </span>
+                </a>
+              </li>
+            </li>
+                {% endfor %}
+                  {%else %}
                   <li>
-                    <a href="#">
-                      <i class="fas fa-desktop"></i>
-                      Electronics <span class="category-counter">(6,088)</span>
-                    </a>
-                  </li>
-                  
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-wrench"></i>
-                      Services <span class="category-counter">(686)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fab fa-github"></i>
-                      Home Appliances <span class="category-counter">(285)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-leaf"></i>
-                      Mobile phones <span class="category-counter">(300)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-home"></i>
-                      Real Estate <span class="category-counter">(904)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fab fa-black-tie"></i>
-                      Jobs <span class="category-counter">(585)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fas fa-utensils"></i>
-                      Hotel & Travels <span class="category-counter">(5)</span>
-                    </a>
-                  </li>
-                </ul>
+                      <a href="#">
+                        <i class="lnr lnr-sad"></i>
+                       No Categories found Currently <span class="category-counter">(0)</span>
+                      </a>
+                 
+                  {% endif %}
+            </ul>
               </div>
           </div>
         </div>

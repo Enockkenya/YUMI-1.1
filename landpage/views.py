@@ -35,9 +35,17 @@ def welcome(request):
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
 #Aboutusmodel
-def about_us(request):
+def about_us(request,category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    adverts = Advert.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        adverts = Advert.objects.filter(category=category)
     return render(request, 'homepage/aboutus.html',{
         'tab': 'aboutus',
+       'adverts' : adverts,
+       'categories':   categories,
      'local_css_urls' : settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls' : settings.SB_ADMIN_2_JS_LIBRARY_URLS
           })
