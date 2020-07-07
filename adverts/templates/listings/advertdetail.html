@@ -131,39 +131,39 @@
                         </div>
                       </div>
                     </div> -->
-                    <h2 class="title-2">
-                      Leave your Review 
-                    </h2>
+                    
+                    <div class="card-body">
+                      {% if new_comment %}
+                      <div class="alert alert-success" role="alert">
+                        Your review is awaiting moderation
+                      </div>
+                      {% else %}
+                      <h3>Leave your review</h3>
+                      <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form.as_p }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary  btn-lg">Submit</button>
+                      </form>
+                      {% endif %}
+                    </div>
                     <!-- Form -->
-                    <form id="contactForm" class="contact-form" data-toggle="validator">
+                    <form  method="post" id="comment_form" class="contact-form" data-toggle="validator">
+                      {% csrf_token %}
                       <div class="row">
                         <div class="col-12">
                           <div class="row">
                             <div class="col-12">
-                              <div class="form-group">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" required data-error="Please enter your name">
-                                <div class="help-block with-errors"></div>
-                              </div>                    
+                        
+                            
                             </div>
-                            <div class="col-12">
-                              <div class="form-group">                      
-                                <input type="email" class="form-control" id="email" placeholder="you@yoursite.com" required data-error="Please enter your email">
-                                <div class="help-block with-errors"></div>
-                              </div>
-                            </div>
-                            <div class="col-12">
-                              <div class="form-group"> 
-                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required data-error="Please enter your subject">
-                                <div class="help-block with-errors"></div>
-                              </div>
-                            </div> 
+        
                           </div>
                         </div>    
                         <div class="col-12">
                           <div class="row">
                             <div class="col-12">
                               <div class="form-group"> 
-                                <textarea class="form-control" placeholder="Massage" rows="7" data-error="Write your message" required></textarea>
+                                <textarea class="form-control" placeholder="write your review" rows="7" data-error="Write your message" required></textarea>
                                 <div class="help-block with-errors"></div>
                               </div>
                             </div>

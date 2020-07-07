@@ -93,13 +93,13 @@ class Advert(models.Model):
     location = models.ForeignKey(Location, related_name='adverts', on_delete=models.CASCADE)
     option = models.ForeignKey(Option, related_name='adverts', on_delete=models.CASCADE)
     item_condition = models.ForeignKey(Item_condition, related_name='item_condition', on_delete=models.CASCADE)
-    name = models.CharField(max_length=100, blank=True, null=True)
-    description = models.TextField(blank=True, null=True)
+    name = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
     slug = models.SlugField(max_length=100, db_index=True)
     price = models.PositiveIntegerField()
     pub_date = models.DateField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = CloudinaryField('image', blank=True, null=True)
+    image = CloudinaryField('image')
     available = models.BooleanField(default=True)
     accept_terms = models.BooleanField(default=True)
    
@@ -138,10 +138,10 @@ class Review(models.Model):
 
     reviewer = models.ForeignKey(
         User,
-        related_name='client_reviews',
+        related_name='client_review',
         on_delete=models.CASCADE
     )
-    reviewee = models.ForeignKey(
+    adseller = models.ForeignKey(
        User,
         related_name='seller_reviews',
         on_delete=models.CASCADE

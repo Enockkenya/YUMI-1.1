@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from adverts.forms import PostadForm
+from adverts.forms import PostadForm,ReviewAdForm
 from adverts.models import *
 from account.views import profile
 from django.contrib import messages
@@ -159,35 +159,40 @@ def adverts_list(request):
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     }) 
 
-
+@login_required(login_url ='login:login_redirect')
 def advert_detail(request, id, slug):
     advert = get_object_or_404(Advert, id=id , slug=slug, available=True)
-    return render( request, 'listings/advertdetail.html', context = {
+    ad_seller =  advert.user
+    reviews = ad_seller.seller_reviews.all()
+    count =reviews.count()
+    new_comment = None
+    print(count)
+    if request.method == 'POST':
+        comment_form = ReviewAdForm(data=request.POST)
+        if comment_form.is_valid():
+
+            # Create  object but don't save to database yet
+            new_comment = comment_form.save(commit=False)
+            # Assign the current review to the advert owner
+            new_comment.reviewer = request.user
+            new_comment.adseller = ad_seller
+            # Save the comment to the database
+            new_comment.save()
+    else:
+        comment_form = ReviewAdForm()
+    return render( request, 'listings/advertdetail.html', context={
         'advert': advert,
+        'reviews': reviews,
+        'new_comment': new_comment,
+        'comment_form': comment_form,
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     }
       )
 
 
-def review_ad_seller(request):
-    if request.method == 'POST':
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
 
-            # Create Comment object but don't save to database yet
-            new_comment = comment_form.save(commit=False)
-            # Assign the current post to the comment
-            new_comment.post = post
-            # Save the comment to the database
-            new_comment.save()
-    else:
-        comment_form = CommentForm()
-
-    return render(request, template_name, {'post': post,
-                                           'comments': comments,
-                                           'new_comment': new_comment,
-                                           'comment_form': comment_form})
+    
 
 
 

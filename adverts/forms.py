@@ -81,17 +81,6 @@ class PostadForm(forms.ModelForm):
             
      }
 
-        # widgets = { 
-        #     'description' : Textarea(attrs={'class': u'form-control','placeholder': u'Enter First Name' }),
-        #     'name': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
-	    #     'price': TextInput(attrs={'class': u'form-control','placeholder': u'Enter your Bio here'}),
-        #     'location': Select(attrs={'class': u'form-control'}),
-        #     'category': Select(attrs={'class': u'form-control'}),
-        #     'item_condition': Select(attrs={'class': u'form-control'}),
-        #     'option': Select(attrs={'class': u'form-control'}),
-        #     'accept_terms' : CheckboxInput(attrs={'class': 'required checkbox form-control'}),
-
-        # } 
 
     def clean_price(self):
         price = self.cleaned_data['price']
@@ -105,6 +94,6 @@ class PostadForm(forms.ModelForm):
 class ReviewAdForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = ['review','reviewee','reviewer']
+        fields = ['review']
                    
        
