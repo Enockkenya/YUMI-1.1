@@ -149,5 +149,6 @@ def advert_detail(request, id, slug):
 
 
 
+
   
 
