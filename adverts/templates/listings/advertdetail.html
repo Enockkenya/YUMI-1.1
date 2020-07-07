@@ -10,10 +10,8 @@
                   <div class="col-lg-8 col-md-12 col-xs-12">
                     <div class="inner-box ads-details-wrapper">
                       <h2>{{advert.name}}</h2>
-                       <h3>  For sale by <a href="">{{advert.user.first_name }} {{advert.user.last_name }}</a></h3> </p>
                       <a href="" target="_blank"><i class=" fas fa-phone"></i> 087887788 </a>
                
-                      <p class="item-intro"><span class="poster">  <span class="ui-bubble is-member"></span> <span class="date">  <strong>posted on</strong>  {{advert.pub_date}} </span><strong> from </strong> <span class="location">{{advert.location}}</span></p>
                       <div id="owl-demo" class="owl-carousel owl-theme">
                         <div class="item">
                           <div class="product-img">
@@ -40,65 +38,65 @@
                         <div class="ads-details-info col-md-8">
                           <p class="mb15">{{advert.description}}</p>
                           <ul class="list-circle">
-                            <li><i class="fas fa-check-circle"></i> 256GB PCIe flash storage</li>
-                            <li><i class="fas fa-check-circle"></i> 2.7 GHz dual-core Intel Core i5 processor</li>
-                            <li><i class="fas fa-check-circle"></i> Turbo Boost up to 3.1GHz</li>
-                            <li><i class="fas fa-check-circle"></i> Intel Iris Graphics 6100</li>
-                            <li><i class="fas fa-check-circle"></i> 8GB memory (up from 4GB in 2013 model)</li>
-                            <li><i class="fas fa-check-circle"></i> 10 hour battery life</li>
-                            <li><i class="fas fa-check-circle"></i> 13.3" Retina Display</li>
-                            <li><i class="fas fa-check-circle"></i> Intect Box</li>
-                            <li><i class="fas fa-check-circle"></i> 1 Year international warranty</li>
+                            <li><i class="fas fa-check-circle"></i> {{advert.more_details}} </li>
+                           
                         </div>
                         <div class="col-md-4">
                           <aside>
                             <ul class="panel-details">
+                                <li>
+                                    <a href="#">Posted by <i class=" fas fa-user"></i> {{advert.user.first_name }} {{advert.user.last_name }}</a></li>
+                                  <li>
                               <li>
-                                    <a href="#"> <i class=" fas fa-phone"></i> {{advert.user.phone_number}} </a></li>
+                                  <p class="no-margin"><strong>Contact:</strong>   <a href="#"> {{advert.user.phone_number}} </a></li>
                               <li>
+                              <li>
+                                <p class="no-margin"><strong>Category:</strong> <a href="#">{{advert.category}}</a></p>
+                               </li>
                               <li>
                               <p class=" no-margin "><strong>Price:</strong> {{advert.price}}</p>
                               </li>
+                              
                               <li>
-                              <p class="no-margin"><strong>Type:</strong> <a href="#"></a>{{advert.category}}, <a href="#">For sale</a></p>
+                              <p class="no-margin"><strong>Type:</strong> <a href="#"> {{advert.type}}</a></p>
                               </li>
                               <li>
-                              <p class="no-margin"><strong>Location:</strong> <a href="#">{{advert.location}}</a></p>
+                              <p class="no-margin"><strong>Location:</strong> <a href="#"> {{advert.location}}</a></p>
                               </li>
                               <li>
-                              <p class=" no-margin "><strong>Condition:</strong>{{advert.item_condition}} </p>
+                              <p class=" no-margin "><strong>Condition:</strong> {{advert.item_condition}} </p>
                               </li>
                               <li>
                               <li>
-                               <p class=" no-margin "><strong>Shipment:</strong> {{advert.delivery_option}}</p>
+                               <p class=" no-margin "><strong>Shipment:</strong> {{advert.option}}</p>
                                 </li>
-                              <li>
-                              <p class="no-margin"><strong>Brand:</strong> <a href="#">Apple</a></p>
-                              </li>
+
                             </ul>
                           </aside>
       
                           <div class="ads-action mt-2">
                             <ul class="list-border">
                               
-                              <li>
-                                <a href="#">Posted by <i class=" fas fa-user"></i> {{advert.user.first_name }} {{advert.user.last_name }}</a></li>
-                              <li>
+                           
                               
-                                  <div class="item_desc">
+                                  <!-- <div class="item_desc">
                                       <form action="{url 'adverts:like_ad' id=advert.id   }" method="post">
                                           {% csrf_token %}
                                           <p><button class="btn btn-danger btn-xs" type="submit" name="advert_id" value="{advert.id}" >  <i class=" fas fa-heart"></i> Like</button></p>
                                           </form> 
-                                        </div>
-                                <a href="#"> <i class=" fas fa-heart"></i> Save ad</a></li>
-                              <li>
-                                <a href="#"> <i class="fas fa-share-alt"></i> Share </a>
+                                        </div> -->
+                               
+                                        <p><button class="btn btn-danger btn-xs" type="submit" name="advert_id" value="{advert.id}" >  <i class=" fas fa-heart"></i> Like</button></p>
+
+                                        <a href="#"> <i class="fa fa-share-alt"></i> Share </a>
+                                        <a href="#"> <i class=" fas fa-heart"></i> Save ad</a></li>
                                 <div class="social-link mt-2">  
-                                <a class="twitter" target="_blank" data-original-title="twitter" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-twitter"></i></a>
+                               
+
+                                <!-- <a class="twitter" target="_blank" data-original-title="twitter" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-twitter"></i></a>
                                 <a class="facebook" target="_blank" data-original-title="facebook" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-facebook-f"></i></a>
                                 <a class="google" target="_blank" data-original-title="google-plus" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-google-plus"></i></a>
-                                <a class="linkedin" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-linkedin"></i></a>
+                                <a class="linkedin" target="_blank" data-original-title="linkedin" href="#" data-toggle="tooltip" data-placement="top"><i class="fab fa-linkedin"></i></a> -->
                                 </div>
                               </li>
                             </ul>
@@ -107,13 +105,25 @@
                       </div>
                     </div>
                   </div>
-                  
+                
                   <div class="col-lg-4 col-md-12 col-xs-12">
                     <div class="inner-box">
                       <div class="widget-title">
-                        <h4>Advertisement</h4>
+                        <h4>Seller profile</h4>
                       </div>
-                      <img src="assets/img/img1.jpg" alt="">
+                      <h3>  For sale by <a style="color:rgb(255, 0, 0)" href="">{{advert.user.first_name }} {{advert.user.last_name }}</a></h3> </p>
+                      <strong> Member since: </strong> {{advert.user.date_joined }}
+                      <p class="item-intro"><span class="poster">  <span class="ui-bubble is-member"></span> <span class="date">  <strong>Ad Posted on</strong>  {{advert.pub_date}} </span><strong> from </strong> <span class="location">{{advert.location}}</span></p>
+                       <br>
+                      <div class="features-content">
+                        <h5> <span class="lnr lnr-checkmark-circle"></span> Verified Seller </h5>
+                      </div>
+                     <p> <span  class="lnr lnr-thumbs-up">  <strong> Liked by </strong>  0</span></p> 
+                      <p> <span  class="lnr lnr-thumbs-down">  <strong>Disliked by</strong> 0</span></p>
+                   
+                      
+                      <!-- rating.js file -->
+                      <script src="js/addons/rating.js"></script>
                     </div>
                     <div class="col-xs-12">
                       <div class="features-box wow fadeInDownQuick" data-wow-delay="0.3s">
@@ -146,36 +156,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-xs-12">
-                      <div class="features-box wow fadeInDownQuick" data-wow-delay="0.9s">
-                        <div class="features-icon">
-                          <i class="lnr lnr-spell-check"></i>
-                        </div>
-                        <div class="features-content">
-                          <h4>
-                            Verified Data
-                          </h4>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis repellat rerum assumenda facere. 
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-xs-12">
-                      <div class="features-box wow fadeInDownQuick" data-wow-delay="0.9s">
-                        <div class="features-icon">
-                          <i class="lnr lnr-smile"></i>
-                        </div>
-                        <div class="features-content">
-                          <h4>
-                            Friendly Return Policy
-                          </h4>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo aut magni perferendis repellat rerum assumenda facere. 
-                          </p>
-                        </div>
-                      </div>
-                    </div>
+                  
                   </div>
               </div>         
             </div>
@@ -196,186 +177,14 @@
                       </div>
                     </div>
                 <div class="row">
-                  <div class="col-12  wow fadeIn" data-wow-delay="0.8s">
-                     <div id="new-products" class="owl-carousel">
-                    
-                        <div class="item">
-                            <div class="tg-ad tg-verifiedad">
-                            <figure>
-                                <span class="tg-themetag tg-featuretag">featured</span>
-                                <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                                <span class="tg-photocount">See 29 Photos</span>
-                              </figure>
-                          <div class="tg-adcontent">
-                            <ul class="tg-productcagegories">
-                              <li><a href="ads-details.html">Vehicles</a></li>
-                            </ul>
-                            <div class="tg-adtitle">
-                              <h3><a href="ads-details.html">New BMW X5</a></h3>
-                            </div>
-                            <div class="price"><h4>KSH 500,000</h4></div>
-                            <div class="tg-phonelike">
-                              <a class="tg-btnphone" href="ads-details.html">
-                                <i class="icon-phone-handset"></i>
-                                <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                              </a>
-                              <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item">
-                          <div class="tg-ad tg-verifiedad">
-                          <figure>
-                              <span class="tg-themetag tg-featuretag">featured</span>
-                              <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                              <span class="tg-photocount">See 29 Photos</span>
-                            </figure>
-                        <div class="tg-adcontent">
-                          <ul class="tg-productcagegories">
-                            <li><a href="ads-details.html">Vehicles</a></li>
-                          </ul>
-                          <div class="tg-adtitle">
-                            <h3><a href="ads-details.html">New BMW X5</a></h3>
-                          </div>
-                          <div class="price"><h4>KSH 500,000</h4></div>
-                          <div class="tg-phonelike">
-                            <a class="tg-btnphone" href="ads-details.html">
-                              <i class="icon-phone-handset"></i>
-                              <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                            </a>
-                            <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item">
-                        <div class="tg-ad tg-verifiedad">
-                        <figure>
-                            <span class="tg-themetag tg-featuretag">featured</span>
-                            <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                            <span class="tg-photocount">See 29 Photos</span>
-                          </figure>
-                      <div class="tg-adcontent">
-                        <ul class="tg-productcagegories">
-                          <li><a href="ads-details.html">Vehicles</a></li>
-                        </ul>
-                        <div class="tg-adtitle">
-                          <h3><a href="ads-details.html">New BMW X5</a></h3>
-                        </div>
-                        <div class="price"><h4>KSH 500,000</h4></div>
-                        <div class="tg-phonelike">
-                          <a class="tg-btnphone" href="ads-details.html">
-                            <i class="icon-phone-handset"></i>
-                            <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                          </a>
-                          <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                      <div class="tg-ad tg-verifiedad">
-                      <figure>
-                          <span class="tg-themetag tg-featuretag">featured</span>
-                          <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                          <span class="tg-photocount">See 29 Photos</span>
-                        </figure>
-                    <div class="tg-adcontent">
-                      <ul class="tg-productcagegories">
-                        <li><a href="ads-details.html">Vehicles</a></li>
-                      </ul>
-                      <div class="tg-adtitle">
-                        <h3><a href="ads-details.html">New BMW X5</a></h3>
-                      </div>
-                      <div class="price"><h4>KSH 500,000</h4></div>
-                      <div class="tg-phonelike">
-                        <a class="tg-btnphone" href="ads-details.html">
-                          <i class="icon-phone-handset"></i>
-                          <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                        </a>
-                        <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="item">
-                    <div class="tg-ad tg-verifiedad">
-                    <figure>
-                        <span class="tg-themetag tg-featuretag">featured</span>
-                        <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                        <span class="tg-photocount">See 29 Photos</span>
-                      </figure>
-                  <div class="tg-adcontent">
-                    <ul class="tg-productcagegories">
-                      <li><a href="ads-details.html">Vehicles</a></li>
-                    </ul>
-                    <div class="tg-adtitle">
-                      <h3><a href="ads-details.html">New BMW X5</a></h3>
-                    </div>
-                    <div class="price"><h4>KSH 500,000</h4></div>
-                    <div class="tg-phonelike">
-                      <a class="tg-btnphone" href="ads-details.html">
-                        <i class="icon-phone-handset"></i>
-                        <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                      </a>
-                      <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                  <div class="tg-ad tg-verifiedad">
-                  <figure>
-                      <span class="tg-themetag tg-featuretag">featured</span>
-                      <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                      <span class="tg-photocount">See 29 Photos</span>
-                    </figure>
-                <div class="tg-adcontent">
-                  <ul class="tg-productcagegories">
-                    <li><a href="ads-details.html">Vehicles</a></li>
-                  </ul>
-                  <div class="tg-adtitle">
-                    <h3><a href="ads-details.html">New BMW X5</a></h3>
-                  </div>
-                  <div class="price"><h4>KSH 500,000</h4></div>
-                  <div class="tg-phonelike">
-                    <a class="tg-btnphone" href="ads-details.html">
-                      <i class="icon-phone-handset"></i>
-                      <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                    </a>
-                    <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="item">
-                <div class="tg-ad tg-verifiedad">
-                <figure>
-                    <span class="tg-themetag tg-featuretag">featured</span>
-                    <a href="ads-details.html"><img src="assets/img/pel.jpg" alt="image description"></a>
-                    <span class="tg-photocount">See 29 Photos</span>
-                  </figure>
-              <div class="tg-adcontent">
-                <ul class="tg-productcagegories">
-                  <li><a href="ads-details.html">Vehicles</a></li>
-                </ul>
-                <div class="tg-adtitle">
-                  <h3><a href="ads-details.html">New BMW X5</a></h3>
-                </div>
-                <div class="price"><h4>KSH 500,000</h4></div>
-                <div class="tg-phonelike">
-                  <a class="tg-btnphone" href="ads-details.html">
-                    <i class="icon-phone-handset"></i>
-                    <span data-toggle="tooltip" data-placement="top" title="Show Phone No." data-last="0800 - 1234 - 562 - 6"><em>Show Phone No.</em></span>
-                  </a>
-                  <span class="tg-like tg-liked"><i class="fa fa-heart"></i></span>
-                </div>
-              </div>
-            </div>
-          </div>
-                    </div>
-                  </div> 
+                    <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
+                        <h2> No Items related to <strong>{{advert.name}} </strong> on Site, Currently </h2>
+                        <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
+                        <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
+                        <!-- <div class="item_desc">
+                            <a href=" #"> <strong>How we work </strong></a>
+                          </div> -->
+                      </div> 
                 </div>
               </div>
             </section>
