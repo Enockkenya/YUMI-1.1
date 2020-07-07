@@ -12,7 +12,7 @@ urlpatterns = [
 
      #homepages 
      #nologing in required
-    re_path(r'^$',views.land_page, name='land_page'),
+    re_path(r'^land_page$',views.land_page, name='land_page'),
     re_path(r'^home$', views.land_page, name='home'),
     re_path(r'^welcome/$', views.welcome, name='welcome'),
     re_path(r'^aboutus$', views.about_us, name='about_us'),

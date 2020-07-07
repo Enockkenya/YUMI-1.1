@@ -20,13 +20,27 @@
                  <strong>  Total Ads : </strong>
                   </div>
                   <div class="table-search float-right">
-                    <div class="form-group row">
+                      <div class="row">
+                          <div class="col">
+                            <div class="card card-body">
+                        
+                              <form method="get">
+                                {{myFilter.form}}
+                        
+                                <button class="btn btn-primary" type="submit">Search</button>
+                              </form>
+                        
+                            </div>
+                          </div>
+                          
+                        </div>
+                    <!-- <div class="form-group row">
                       <label class="mr-2 col-xs-5 control-label text-right">Search <br>
                       </label>
                       <div class="mr-3 col-xs-7 searchpan">
                         <input class="form-control" id="filter" type="text">
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 <table class="table table-striped table-bordered add-manage-table">
@@ -52,13 +66,13 @@
                       </td>
                       <td class="add-img-td">
                           <!-- {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} -->
-                        <a href="">
+                        <a href="{% url 'account:view_my_ads' user_id=request.user.id  %}">
                           <img class="img-fluid" src="{{advert.image.url}}" alt="img">
                         </a>
                       </td>
                       <td class="ads-details-td">
                           <!-- {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} -->
-                        <h4><a href=""> {{advert.name}}</a></h4>
+                        <h4><a href="{% url 'adverts:advert_detail' id=advert.id slug=advert.slug %} "> {{advert.name}}</a></h4>
                         <p> <strong> Posted On </strong>:
                           {{advert.pub_date}}</p>
                           <p> <strong>Ad Category:</strong> {{advert.category}} </p>

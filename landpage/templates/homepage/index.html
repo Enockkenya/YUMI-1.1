@@ -112,7 +112,7 @@
               <div class="tg-ad tg-verifiedad">
                   <figure>
                     <span class="tg-themetag tg-featuretag">New</span>
-                    <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="../../../static/assets/img/pel.jpg" alt="image description"></a>
+                    <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"><img src="{{advert.image.url}}" alt="image description"></a>
                     <span class="tg-photocount"> Photos</span>
                   </figure>
                   <div class="tg-adcontent">

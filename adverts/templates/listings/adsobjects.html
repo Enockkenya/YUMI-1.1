@@ -1,7 +1,8 @@
 
 
-{% if page.object_list %}
-{% for advert in page.object_list %}
+
+{% if adverts %}
+{% for advert in adverts %}
   <div class="item-list">
     <div class="row">
       <div class="col-sm-2 no-padding photobox">
@@ -21,13 +22,16 @@
              Posted on - <i class="fas fa-clock"></i> 
            {{advert.pub_date}}
             </span> 
+         
             <span class="category"> Posted by -<a href="#"><strong>  {{advert.user}}</strong> </a></span> 
           </div>
+         
           <div class="item_desc">
             <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}"> {{advert.description}}</a>
           </div>
         </div>
       </div>
+   
       <div class="col-sm-3 float-right  price-box">
         <h3 class="item-price"> KSH {{advert.price}}</h3>
         <a href=" {% url 'adverts:advert_detail' id=advert.id slug=advert.slug %}" class="btn btn-common2 btn-sm"><i class="fas fa-arrow-right "></i>
