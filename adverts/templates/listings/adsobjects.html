@@ -42,8 +42,9 @@
   </div>
   {% endfor %}
   {% else %}
+  <br>
   <div class="post-promo text-center" style="box-shadow: 1px 1px 53px -23px rgba(0,0,0,0.75); ">
-      <h2> No Items posted on Site, Currently </h2>
+      <h2> <span class="lnr lnr-sad"></span>  No Items found,  {{advert.category.name}} Sorry.  </h2>
       <h5>Sell your products online FOR FREE. It's easier than you think !</h5>
       <a href="{% url 'adverts:post_ad' %}" class="btn btn-post btn-common2">Post a Free Ad </a>
       <!-- <div class="item_desc">
