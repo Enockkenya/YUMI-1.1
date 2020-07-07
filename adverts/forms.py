@@ -102,5 +102,9 @@ class PostadForm(forms.ModelForm):
             return price
             
     
-        
+class ReviewAdForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ['review','reviewee','reviewer']
+                   
        

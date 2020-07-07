@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 import json
 from django.shortcuts import render,redirect, get_object_or_404
-from account.forms import UserForm,UserProfileForm
+from account.forms import UserProfileForm
 from registration.form import RegisterForm
 from django.db import transaction
 from account.models import *
@@ -32,7 +32,7 @@ def update_user(request):
     response_data = {'status' : 'failed', 'message' : 'unknown deletion error'}
     if request.is_ajax():
         if request.method == 'POST':
-            form = UserForm(instance=request.user, data=request.POST)
+            form = RegisterForm(instance=request.user, data=request.POST)
             if form.is_valid():
                 form.instance.username = form.instance.email
                 form.save()
@@ -55,7 +55,7 @@ def update_profile(request):
         else:
             messages.error(request, _('Please correct the error below.'))
     else:
-        profile_form = ClientForm(instance=request.user.client)
+        profile_form = UserProfileForm(instance=request.user.client)
     return render(request, 'profile/edit_profile.html', {
         # 'user_form': user_form,
         'profile_form': profile_form,

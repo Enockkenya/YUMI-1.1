@@ -52,8 +52,4 @@ class UserProfileForm(forms.ModelForm):
             'phone_number': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
         }
 
-    class ReviewAdForm(forms.ModelForm):
-        class Meta:
-            model = Review
-            fields = ['review','reviewee','reviewer']
-            
+    
