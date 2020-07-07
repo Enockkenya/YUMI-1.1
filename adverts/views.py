@@ -36,6 +36,8 @@ def post_ad(request):
             messages.error(request, _('Please correct the error below.'))
     else:
          post_form = PostadForm(instance=request.user)
+           
+
     return render(request, 'listings/postad.html', {
         # 'user_form': user_form,
         'post_form': post_form,
@@ -63,7 +65,7 @@ def update_post(request, id, ):
             messages.error(request, _('Please correct the error below.'))
 
     
-    return render(request, 'listings/postad.html', {
+    return render(request, 'listings/edit_ad.html', {
         'post_form': post_form,
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
