@@ -1,4 +1,3 @@
-
 <form action="" method="post" enctype="multipart/form-data" name="post_form" id="post_form"> 
     {% csrf_token %} 
 
@@ -13,7 +12,7 @@
     <div class="col-lg-6">
       <div class="form-group mb-3">
         <label class="control-label">Item Price</label>
-        <input style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);"  class="form-control input-md" name="description" id="id_price" placeholder="price" type="number">
+        <input style="box-shadow: 2px 4px 13px -1px rgba(255,102,13,0.16);"  class="form-control input-md" name="price" id="id_price" placeholder="price" type="number" min="1"  >
       </div>
     </div>
 </div>
@@ -98,7 +97,7 @@
                        
                     </label> -->
                                                 <span class="btn btn-primary btn-file">
-                                                        <span class="fileinput-new">Upload Profile pic</span>
+                                                        <span class="fileinput-new">Upload Ad pic</span>
                                                      
                                                         <input id="id_image" name="image" type="file" onchange="loadFile(event)">
                                           
@@ -130,7 +129,7 @@
                     </div>
                    
 <div class="send-btn text-center">
-        <button type="submit" class="btn btn-primary "  value="Submit" accept="image/*">Save changes</button>
+        <button type="submit" class="btn btn-primary "  value="Submit" accept="image/*">Post </button>
       </div>
                   </div>
 

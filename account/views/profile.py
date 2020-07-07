@@ -14,6 +14,8 @@ from django.contrib import messages
 from django.utils.translation import gettext as _
 
 
+
+
 @login_required(login_url='/home')
 def view_profile(request):
     adverts = Advert.objects.filter(user_id=request.user.id)   

@@ -92,3 +92,4 @@ class PostadForm(forms.ModelForm):
             'price': NumberInput(attrs={'class': u'form-control','placeholder': u'Enter your age here'}),
 }
 
+ 
