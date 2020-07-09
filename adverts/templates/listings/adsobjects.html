@@ -1,8 +1,9 @@
-
-
+{% load tz %}
+{% load humanize %}
 
 {% if adverts %}
 {% for advert in adverts %}
+
   <div class="item-list">
     <div class="row">
       <div class="col-sm-2 no-padding photobox">
@@ -20,7 +21,7 @@
               <span class="item-location"><i class="fas fa-map-marker"></i>  {{advert.location}} </span>
             <span class="date">
              Posted on - <i class="fas fa-clock"></i> 
-           {{advert.pub_date}}
+           {{advert.pub_date|naturaltime}}
             </span> 
          
             <span class="category"> Posted by -<a href="#"><strong>  {{advert.user}}</strong> </a></span> 

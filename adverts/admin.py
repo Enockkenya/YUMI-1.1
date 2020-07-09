@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Advert, Location, Option, Item_condition, Tag
+from .models import Category, Advert, Location, Option, Item_condition, Tag, Review
 
 
 
@@ -27,11 +27,18 @@ class OptionAdmin(admin.ModelAdmin):
 
 admin.site.register(Option, OptionAdmin)
 
-class TagAdmin(admin.ModelAdmin):
-    list_display = ['name', ]
+# class TagAdmin(admin.ModelAdmin):
+#     list_display = ['name', ]
 
 
-admin.site.register(Tag, TagAdmin)
+# admin.site.register(Tag, TagAdmin)
+
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ['reviewer','adseller' ,'review']
+
+
+admin.site.register(Review, ReviewAdmin)
+
 
 class Item_conditionAdmin(admin.ModelAdmin):
     list_display = ['name', 'slug']

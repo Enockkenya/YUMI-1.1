@@ -62,7 +62,7 @@ class PostadForm(forms.ModelForm):
             'crop': 'thumb',
             'width': 200,
             'height': 200,
-            'folder': 'profilepic'
+            'folder': 'item profile'
        },
     )
     class Meta:
@@ -92,8 +92,13 @@ class PostadForm(forms.ModelForm):
             
     
 class ReviewAdForm(forms.ModelForm):
+
     class Meta:
         model = Review
         fields = ['review']
+        
+        # widgets = {'reviewer': forms.HiddenInput(),'adseller': forms.HiddenInput()}
+
                    
-       
+     
+        

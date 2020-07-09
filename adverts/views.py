@@ -1,10 +1,12 @@
 import json
+from django.db.models import F
+from django.utils import timezone
 from django.shortcuts import render,redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from adverts.forms import PostadForm,ReviewAdForm
+from adverts.forms import PostadForm, ReviewAdForm
 from adverts.models import *
 from account.views import profile
 from django.contrib import messages
@@ -12,8 +14,6 @@ from django.utils.translation import gettext as _
 from django.utils.text import slugify
 from django.core.paginator import Paginator
 from django.urls import reverse_lazy, reverse
-from django.http import HttpResponseRedirect
-
 
 
 
@@ -35,6 +35,8 @@ def post_ad(request):
             messages.error(request, _('Please correct the error below.'))
     else:
          post_form = PostadForm(instance=request.user)
+
+    print(post_form.is_valid())
     return render(request, 'listings/postad.html', {
         # 'user_form': user_form,
         'post_form': post_form,
@@ -85,17 +87,14 @@ def delete_post(request, id, ):
 
 
 def like_ad(request, id):
-    advert = get_object_or_404(Advert, id=id, )
-    advert.likes.add(request.user)
-    return HttpResponseRedirect(reverse('adverts:advert_detail', id='advert.id'),{
-        'advert': advert,
-        'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
-        'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
-    })
-
-
-
-
+    if request.method == 'POST':
+        advert = get_object_or_404(Advert, id =id)
+        user = request.user
+        advert.likes.add(user)
+    messages.success(request, _('Your ad was successfully posted!'))
+    return redirect('adverts:advert_detail', id=advert.id, slug=advert.slug )
+        
+    
 
 def adverts_list_by_category(request, category_slug):
     category = None
@@ -130,6 +129,9 @@ def adverts_list_by_category(request, category_slug):
         'local_css_urls': settings.SB_ADMIN_2_CSS_LIBRARY_URLS,
         'local_js_urls': settings.SB_ADMIN_2_JS_LIBRARY_URLS,
     }) 
+
+
+
 def adverts_list(request):
     categories = Category.objects.all()
     adverts = Advert.objects.filter(available=True)
@@ -164,9 +166,9 @@ def advert_detail(request, id, slug):
     advert = get_object_or_404(Advert, id=id , slug=slug, available=True)
     ad_seller =  advert.user
     reviews = ad_seller.seller_reviews.all()
-    count =reviews.count()
+    total_likes= advert.total_likes
+    print(total_likes)
     new_comment = None
-    print(count)
     if request.method == 'POST':
         comment_form = ReviewAdForm(data=request.POST)
         if comment_form.is_valid():
@@ -176,10 +178,15 @@ def advert_detail(request, id, slug):
             # Assign the current review to the advert owner
             new_comment.reviewer = request.user
             new_comment.adseller = ad_seller
-            # Save the comment to the database
-            new_comment.save()
+            if new_comment.reviewer == new_comment.adseller:
+                new_comment = None
+                messages.error(request,'You cannot review yourself')
+
+            else:
+                new_comment.save()
+                messages.success(request,'Your review has been published')
     else:
-        comment_form = ReviewAdForm()
+        comment_form = ReviewAdForm(data=request.POST)
     return render( request, 'listings/advertdetail.html', context={
         'advert': advert,
         'reviews': reviews,
@@ -193,8 +200,6 @@ def advert_detail(request, id, slug):
 
 
     
-
-
 
 
 

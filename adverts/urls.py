@@ -14,6 +14,8 @@ urlpatterns = [
         re_path(r'^delete_ad/(?P<id>\d+)/$', views.delete_post, name='delete_post'), 
         re_path(r'^(?P<id>\d+)/(?P<slug>[-\w]+)/$', views.advert_detail, name='advert_detail'), 
         re_path(r'^(?P<category_slug>[-\w]+)/$', views.adverts_list_by_category, name='adverts_list_by_category'),
+        re_path(r'^likead/(?P<id>\d+)/$', views.like_ad, name='like_ad')
+
 
  
    ]))
