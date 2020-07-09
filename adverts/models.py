@@ -105,6 +105,8 @@ class Advert(models.Model):
     available = models.BooleanField(default=True)
     likes = models.ManyToManyField(User, related_name='post_likes')
     accept_terms = models.BooleanField(default=True)
+
+    3
     
    
 
